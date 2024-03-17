@@ -13,9 +13,9 @@ https://templatemo.com/tm-583-festava-live
 :root {
   --white-color:                  #ffffff;
   --primary-color:                #F8CB2E;
-  --secondary-color:              #EE5007;
+  --secondary-color:              #3b715c;
   --section-bg-color:             #f0f8ff;
-  --custom-btn-bg-color:          #EE5007;
+  --custom-btn-bg-color:          #022e1d;
   --custom-btn-bg-hover-color:    #c01f27;
   --dark-color:                   #000000;
   --p-color:                      #717275;
@@ -371,7 +371,7 @@ strong {
 }
 
 .sticky-wrapper.is-sticky .navbar {
-  background-color: var(--dark-color);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .navbar {
@@ -512,7 +512,7 @@ strong {
 -----------------------------------------*/
 .about-section {
   /* background-image: url('../images/edward-unsplash-blur.jpg'); */
-  background-color: var(--dark-color); 
+  background: linear-gradient(to bottom, #000000,#021e13); 
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -528,7 +528,7 @@ strong {
 }
 
 .about-text-icon {
-  background: var(--primary-color);
+  background: var(--secondary-color);
   border-radius: 100%;
   font-size: var(--h3-font-size);
   width: 70px;
@@ -654,7 +654,7 @@ strong {
 -----------------------------------------*/
 .schedule-section {
   /* background-image: url('../images/nainoa-shizuru-unsplash-blur.jpg'); */
-  background-color: #111010;
+  background: linear-gradient(to bottom, #021e13, #022d1c,#022417,#000000);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -732,6 +732,45 @@ strong {
   color: var(--white-color);
   position: relative;
   z-index: 2;
+}
+
+.member {
+  width: 100%; /* Set full width by default */
+  border-radius: 10px; /* Rounded corners */
+  background-color: #111010; /* Background color */
+  margin-bottom: 20px; /* Add margin between members */
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  filter: brightness(70%);
+}
+
+.content {
+  padding: 20px; /* Add padding for content */
+  background-color: rgba(0, 0, 0, 0.1); 
+}
+
+/* Media Query for Laptop/Desktop */
+@media (min-width: 768px) {
+  .member {
+      width: calc(50% - 100px); /* Set width to 50% minus margin */
+      display: inline-block; /* Display side by side */
+      margin-right: 20px; /* Add margin between members */
+      margin-bottom: 20px;
+  }
+
+  .member:nth-child(2n) {
+      margin-right: 0; /* Remove margin for last member in a row */
+  }
+}
+
+/* Media Query for Phone */
+@media (max-width: 767px) {
+  .member {
+    width: 100%; /* Set width to 100% for phones */
+    display: block; /* Display one below the other */
+    margin-right: 0; /* Remove margin for phones */
+  }
 }
 
 
