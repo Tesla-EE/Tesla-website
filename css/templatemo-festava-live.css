@@ -181,6 +181,10 @@ strong {
   font-size: 32px;
 }
 
+.logoTesla{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
 .icon {
   --size: 1em;
   height: var(--size);
@@ -588,7 +592,7 @@ strong {
   ARTISTS              
 -----------------------------------------*/
 .artists-section{
-  background-color: var(--dark-color);
+  background-color: rgb(20, 20, 20);
 }
 
 .artists-thumb {
@@ -649,8 +653,8 @@ strong {
   SCHEDULE              
 -----------------------------------------*/
 .schedule-section {
-  background-image: url('../images/nainoa-shizuru-unsplash-blur.jpg');
-  background-color: #242424;
+  /* background-image: url('../images/nainoa-shizuru-unsplash-blur.jpg'); */
+  background-color: #111010;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -663,6 +667,7 @@ strong {
   border-radius: var(--border-radius-medium);
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .schedule-table .bg-warning {
@@ -698,16 +703,20 @@ strong {
   border-right-color: transparent;
 }
 
-.schedule-table .pop-background-image {
-  background-image: url('../images/artists/joecalih-UmTZqmMvQcw-unsplash.jpg');
+.schedule-table .co-convenor1-background-image {
+  background-image: url('/images/Committee/Avinash.jpg');
 }
 
-.schedule-table .rock-background-image {
-  background-image: url('../images/artists/abstral-official-bdlMO9z5yco-unsplash.jpg');
+.schedule-table .co-convenor2-background-image {
+  background-image: url('/images/Committee/Christo.jpg');
 }
 
-.schedule-table .country-background-image {
-  background-image: url('../images/artists/soundtrap-rAT6FJ6wltE-unsplash.jpg');
+.schedule-table .co-convenor3-background-image {
+  background-image: url('/images/Committee/Devanandan.jpg');
+}
+
+.schedule-table .convenor-background-image {
+  background-image: url('/images/Committee/akshay\ santhosh.jpg');
 }
 
 .table-background-image-wrap {
