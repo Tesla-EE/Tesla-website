@@ -12,7 +12,7 @@ https://templatemo.com/tm-583-festava-live
 -----------------------------------------*/
 :root {
   --white-color:                  #ffffff;
-  --primary-color:                #F8CB2E;
+  --primary-color:                #3b715c;
   --secondary-color:              #3b715c;
   --section-bg-color:             #f0f8ff;
   --custom-btn-bg-color:          #022e1d;
@@ -20,7 +20,7 @@ https://templatemo.com/tm-583-festava-live
   --dark-color:                   #000000;
   --p-color:                      #717275;
   --border-color:                 #7fffd4;
-  --link-hover-color:             #B22727;
+  --link-hover-color:             #5aedb5;
 
   --body-font-family:             'Outfit', sans-serif;
 
@@ -654,7 +654,7 @@ strong {
 -----------------------------------------*/
 .schedule-section {
   /* background-image: url('../images/nainoa-shizuru-unsplash-blur.jpg'); */
-  background: linear-gradient(to bottom, #021e13, #022d1c,#022417,#000000);
+  background: linear-gradient(to bottom,#01130c, #021e13, #022d1c,#022417,#000000);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -743,6 +743,7 @@ strong {
   background-position: center;
   padding: 20px;
   filter: brightness(70%);
+  height: 250px;
 }
 
 .content {
@@ -881,7 +882,7 @@ strong {
 }
 
 .site-footer-top {
-  background-color:rgb(21, 20, 20);
+  background-color:#01120b;
   background-image: url('../images/nainoa-shizuru-NcdG9mK3PBY-unsplash.jpg');
   background-repeat: no-repeat;
   margin-bottom: 70px;
