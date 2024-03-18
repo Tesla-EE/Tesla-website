@@ -748,7 +748,6 @@ strong {
 
 .content {
   padding: 20px; /* Add padding for content */
-  background-color: rgba(0, 0, 0, 0.1); 
 }
 
 /* Media Query for Laptop/Desktop */
@@ -888,6 +887,7 @@ strong {
   margin-bottom: 70px;
   padding-top: 30px;
   padding-bottom: 30px;
+  background: linear-gradient(to top, #000000,#021e13);
 }
 
 .site-footer-bottom {
@@ -1074,3 +1074,42 @@ strong {
   }
 }
 
+
+.site-footer-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright-text{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright-row{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #939393;
+}
+
+
+h3{
+  color: white;
+}
+
+
+.committee-name{
+  color: white;
+  filter: brightness(1);
+
+}
