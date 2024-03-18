@@ -737,8 +737,28 @@ strong {
   z-index: 2;
 }
 
+
+
+
+
+/* THE FOLLOWING CODE, I DONT KNOW WHAT I WROTE */
+/* PLEASE CHANGE THE MARGINS AND ALL CORRECTLY I AM WAY TO HIGH RN FOR THIS */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .member {
-  width: 100%; /* Set full width by default */
+  width: 250px; /* Set full width by default */
   border-radius: 10px; /* Rounded corners */
   background-color: #111010; /* Background color */
   margin-bottom: 20px; /* Add margin between members */
@@ -747,6 +767,7 @@ strong {
   padding: 20px;
   filter: brightness(70%);
   height: 250px;
+  border-radius: 125px;
 }
 
 .content {
@@ -756,26 +777,54 @@ strong {
 /* Media Query for Laptop/Desktop */
 @media (min-width: 768px) {
   .member {
-      width: calc(50% - 100px); /* Set width to 50% minus margin */
+      width: 250px; /* Set width to 50% minus margin */
       display: inline-block; /* Display side by side */
       margin-right: 20px; /* Add margin between members */
       margin-bottom: 20px;
+      height: 250px;
+      border-radius: 125px;
 
   }
 
-  .member:nth-child(2n) {
+  /* .member:nth-child(2n) {
       margin-right: 0; 
-  }
+  } */
 }
 
 /* Media Query for Phone */
 @media (max-width: 767px) {
   .member {
-    width: 100%; /* Set width to 100% for phones */
+    width: calc(50px- 100%); /* Set width to 100% for phones */
     display: block; /* Display one below the other */
     margin-right: 0; /* Remove margin for phones */
+    margin-left: calc(25%);
+    height: calc(50px- 100%);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*---------------------------------------
