@@ -384,6 +384,9 @@ strong {
   color: var(--white-color);
   font-size: var(--h5-font-size);
   font-weight: var(--font-weight-bold);
+  width: 250px;
+  height: 50px;
+  display: flex;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -681,8 +684,8 @@ strong {
 .schedule-table th,
 .schedule-table tr,
 .schedule-table td {
-  border-bottom-color: #363a3e;
-  padding: 30px;
+  /* border-bottom-color: #363a3e; */
+  /* padding: 30px; */
 }
 
 .schedule-table tr:last-child th,
@@ -757,10 +760,11 @@ strong {
       display: inline-block; /* Display side by side */
       margin-right: 20px; /* Add margin between members */
       margin-bottom: 20px;
+
   }
 
   .member:nth-child(2n) {
-      margin-right: 0; /* Remove margin for last member in a row */
+      margin-right: 0; 
   }
 }
 
@@ -1108,8 +1112,40 @@ h3{
 }
 
 
-.committee-name{
+.member .content {
   color: white;
   filter: brightness(1);
+}
 
+.member .content h3 {
+  color: white;
+  filter : brightness(1);
+}
+
+.logoTesla-main{
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: 70px;
+}
+
+@media screen and (max-width: 768px) {
+  .logoTesla-main{
+    height: 50px;
+  }
+}
+
+
+/* td{
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+} */
+
+
+
+.member-name{
+  display: inline-block;
+  justify-content: space-between;
+  color: white;
 }
