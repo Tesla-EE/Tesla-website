@@ -389,7 +389,7 @@ strong {
   height: 50px;
   display: flex;
   img {
-    max-width: 100px; /* Adjust the width as needed */
+    max-width: 50%; /* Adjust the width as needed */
 }
 }
 
