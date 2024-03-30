@@ -55,10 +55,13 @@ body {
 
 h2,
 h3,
-h4,
 h5,
 h6 {
   color: var(--dark-color);
+}
+
+h4{
+  color: #6d877d;
 }
 
 h1,
@@ -388,9 +391,6 @@ strong {
   width: 250px;
   height: 50px;
   display: flex;
-  img {
-    max-width: 50%; /* Adjust the width as needed */
-}
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -856,6 +856,25 @@ strong {
   padding: 20px;
   background: linear-gradient(to bottom, #021e13, #000000); 
   background-repeat: no-repeat;
+}
+
+.grab-your-tees {
+  text-align: center;
+}
+
+.grab-your-tees h2 {
+  color: white;
+}
+
+.grab-your-tees img {
+  display: block;
+  margin: 0 auto;
+  max-width: 40%;
+  transition: max-width 0.5s ease;
+}
+
+.grab-your-tees img:hover{
+  max-width: 45%;
 }
 
 .events-container {
