@@ -116,6 +116,7 @@ a {
   display: inline-block;
   color: var(--primary-color);
   text-decoration: none;
+  font-size: large;
 }
 
 a:hover {
@@ -371,7 +372,7 @@ strong {
 }
 
 .sticky-wrapper.is-sticky .navbar {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 1);
 }
 
 .navbar {
@@ -387,6 +388,9 @@ strong {
   width: 250px;
   height: 50px;
   display: flex;
+  img {
+    max-width: 100px; /* Adjust the width as needed */
+}
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -846,33 +850,104 @@ strong {
 
 
 /*---------------------------------------
-  CUSTOM FORM               
+  EVENTS              
 -----------------------------------------*/
-.custom-form .form-control {
-  color: var(--p-color);
-  margin-bottom: 24px;
-  padding-top: 13px;
-  padding-bottom: 13px;
-  outline: none;
+.events-section {
+  padding: 20px;
+  background: linear-gradient(to bottom, #021e13, #000000); 
+  background-repeat: no-repeat;
 }
 
-.custom-form button[type="submit"] {
-  background: var(--custom-btn-bg-color);
-  border: none;
-  border-radius: var(--border-radius-large);
-  color: var(--white-color);
-  font-size: var(--p-font-size);
-  font-weight: var(--font-weight-medium);
-  transition: all 0.3s;
-  margin-bottom: 0;
+.events-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-bottom: 20px;
+  white-space: nowrap;
 }
 
-.custom-form button[type="submit"]:hover,
-.custom-form button[type="submit"]:focus {
-  background: var(--custom-btn-bg-hover-color);
-  border-color: transparent;
+/* Event card */
+.event-card {
+  display: inline-block;
+  width: 25%;
+  /* height: 400px; Adjust this height to fit the height of the poster */
+  margin-right: 20px;
+  background-color: #022417;
+  border-radius: 10px; /* Curved corners */
+  padding: 10px; /* Updated padding */
+  margin-bottom: 20px;
 }
 
+/* Event title */
+.event-title {
+  font-size: 18px;
+  color: #c8fae6;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Event date */
+.event-date {
+  font-size: 14px;
+  color: #3b715c;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Registration link */
+.register-link {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #3b715c;
+}
+
+/* View all button */
+.view-all-button {
+  display: block;
+  text-align: center;
+}
+
+/* Media query for phone view */
+@media only screen and (max-width: 600px) {
+  .events-container {
+      overflow-x: scroll;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS devices */
+      white-space: nowrap;
+  }
+  .event-card {
+      width: 100%;
+      height: auto; /* Adjust height to fit content */
+      margin-right: 0;
+      margin-bottom: 20px;
+  }
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Optional: Adjust spacing as needed */
+}
+
+  /* Style the scrollbar */
+    /* Webkit (Chrome, Safari, etc.) */
+    ::-webkit-scrollbar {
+      width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: #4a4c4b;
+      border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+      background: #021e13;
+  }
 
 /*---------------------------------------
   SITE FOOTER              
@@ -895,7 +970,7 @@ strong {
 }
 
 .site-footer-bottom {
-  border-top: 1px solid #1f1c1c;
+  border-top: 1px solid #01130c;
   margin-top: 60px;
 }
 
