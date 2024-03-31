@@ -388,8 +388,8 @@ strong {
   color: var(--white-color);
   font-size: var(--h5-font-size);
   font-weight: var(--font-weight-bold);
-  width: 250px;
-  height: 50px;
+  width: 200px;
+  height: 40px;
   display: flex;
 }
 
@@ -934,6 +934,7 @@ strong {
       -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS devices */
       white-space: nowrap;
   }
+
   .event-card {
       width: 100%;
       height: auto; /* Adjust height to fit content */
