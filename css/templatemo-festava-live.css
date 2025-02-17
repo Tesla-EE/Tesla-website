@@ -10,19 +10,52 @@ https://templatemo.com/tm-583-festava-live
 /*---------------------------------------
   CUSTOM PROPERTIES ( VARIABLES )             
 -----------------------------------------*/
+@font-face {
+  font-family: 'Mokoto Glitch Mark 2';
+  src: url('../mokoto-font/Mokoto Glitch Mark 2.otf') format('opentype'),
+       url('../mokoto-font/Mokoto Glitch Mark 2.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mokoto Glitch';
+  src: url('../mokoto-font/Mokoto Glitch.otf') format('opentype'),
+       url('../mokoto-font/Mokoto Glitch.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Mokoto Glitch Mark';
+  src: url('../mokoto-font/Mokoto Glitch.otf') format('opentype'),
+       url('../mokoto-font/Mokoto Glitch.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Mokoto Glitch Mark outline';
+  src: url('mokoto-font/Mokoto Glitch.otf') format('opentype'),
+       url('mokoto-font/Mokoto Glitch.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 :root {
   --white-color:                  #ffffff;
-  --primary-color:                #3b715c;
-  --secondary-color:              #3b715c;
+  --primary-color:                #8DE602;
+  --secondary-color:              #8DE602;
   --section-bg-color:             #f0f8ff;
-  --custom-btn-bg-color:          #022e1d;
+  --custom-btn-bg-color:          #8DE602;
   --custom-btn-bg-hover-color:    #c01f27;
-  --dark-color:                   #000000;
+  --dark-color:                   #262626;
   --p-color:                      #717275;
   --border-color:                 #7fffd4;
   --link-hover-color:             #5aedb5;
 
-  --body-font-family:             'Outfit', sans-serif;
+  --body-font-family:             'Outfit' , sans-serif;
 
   --h1-font-size:                 74px;
   --h2-font-size:                 46px;
@@ -44,7 +77,7 @@ https://templatemo.com/tm-583-festava-live
 }
 
 body {
-  background-color: var(--white-color);
+  background-color: var(--dark-color);
   font-family: var(--body-font-family); 
 }
 
@@ -52,7 +85,23 @@ body {
 /*---------------------------------------
   TYPOGRAPHY               
 -----------------------------------------*/
+/* h1 .text-white {
+  --bs-text-opacity: 1;
+  font-family: sans-serif;
+  color: var(--white-color) !important;
+} */
 
+/* .text-white h1{
+  --bs-text-opacity: 1;
+  font-family: 'Mokoto Glitch';
+  color: var(--white-color) !important;
+} */
+/* 
+.text-white h2{
+  --bs-text-opacity: 1;
+  font-family: 'Mokoto Glitch Mark';
+  color: var(--white-color) !important;
+} */
 h2,
 h3,
 h5,
@@ -185,8 +234,63 @@ strong {
   font-size: 32px;
 }
 
-.logoTesla{
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 2px 0 rgba(255, 0, 0, 0.8), -2px -2px 0 rgba(0, 255, 0, 0.8);
+  }
+  25% {
+    text-shadow: -2px -2px 0 rgba(255, 0, 0, 0.8), 2px 2px 0 rgba(0, 255, 0, 0.8);
+  }
+  50% {
+    text-shadow: 2px -2px 0 rgba(255, 0, 0, 0.8), -2px 2px 0 rgba(0, 255, 0, 0.8);
+  }
+  75% {
+    text-shadow: -2px 2px 0 rgba(255, 0, 0, 0.8), 2px -2px 0 rgba(0, 255, 0, 0.8);
+  }
+  100% {
+    text-shadow: 2px 2px 0 rgba(255, 0, 0, 0.8), -2px -2px 0 rgba(0, 255, 0, 0.8);
+  }
+}
+
+.glitch {
+  font-family: 'Mokoto Glitch';
+  color: var(--primary-color);
+  position: relative;
+  animation: glitch 0.5s infinite alternate;
+}
+.mb-5{
+  margin-bottom: 7rem !important;
+}
+/* img{
+  width: 100vw;
+            max-width: 400px;
+            height: auto;
+            opacity: 0.5;
+} */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* Adjust this to center the image properly */
+}
+.center-logo {
+  max-width: 80%;
+  width: 300px; /* Default width */
+  height: auto;
+  opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .center-logo {
+      width: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .center-logo {
+      width: 150px;
+  }
 }
 
 .icon {
@@ -375,7 +479,7 @@ strong {
 }
 
 .sticky-wrapper.is-sticky .navbar {
-  background-color: rgba(0, 0, 0, 1);
+  background-color: #262626d6;
 }
 
 .navbar {
@@ -411,7 +515,7 @@ strong {
 
 .navbar-nav .nav-link.active, 
 .navbar-nav .nav-link:hover {
-  color: var(--secondary-color);
+  color: #8fe60293;
 }
 
 .navbar-toggler {
@@ -519,7 +623,7 @@ strong {
 -----------------------------------------*/
 .about-section {
   /* background-image: url('../images/edward-unsplash-blur.jpg'); */
-  background: linear-gradient(to bottom, #000000,#021e13); 
+  background: linear-gradient(to bottom, var(--dark-color),#8fe60237); 
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -854,7 +958,7 @@ strong {
 -----------------------------------------*/
 .events-section {
   padding: 20px;
-  background: linear-gradient(to bottom, #021e13, #000000); 
+  background: linear-gradient(to bottom, #8fe60237, var(--dark-color)); 
   background-repeat: no-repeat;
 }
 
@@ -890,7 +994,7 @@ strong {
   width: 25%;
   /* height: 400px; Adjust this height to fit the height of the poster */
   margin-right: 20px;
-  background-color: #022417;
+  background-color: var(--dark-color);
   border-radius: 10px; /* Curved corners */
   padding: 10px; /* Updated padding */
   margin-bottom: 20px;
@@ -899,7 +1003,7 @@ strong {
 /* Event title */
 .event-title {
   font-size: 18px;
-  color: #c8fae6;
+  color: var(--primary-color);
   margin-bottom: 10px;
   text-align: center;
 }
@@ -917,13 +1021,14 @@ strong {
   display: block;
   text-align: center;
   margin-top: 10px;
-  color: #3b715c;
+  color: #8fe60237;
 }
 
 /* View all button */
 .view-all-button {
   display: block;
   text-align: center;
+  color: #000000;
 }
 
 /* Media query for phone view */
@@ -966,7 +1071,7 @@ strong {
   }
 
   ::-webkit-scrollbar-thumb:hover {
-      background: #021e13;
+      background: #8fe60237;
   }
 
 /*---------------------------------------
@@ -980,17 +1085,17 @@ strong {
 }
 
 .site-footer-top {
-  background-color:#01120b;
+  background-color:var(--dark-color);
   background-image: url('../images/nainoa-shizuru-NcdG9mK3PBY-unsplash.jpg');
   background-repeat: no-repeat;
   margin-bottom: 70px;
   padding-top: 30px;
   padding-bottom: 30px;
-  background: linear-gradient(to top, #000000,#021e13);
+  /* background: linear-gradient(to top, #000000,#021e13); */
 }
 
 .site-footer-bottom {
-  border-top: 1px solid #01130c;
+  border-top: 1px solid #262626;
   margin-top: 60px;
 }
 
@@ -1033,7 +1138,7 @@ strong {
 }
 
 .social-icon-link {
-  background: var(--secondary-color);
+  background: var(--dark-color);
   border-radius: var(--border-radius-large);
   color: var(--white-color);
   font-size: var(--copyright-font-size);
@@ -1047,7 +1152,8 @@ strong {
 }
 
 .social-icon-link:hover {
-  background: var(--primary-color);
+  /* background: var(--primary-color); */
+  background: #8fe60237;
   color: var(--white-color);
 }
 
