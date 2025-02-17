@@ -257,9 +257,10 @@ strong {
   color: var(--primary-color);
   position: relative;
   animation: glitch 0.5s infinite alternate;
+  padding: 2rem;
 }
 .mb-5{
-  margin-bottom: 7rem !important;
+  margin-bottom: 9rem !important;
 }
 /* img{
   width: 100vw;
