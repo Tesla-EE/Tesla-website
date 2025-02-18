@@ -53,7 +53,9 @@ https://templatemo.com/tm-583-festava-live
   --dark-color:                   #262626;
   --p-color:                      #717275;
   --border-color:                 #7fffd4;
-  --link-hover-color:             #5aedb5;
+  /* --link-hover-color:             #8fe60293; */
+  --link-hover-color:             #262626;
+
 
   --body-font-family:             'Outfit' , sans-serif;
 
@@ -110,7 +112,7 @@ h6 {
 }
 
 h4{
-  color: #6d877d;
+  color: var(--primary-color);
 }
 
 h1,
@@ -476,7 +478,7 @@ strong {
   top: 0;
   right: 0;
   left: 0;
-  margin-top: 51px;
+  /* margin-top: 51px; */
 }
 
 .sticky-wrapper.is-sticky .navbar {
@@ -595,6 +597,17 @@ strong {
   padding-top: 100px;
   /* height: calc(100vh - 5px); */
   height: 100vh;
+}
+
+.hero-bg-logo{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 1400px;
+  opacity: 0.75;
+  z-index: 1;
 }
 
 .hero-section small {
@@ -766,7 +779,7 @@ strong {
 -----------------------------------------*/
 .schedule-section {
   /* background-image: url('../images/nainoa-shizuru-unsplash-blur.jpg'); */
-  background: linear-gradient(to bottom,#01130c, #021e13, #022d1c,#022417,#000000);
+  background: linear-gradient(to bottom,#262626, #8fe60216, #8fe60237,#8fe60216,#262626);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1044,7 +1057,7 @@ strong {
   width: 25%;
   /* height: 400px; Adjust this height to fit the height of the poster */
   margin-right: 20px;
-  background-color: var(--dark-color);
+  background-color: #839e2975;
   border-radius: 10px; /* Curved corners */
   padding: 10px; /* Updated padding */
   margin-bottom: 20px;
@@ -1053,7 +1066,8 @@ strong {
 /* Event title */
 .event-title {
   font-size: 18px;
-  color: var(--primary-color);
+  color: black;
+  margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -1071,7 +1085,8 @@ strong {
   display: block;
   text-align: center;
   margin-top: 10px;
-  color: #8fe60237;
+  /* color: #8fe60293; */
+  color: var(--white-color);
 }
 
 /* View all button */
@@ -1228,6 +1243,13 @@ strong {
 /*---------------------------------------
   RESPONSIVE STYLES               
 -----------------------------------------*/
+@media screen and (max-width: 1024px) {
+  .hero-bg-logo {
+      width: 90%;
+      max-width: 1200px;
+  }
+}
+
 @media screen and (max-width: 991px) {
   h1 {
     font-size: 62px;
@@ -1300,11 +1322,15 @@ strong {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .custom-btn {
     font-size: 14px;
     padding: 10px 20px;
   }
+  .hero-bg-logo {
+    width: 100%; /* Slightly larger on smaller screens */
+    max-width: 1100px;
+}
 }
 
 @media screen and (max-width: 480px) {
@@ -1328,7 +1354,11 @@ strong {
     font-size: 20px;
   }
 }
-
+.hero-bg-logo {
+  width: 120%; /* Even larger on very small screens */
+  max-width: 1000px;
+  /* max-width: none; */
+}
 
 .site-footer-bottom {
   display: flex;
