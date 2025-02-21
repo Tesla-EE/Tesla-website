@@ -237,6 +237,40 @@ strong {
   transform: translateX(100%) rotate(90deg);
   font-size: 32px;
 }
+/*Statistics*/
+.stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  text-align: center;
+  /*background-color: #3C4E1E;*/
+  padding: 50px 0;
+}
+
+.stat-item {
+  background: #839e2975;
+  padding: 20px;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item i {
+  font-size: 30px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.stat-item p {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
 
 /*@keyframes glitch {
   /*0% {
@@ -355,7 +389,7 @@ strong {
 
 /* Apply the glitch effect only to the image */
 .glitch-img {
-  animation: glitch 0.15s infinite alternate ease-in-out;
+  animation: glitch 0.75s infinite alternate ease-in-out;
 }
 
 
@@ -664,12 +698,16 @@ strong {
   HERO        
 -----------------------------------------*/
 .hero-section {
+  background-image: url("..images/tesla-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
-  padding-top: 100px;
-  /* height: calc(100vh - 5px); */
+  padding-top: 20px;
   height: 100vh;
 }
+
 
 .hero-bg-logo{
   position: absolute;
@@ -875,12 +913,7 @@ strong {
   background-color: var(--secondary-color);
 }
 
-.schedule-table th,
-.schedule-table tr,
-.schedule-table td {
-  /* border-bottom-color: #363a3e; */
-  /* padding: 30px; */
-}
+
 
 .schedule-table tr:last-child th,
 .schedule-table tr:last-child td {
@@ -1500,7 +1533,8 @@ h3{
   display: flex;
   justify-content: center;
   width: auto;
-  height: 70px;
+  height: 100px;
+  margin-top: 30px;
 }
 
 @media screen and (max-width: 768px) {
