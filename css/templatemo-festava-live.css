@@ -77,11 +77,15 @@ https://templatemo.com/tm-583-festava-live
   --font-weight-light:            300;
   --font-weight-normal:           400;
   --font-weight-bold:             700;
+
+  /* --noise-bg: url('images/noise.png');  */
 }
+
+
 
 body {
   background-color: var(--dark-color);
-  font-family: var(--body-font-family); 
+    font-family: var(--body-font-family); 
   overflow-x: hidden;
 }
 
@@ -240,19 +244,34 @@ strong {
 /*Statistics*/
 .stats-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
+  gap: 100px;
   text-align: center;
   /*background-color: #3C4E1E;*/
   padding: 50px 0;
 }
 
+@media screen and (max-width: 768px) {
+  .stats-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+  }
+
+  .stat-item {
+      width: 45%; /* Ensures two items per row */
+  }
+}
+
 .stat-item {
   background: #839e2975;
   padding: 20px;
+  border: 3px solid #262626;
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -307,7 +326,7 @@ strong {
   /*padding: 2rem;*/
 }
 .mb-5{
-  margin-bottom: 9rem !important;
+  /* margin-bottom: 9rem !important; */
 }
 /* img{
   width: 100vw;
@@ -368,15 +387,19 @@ strong {
   transform-origin: 19px 15px;
 }
 @keyframes glitch {
-  0% { transform: translate(0) rotate(0deg); opacity: 1; }
-  15% { transform: translate(-2px, 2px) rotate(-1deg); opacity: 0.8; }
-  30% { transform: translate(2px, -2px) rotate(1deg); opacity: 1; }
-  45% { transform: translate(-3px, 1px) rotate(-1.5deg); opacity: 0.7; }
-  60% { transform: translate(3px, -1px) rotate(1.5deg); opacity: 1; }
-  75% { transform: translate(-1px, 3px) rotate(-1deg); opacity: 0.9; }
-  90% { transform: translate(1px, -3px) rotate(1deg); opacity: 1; }
-  100% { transform: translate(0) rotate(0deg); opacity: 1; }
+  0% { transform: translate(0) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
+  10% { transform: translate(-3px, 1px) skew(-2deg); opacity: 0.95; filter: hue-rotate(5deg); }
+  20% { transform: translate(3px, -1px) skew(2deg); opacity: 1; filter: hue-rotate(-5deg); }
+  30% { transform: translate(-4px, 0px) skew(-3deg); opacity: 0.9; filter: hue-rotate(10deg); }
+  40% { transform: translate(4px, 0px) skew(3deg); opacity: 1; filter: hue-rotate(-10deg); }
+  50% { transform: translate(-2px, -1px) skew(1deg); opacity: 0.95; filter: hue-rotate(3deg); }
+  60% { transform: translate(2px, 1px) skew(-1deg); opacity: 1; filter: hue-rotate(-3deg); }
+  70% { transform: translate(-1px, 0px) skew(1deg); opacity: 0.9; filter: hue-rotate(2deg); }
+  80% { transform: translate(1px, 0px) skew(-1deg); opacity: 1; filter: hue-rotate(-2deg); }
+  90% { transform: translate(0, 0) skew(0deg); opacity: 0.97; filter: hue-rotate(0deg); }
+  100% { transform: translate(0) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
 }
+
 
 /* Wrapper to fix the image in place */
 .glitch-wrapper {
@@ -391,6 +414,21 @@ strong {
 .glitch-img {
   animation: glitch 0.75s infinite alternate ease-in-out;
 }
+
+@media screen and (max-width: 768px) {  /* For tablets & smaller screens */
+  .glitch-img {
+      width: 60vw;  /* Increase width relative to screen size */
+      max-width: 400px;  /* Prevent it from getting too big */
+  }
+}
+
+@media screen and (max-width: 480px) {  /* For smaller mobile screens */
+  .glitch-img {
+      width: 75vw;  /* Make it take most of the screen width */
+      max-width: 450px;
+  }
+}
+
 
 
 /*---------------------------------------
@@ -716,8 +754,18 @@ strong {
   transform: translate(-50%, -50%);
   width: 60%;
   max-width: 1000px;
-  opacity: 0.7;
-  z-index: 1;
+  opacity: 0.6;
+  z-index: 1; filter: drop-shadow(0 0 20px #8de602); /* Green Glow */
+  animation: glowEffect 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes glowEffect {
+  0% {
+      filter: drop-shadow(0 0 10px #8de602);
+  }
+  100% {
+      filter: drop-shadow(0 0 30px #8de602);
+  }
 }
 
 .hero-section small {
@@ -740,6 +788,45 @@ strong {
 .hero-section .container .row {
   height: 100%;
 }
+
+/* Glowing Retro Date Text */
+.hero-date {
+  font-size: 15px; /* Adjust size */
+  font-weight: bold;
+  color: #b2dc74; /* Neon Green */
+  text-align: center;
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;animation: typing 3s steps(20, end) forwards, blink 0.6s infinite;
+  /* text-shadow: 0 0 5px #f7f8f66e, 0 0 10px #9fc05d, 0 0 10px #a4c179; */
+  /* animation: glitchEffect 1.2s infinite alternate; */
+}
+
+
+/* Glitch Effect */
+/* @keyframes glitchEffect {
+  0% { text-shadow: 0 0 5px #8DE602, 0 0 10px #8DE602, 0 0 20px #8DE602; }
+  25% { text-shadow: -2px -2px 5px rgba(255, 0, 0, 0.8), 2px 2px 5px rgba(0, 255, 0, 0.8); }
+  50% { text-shadow: 2px -2px 5px rgba(0, 0, 255, 0.8), -2px 2px 5px rgba(255, 255, 0, 0.8); }
+  75% { text-shadow: -2px 2px 5px rgba(255, 0, 255, 0.8), 2px -2px 5px rgba(0, 255, 255, 0.8); }
+  100% { text-shadow: 0 0 5px #8DE602, 0 0 10px #8DE602, 0 0 20px #8DE602; }
+} */
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .hero-date-glitch {
+      font-size: 24px;
+      letter-spacing: 2px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-date-glitch {
+      font-size: 20px;
+      letter-spacing: 1px;
+  }
+}
+
 
 
 /*---------------------------------------
@@ -786,6 +873,10 @@ strong {
   padding: 35px;
 }
 
+.logistics-section{
+  /* background: linear-gradient(to bottom, var(--dark-color),#8fe60237);  */
+  background: #8fe60237; 
+}
 
 /*---------------------------------------
   TICKET               
@@ -1152,7 +1243,8 @@ strong {
 .events-container {
   overflow-x: auto;
   white-space: nowrap;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin: 10px;
   white-space: nowrap;
 }
 
@@ -1161,15 +1253,15 @@ strong {
   display: inline-block;
   width: 60%;
   /*height: 400px; /*Adjust this height to fit the height of the poster */
-  margin-right: 20px;
+  margin-top: 20px;
   background-color: #839e2975;
   border-radius: 10px; /* Curved corners */
   padding: 10px; /* Updated padding */
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .event-card:hover {
-  transform: scale(1.05); /* Slightly enlarges the card */
+  /* transform: scale(1.02);  */
   box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.2); /* Soft glow effect */
 }
 
@@ -1224,8 +1316,9 @@ strong {
       margin: 0 auto;
   }
   .event-card img {
-      width: 100%;
-      height: auto;
+    padding: 10px;
+      width: 60%;
+      height: 60%;
   }
 }
   /*.event-card {
@@ -1454,7 +1547,8 @@ strong {
     padding: 10px 20px;
   }
   .hero-bg-logo {
-    width: 70%; /* Slightly larger on smaller screens */
+    /* top: 55%; */
+    width: 75%; /* Slightly larger on smaller screens */
     max-width: 900px;
 }
 }
@@ -1481,7 +1575,8 @@ strong {
   }
 }
 .hero-bg-logo {
-  width: 55%; /* Even larger on very small screens */
+  /* top: 40%; */
+  width: 70%; /* Even larger on very small screens */
   max-width: 500px;
   /* max-width: none; */
 }
@@ -1537,11 +1632,17 @@ h3{
   margin-top: 30px;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .logoTesla-main{
-    height: 50px;
+    height: 75px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .logoTesla-main{
+    height: 90px;
+  }
+} */
 
 
 /* td{
