@@ -45,6 +45,10 @@ https://templatemo.com/tm-583-festava-live
   font-style: normal;
 }
 :root {
+ 
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
   --white-color:                  #ffffff;
   --primary-color:                #8DE602;
   --secondary-color:              #8DE602;
@@ -81,11 +85,28 @@ https://templatemo.com/tm-583-festava-live
   /* --noise-bg: url('images/noise.png');  */
 }
 
+/* body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  background-image: radial-gradient(rgba(255,255,255,0.2) 2%, transparent 0);
+  background-size: 3px 3px;
+  opacity: 0.7;
+  pointer-events: none; 
+} */
 
 
 body {
   background-color: var(--dark-color);
     font-family: var(--body-font-family); 
+    background-color: #303030;
+background-image: url("https://www.transparenttextures.com/patterns/black-orchid.png");
+/* background-size: cover; */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   overflow-x: hidden;
 }
 
@@ -451,7 +472,7 @@ strong {
 .hidden {
   opacity: 0;
   transform: translateX(-100%);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 0.64s ease-out, transform 0.64s ease-out;
 }
 
 /* About Section - Slide In */
@@ -756,7 +777,7 @@ strong {
   transform: translate(-50%, -50%);
   width: 60%;
   max-width: 1000px;
-  opacity: 0.88;
+  opacity: 0.92;
   z-index: 1; filter: drop-shadow(0 0 20px #8de602); /* Green Glow */
   animation: glowEffect 1.5s infinite alternate ease-in-out;
 }
@@ -829,7 +850,62 @@ strong {
   }
 }
 
+.explore-events-container {
+  display: flex;
+    flex-direction: column;
+    background-color: #262626;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center;
+    height: 10vh; 
+}
 
+#events-btn button {
+  /* margin-top: 20px; */
+  padding: 12px 25px;
+  font-size: 18px;
+  background-color: #8fe60286;
+  color: white;
+  border: none;
+  border-radius: 25px; /* Rounded edges */
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+#events-btn button:hover {
+  transform: scale(1.03); /* Smooth scaling */
+    border: 2px solid white; /* White border */
+    border-radius: 25px;
+}
+
+.contacts-container{
+  display: flex;
+    flex-direction: column;
+    background-color:  #3c4e1e51;
+    
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center;
+    height: 18vh; 
+}
+
+#contact-btn button {
+  /* margin-top: 20px; */
+  padding: 12px 25px;
+  font-size: 18px;
+  background-color: #262626cf;
+  color: white;
+  border: none;
+  border-radius: 25px; /* Rounded edges */
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+#contact-btn button:hover {
+  transform: scale(1.03); /* Smooth scaling */
+    border: 2px solid white; /* White border */
+    border-radius: 25px;
+}
 
 /*---------------------------------------
   ABOUT              
@@ -1371,6 +1447,77 @@ strong {
   ::-webkit-scrollbar-thumb:hover {
       background: #8fe60237;
   }
+
+
+
+
+/* Event Gallery Section */
+.event-gallery {
+  text-align: center;
+  background-color: #262626;
+  padding: 50px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Title Styling */
+.event-gallery h2 {
+  color: white;
+  font-size: 20px;
+  font-family: "Mokoto Glitch";
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-in-out forwards 0.3s;
+}
+
+/* Gallery Container */
+.gallery-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* Image Slider (True Infinite Loop) */
+.event-slider {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  width: max-content;
+  animation: slide 20s linear infinite; /* Slower, infinite scroll */
+}
+
+/* Images */
+.event-slider img {
+  width: 14%; /* Adjust size */
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Keyframes for True Infinite Loop */
+@keyframes slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/* Fade-in Title Animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .event-slider img {
+      width: 180px;
+  }
+  .event-slider {
+      animation: slide 25s linear infinite;
+  }
+}
+
 
 /*---------------------------------------
   SITE FOOTER              
