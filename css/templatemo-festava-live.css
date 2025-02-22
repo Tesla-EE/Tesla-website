@@ -268,7 +268,7 @@ strong {
 .stat-item {
   background: #839e2975;
   padding: 20px;
-  border: 3px solid #262626;
+  border: 3px solid #262626d6;
   border-radius: 50%;
   width: 140px;
   height: 140px;
@@ -326,7 +326,7 @@ strong {
   /*padding: 2rem;*/
 }
 .mb-5{
-  /* margin-bottom: 9rem !important; */
+  margin-bottom: 2rem !important;
 }
 /* img{
   width: 100vw;
@@ -756,7 +756,7 @@ strong {
   transform: translate(-50%, -50%);
   width: 60%;
   max-width: 1000px;
-  opacity: 0.75;
+  opacity: 0.88;
   z-index: 1; filter: drop-shadow(0 0 20px #8de602); /* Green Glow */
   animation: glowEffect 1.5s infinite alternate ease-in-out;
 }
