@@ -1518,6 +1518,15 @@ strong {
   }
 }
 
+@media (max-width: 480px) {
+  .event-slider img {
+      width: 100px;
+  }
+  .event-slider {
+      animation: slide 25s linear infinite;
+  }
+}
+
 
 /*---------------------------------------
   SITE FOOTER              
