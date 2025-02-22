@@ -581,6 +581,8 @@ strong {
   color: var(--white-color);
 }
 
+
+
 .custom-btn-bg-white {
   border-color: var(--white-color);
   color: var(--white-color);
@@ -754,7 +756,7 @@ strong {
   transform: translate(-50%, -50%);
   width: 60%;
   max-width: 1000px;
-  opacity: 0.6;
+  opacity: 0.75;
   z-index: 1; filter: drop-shadow(0 0 20px #8de602); /* Green Glow */
   animation: glowEffect 1.5s infinite alternate ease-in-out;
 }
@@ -1215,6 +1217,9 @@ strong {
 /*---------------------------------------
   EVENTS              
 -----------------------------------------*/
+#events{
+  background: linear-gradient(to bottom, var(--dark-color), #8fe60237, var(--dark-color)); 
+}
 .events-section {
   padding: 20px;
   background: linear-gradient(to bottom, #8fe60237, var(--dark-color)); 
@@ -1243,21 +1248,21 @@ strong {
 .events-container {
   overflow-x: auto;
   white-space: nowrap;
-  margin-top: 10px;
-  margin: 10px;
+  margin-bottom: 20px;
+  /* margin: 10px; */
   white-space: nowrap;
 }
 
 /* Event card */
 .event-card {
   display: inline-block;
-  width: 60%;
+  width: 25%;
   /*height: 400px; /*Adjust this height to fit the height of the poster */
-  margin-top: 20px;
+  margin-right: 20px;
   background-color: #839e2975;
   border-radius: 10px; /* Curved corners */
   padding: 10px; /* Updated padding */
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .event-card:hover {
@@ -1300,10 +1305,23 @@ strong {
 
 /* Media query for phone view */
 @media (max-width: 768px) {
-.container, .row, .navbar, .hero-section, .event-card, .events-container {
+.container, .row, .navbar, .hero-section {
         max-width: 100vw ;
         overflow-x: hidden ;
     }
+    .events-container {
+      overflow-x: scroll;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS devices */
+      white-space: nowrap;
+  }
+
+  .event-card {
+      width: 100%;
+      height: auto; /* Adjust height to fit content */
+      margin-right: 0;
+      margin-bottom: 20px;
+  }
   body {
     position: relative;
 }
@@ -1311,15 +1329,11 @@ strong {
     max-width: 100vw;
     overflow-x: hidden;
 }
-  .event-card {
-      width: 90%;
-      margin: 0 auto;
-  }
-  .event-card img {
+  /* .event-card img {
     padding: 10px;
       width: 60%;
       height: 60%;
-  }
+  } */
 }
   /*.event-card {
       width: 90%;
@@ -1503,6 +1517,8 @@ strong {
     background-color: var(--dark-color);
   }
 
+  
+
   .navbar-expand-lg .navbar-nav {
     padding-bottom: 30px;
   }
@@ -1573,6 +1589,21 @@ strong {
   h5 {
     font-size: 20px;
   }
+
+  .events-container {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS devices */
+    white-space: nowrap;
+}
+
+.event-card {
+  width: 100%;
+      height: auto; /* Adjust height to fit content */
+      margin-right: 0;
+      margin-bottom: 20px;
+}
+
 }
 .hero-bg-logo {
   /* top: 40%; */
