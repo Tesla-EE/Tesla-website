@@ -188,6 +188,48 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCountdown(); // Run immediately to avoid 1s delay
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const leftImages = [
+        "images/Tesla-24/img1.jpeg",
+        "images/Tesla-24/img3.JPG",
+        "images/Tesla-24/img5.JPG"
+    ];
+    const rightImages = [
+        "images/Tesla-24/img2.JPG",
+        "images/Tesla-24/img4.JPG",
+        "images/Tesla-24/img6.JPG"
+    ];
+
+    let index = 0;
+    const leftImgElement = document.getElementById("left-image");
+    const rightImgElement = document.getElementById("right-image");
+
+    function changeImages() {
+        index = (index + 1) % leftImages.length;
+
+        // Fade out images before changing
+        leftImgElement.style.opacity = "0";
+        rightImgElement.style.opacity = "0";
+
+        // Wait for the fade-out effect to complete before swapping images
+        setTimeout(() => {
+            leftImgElement.src = leftImages[index];
+            rightImgElement.src = rightImages[index];
+
+            // Ensure images are loaded before fading back in
+            leftImgElement.onload = () => leftImgElement.style.opacity = "1";
+            rightImgElement.onload = () => rightImgElement.style.opacity = "1";
+        }); // Wait 500ms before changing images
+    }
+
+    setInterval(changeImages, 3000); // Change every 3 seconds
+});
+
+
+
+
+
+
 	// SMOOTH SCROLL
 	$(function () {
 		$(".smoothscroll").on("click", function (e) {
