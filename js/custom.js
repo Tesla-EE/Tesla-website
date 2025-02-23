@@ -192,12 +192,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const leftImages = [
         "images/Tesla-24/img1.jpeg",
         "images/Tesla-24/img3.JPG",
-        "images/Tesla-24/img5.JPG"
+        "images/Tesla-24/img5.JPG",
+		"images/Tesla-24/img7.JPG",
+		"images/Tesla-24/img9.JPG",
+		"images/Tesla-24/img11.png"
     ];
     const rightImages = [
         "images/Tesla-24/img2.JPG",
         "images/Tesla-24/img4.JPG",
-        "images/Tesla-24/img6.JPG"
+        "images/Tesla-24/img6.JPG",
+		"images/Tesla-24/img8.JPG",
+		"images/Tesla-24/img10.png",
+		"images/Tesla-24/img12.png"
     ];
 
     let index = 0;
