@@ -972,7 +972,8 @@ body {
 .explore-events-container {
   display: flex;
     flex-direction: column;
-    background-color: #262626;
+    /* background-color: #26262695; */
+    background: linear-gradient(to bottom, #252525b8, #262626);
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
     text-align: center;
