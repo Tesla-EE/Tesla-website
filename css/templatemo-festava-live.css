@@ -1657,12 +1657,12 @@ body {
   flex-wrap: nowrap;
   gap: 27px;
   width: max-content;
-  animation: slide 20s linear infinite; /* Slower, infinite scroll */
+  animation: slide 15s linear infinite; /* Slower, infinite scroll */
 }
 
 /* Images */
 .event-slider img {
-  width: 210px; /* Adjust size */
+  width: 240px; /* Adjust size */
   height: auto;
   border-radius: 10px;
 }
