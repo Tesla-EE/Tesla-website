@@ -44,7 +44,13 @@ https://templatemo.com/tm-583-festava-live
   font-weight: normal;
   font-style: normal;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Rubik+Glitch&family=Ubuntu:wght@300;400&display=swap');
+
 :root {
+
+  /* overflow-x: hidden; */
+
  
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
@@ -526,19 +532,26 @@ body {
 .link-fx-1 .icon line:last-child {
   transform-origin: 19px 15px;
 }
+
+
 @keyframes glitch {
-  0% { transform: translate(0) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
-  10% { transform: translate(-3px, 1px) skew(-2deg); opacity: 0.95; filter: hue-rotate(5deg); }
-  20% { transform: translate(3px, -1px) skew(2deg); opacity: 1; filter: hue-rotate(-5deg); }
-  30% { transform: translate(-4px, 0px) skew(-3deg); opacity: 0.9; filter: hue-rotate(10deg); }
-  40% { transform: translate(4px, 0px) skew(3deg); opacity: 1; filter: hue-rotate(-10deg); }
-  50% { transform: translate(-2px, -1px) skew(1deg); opacity: 0.95; filter: hue-rotate(3deg); }
-  60% { transform: translate(2px, 1px) skew(-1deg); opacity: 1; filter: hue-rotate(-3deg); }
-  70% { transform: translate(-1px, 0px) skew(1deg); opacity: 0.9; filter: hue-rotate(2deg); }
-  80% { transform: translate(1px, 0px) skew(-1deg); opacity: 1; filter: hue-rotate(-2deg); }
-  90% { transform: translate(0, 0) skew(0deg); opacity: 0.97; filter: hue-rotate(0deg); }
-  100% { transform: translate(0) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
+  0% { transform: translateX(0) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
+  5% { transform: translateX(-2px) skew(-1deg); opacity: 0.97; filter: hue-rotate(5deg); }
+  12% { transform: translateX(4px) skew(2deg); opacity: 0.95; filter: hue-rotate(-8deg); }
+  18% { transform: translateX(-5px) skew(-3deg); opacity: 0.94; filter: hue-rotate(10deg); }
+  25% { transform: translateX(3px) skew(2deg); opacity: 0.96; filter: hue-rotate(-6deg); }
+  35% { transform: translateX(-3px) skew(-1deg); opacity: 1; filter: hue-rotate(4deg); }
+  45% { transform: translateX(5px) skew(3deg); opacity: 0.98; filter: hue-rotate(-10deg); }
+  55% { transform: translateX(-4px) skew(-2deg); opacity: 0.96; filter: hue-rotate(8deg); }
+  65% { transform: translateX(2px) skew(1deg); opacity: 0.99; filter: hue-rotate(-4deg); }
+  75% { transform: translateX(-1px) skew(0deg); opacity: 0.97; filter: hue-rotate(3deg); }
+  85% { transform: translateX(1px) skew(1deg); opacity: 0.96; filter: hue-rotate(-3deg); }
+  90% { transform: translateX(0px) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
+  100% { transform: translateX(0) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
 }
+
+
+
 
 
 /* Wrapper to fix the image in place */
@@ -1604,14 +1617,14 @@ body {
 .event-slider {
   display: flex;
   flex-wrap: nowrap;
-  gap: 20px;
+  gap: 40px;
   width: max-content;
   animation: slide 20s linear infinite; /* Slower, infinite scroll */
 }
 
 /* Images */
 .event-slider img {
-  width: 14%; /* Adjust size */
+  width: 14.5%; /* Adjust size */
   height: auto;
   border-radius: 10px;
 }
@@ -1640,7 +1653,7 @@ body {
 
 @media (max-width: 480px) {
   .event-slider img {
-      width: 100px;
+      width: 90px;
   }
   .event-slider {
       animation: slide 25s linear infinite;
