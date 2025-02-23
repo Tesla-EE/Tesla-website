@@ -590,11 +590,12 @@ T e m p l a t e M o
         // -------------Preloader battery animation---------
 
         document.addEventListener("DOMContentLoaded", function () {
+    let preloader = document.getElementById("preloader");
+
     // Check if the user has already visited the site in this session
     if (sessionStorage.getItem("visited")) {
-        document.getElementById("preloader").style.display = "none"; // Hide loader instantly
+        preloader.style.display = "none"; // Instantly hide loader on repeat visits
     } else {
-        // Show battery loader on first visit
         let batteryFill = document.querySelector(".battery-fill");
         let batteryText = document.getElementById("battery-percentage");
         let batteryLevel = 0;
@@ -608,19 +609,23 @@ T e m p l a t e M o
 
             if (batteryLevel > 100) {
                 batteryFill.style.width = "100%";
-                batteryFill.style.background = "#8de602"; 
+                batteryFill.style.background = "#00ff00"; 
                 clearInterval(batteryInterval);
-                
-                setTimeout(() => {
-                    document.getElementById("preloader").style.display = "none"; 
-                    sessionStorage.setItem("visited", "true"); // Mark as visited
-                }, 2000); // Hold for 2 seconds before loading site
+
+                // Ensure everything (including images) is fully loaded before hiding preloader
+                window.addEventListener("load", function () {
+                    setTimeout(() => {
+                        preloader.style.display = "none"; 
+                        sessionStorage.setItem("visited", "true"); // Set after full load
+                    }, 2000); // Hold for 2 seconds before removing preloader
+                });
             }
         }
 
         let batteryInterval = setInterval(updateBattery, 200);
     }
 });
+
 
 
 
