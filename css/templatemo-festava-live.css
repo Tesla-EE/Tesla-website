@@ -135,7 +135,7 @@ https://templatemo.com/tm-583-festava-live
   position: fixed;
   width: 100%;
   height: 100%;
-  background: black; /* Background while loading */
+  background: #262626; /* Background while loading */
   display: flex;
   justify-content: center;
   align-items: center;
