@@ -88,7 +88,7 @@
 		}
 	});
 	
-	document.addEventListener("scroll", function () {
+	/*document.addEventListener("scroll", function () {
 		let aboutSection = document.getElementById("footer");
 		let aboutPosition = aboutSection.getBoundingClientRect().top;
 		let aboutBottom = aboutSection.getBoundingClientRect().bottom;
@@ -108,8 +108,93 @@
 	window.addEventListener("resize", function () {
     document.body.style.overflowX = "hidden";
     document.documentElement.style.overflowX = "hidden";
+});*/
+document.addEventListener("DOMContentLoaded", function () {
+    function animateValue(element, start, end, duration) {
+        let startTime = null;
+        const stepTime = 50; // Controls speed (lower = faster)
+
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            let progress = timestamp - startTime;
+            let fraction = progress / duration;
+            let current = Math.floor(start + (end - start) * fraction);
+
+            if (current > end) current = end;
+            
+            // Update the number without "+" while animating
+            element.innerHTML = current.toLocaleString() + "<br>" + element.getAttribute("data-label");
+
+            if (progress < duration) {
+                setTimeout(() => requestAnimationFrame(step), stepTime);
+            } else {
+                // Add "+" sign when counting completes
+                element.innerHTML = end.toLocaleString() + "+" + "<br>" + element.getAttribute("data-label");
+            }
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    function startCounters() {
+        document.querySelectorAll(".stat-item p").forEach((p) => {
+            let text = p.innerHTML.split("<br>");
+            let endValue = parseInt(text[0].replace(/\D/g, ""));
+            p.setAttribute("data-label", text[1]); // Store label text
+            p.innerHTML = "0<br>" + text[1]; // Reset to 0 before animation
+            animateValue(p, 0, endValue, 4000); // Slow animation (4s)
+        });
+    }
+
+    // Trigger animation when stats come into view
+    const observer = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    startCounters();
+                    observer.disconnect(); // Run animation once
+                }
+            });
+        },
+        { threshold: 0.5 } // Trigger when 50% of stats are visible
+    );
+
+    observer.observe(document.querySelector(".stats-container"));
 });
-		
+/*countdown*/
+/*document.addEventListener("DOMContentLoaded", function () {
+    function startCountdown(targetDate) {
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeRemaining = targetDate - now;
+
+            if (timeRemaining <= 0) {
+                document.getElementById("countdown").innerHTML = "<span style='color: #ff0000;'>Event Started!</span>";
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days.toString().padStart(2, '0');
+            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+        }
+
+        updateCountdown(); // Update immediately
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    }
+
+    // Set the target date (YYYY, MM-1, DD, HH, MM, SS)
+    const eventDate = new Date(2025, 2, 14, 0, 0, 0).getTime(); // Example: March 25, 2025, at 6:00 PM
+    startCountdown(eventDate);
+});*/
+
+
 	// SMOOTH SCROLL
 	$(function () {
 		$(".smoothscroll").on("click", function (e) {
