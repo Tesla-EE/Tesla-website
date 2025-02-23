@@ -377,13 +377,16 @@ body {
 .countdown-section {
   text-align: center;
   padding: 20px;
+  background: linear-gradient(to bottom, #252525b8, #262626aa);
+  padding-bottom: 15vh;
 }
 
 .countdown-title {
-  font-size: 26px;
+  font-family: "Mokoto Glitch";
+  font-size: 18px;
   color: var(--primary-color);
-  text-shadow: 0 0 10px var(--primary-color);
-  margin-bottom: 10px;
+  /* text-shadow: 0 0 10px var(--primary-color); */
+  margin-bottom: 25px;
 }
 
 .countdown-timer {
@@ -399,7 +402,7 @@ body {
   padding: 15px;
   border-radius: 8px;
   border: 2px solid var(--primary-color);
-  box-shadow: 0 0 15px var(--primary-color);
+  /* box-shadow: 0 0 15px var(--primary-color); */
   min-width: 80px;
   text-align: center;
   font-size: 28px;
@@ -429,21 +432,11 @@ body {
     100% { text-shadow: 0 0 5px #8DE602; }
 }
 
-.countdown-title, .time-box span {
+ .time-box span {
     animation: glowEffect 1.5s infinite alternate;
-}
+} 
 
 
-/* Glowing Animation */
-@keyframes glow {
-    0% { text-shadow: 0 0 5px #8DE602; }
-    50% { text-shadow: 0 0 15px #8DE602; }
-    100% { text-shadow: 0 0 5px #8DE602; }
-}
-
-.countdown-title, .time-box span {
-    animation: glow 1.5s infinite alternate;
-}
 
 
 /*@keyframes glitch {
