@@ -1223,6 +1223,7 @@ body {
 .logistics-section{
   /* background: linear-gradient(to bottom, var(--dark-color),#8fe60237);  */
   background: #8fe60237; 
+  padding-top: 0px;
 }
 
 /*---------------------------------------
