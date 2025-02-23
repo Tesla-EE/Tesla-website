@@ -1638,7 +1638,7 @@ body {
 .event-slider {
   display: flex;
   flex-wrap: nowrap;
-  gap: 40px;
+  gap: 27px;
   width: max-content;
   animation: slide 20s linear infinite; /* Slower, infinite scroll */
 }
