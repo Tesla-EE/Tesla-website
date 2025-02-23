@@ -312,7 +312,7 @@ strong {
 }
 
 .stat-item {
-  background: #839e2975;
+  background: #3d3d3db5;
   padding: 20px;
   border-radius: 50%;
   width: 140px;
@@ -1010,6 +1010,27 @@ body {
     border: 2px solid white; /* White border */
     border-radius: 25px;
 }
+
+/* Initially Hide Buttons */
+#contact-btn, #events-btn {
+  opacity: 0;
+  transform: translateY(20px); /* Slight upward motion */
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 2s; /* Wait 2 seconds before fading in */
+}
+
+/* Keyframes for Smooth Fade-In */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
 
 .contacts-container{
   display: flex;
