@@ -32,6 +32,15 @@
 
 </head>
 
+<div id="preloader">
+    <div class="battery-container">
+        <div class="battery">
+            <div class="battery-fill"></div>
+        </div>
+        <p id="battery-percentage">0%</p>
+    </div>
+</div>
+
 
 
 <body class="home-page">
@@ -577,6 +586,37 @@ T e m p l a t e M o
             if (contactBtn) fadeInObserver.observe(contactBtn);
             if (eventsBtn) fadeInObserver.observe(eventsBtn);
         });
+
+        // -------------Preloader battery animation---------
+
+        document.addEventListener("DOMContentLoaded", function () {
+    let batteryFill = document.querySelector(".battery-fill");
+    let batteryText = document.getElementById("battery-percentage");
+    let batteryLevel = 0;
+
+    function updateBattery() {
+        if (batteryLevel <= 100) {
+            batteryFill.style.width = batteryLevel + "%"; // Update battery width
+            batteryText.textContent = batteryLevel + "%"; // Update percentage text
+            batteryLevel += 5; // Increase battery charge every interval
+        }
+
+        // Ensure battery fully fills & stays green at 100%
+        if (batteryLevel > 100) {
+            batteryFill.style.width = "100%";
+            batteryFill.style.background = "#8de602"; // Change to bright green at 100%
+            clearInterval(batteryInterval); // Stop animation
+            setTimeout(() => {
+                document.getElementById("preloader").style.display = "none"; // Instantly remove preloader
+            },1000); // Extra delay to ensure full fill is shown
+        }
+    }
+
+    let batteryInterval = setInterval(updateBattery, 200); // Increase every 200ms
+});
+
+
+
         </script>
         
 

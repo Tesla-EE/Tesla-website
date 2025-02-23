@@ -96,6 +96,100 @@ https://templatemo.com/tm-583-festava-live
   /* --noise-bg: url('images/noise.png');  */
 }
 
+
+/* Preloader Fullscreen */
+/* #preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+} */
+
+/* Loader Animation */
+/* .loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid white;
+  border-top: 5px solid #8DE602; 
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+} */
+
+/* Spinning Effect */
+/* @keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+} */
+
+/* Hide Preloader When Page Loads */
+/* body.loaded #preloader {
+  display: none;
+} */
+
+/* Preloader Fullscreen */
+#preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black; /* Background while loading */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+/* Battery Container */
+.battery-container {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Battery Outer Shell */
+.battery {
+  width: 150px;
+  height: 50px;
+  border: 5px solid #474747;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+/* Battery Fill (Charging Animation) */
+/* Battery Fill (Charging Animation) */
+.battery-fill {
+  width: 0%;
+  height: 100%;
+  background: #8DE602; /* Default green */
+  transition: width 0.5s linear;
+}
+
+/* Battery Percentage Text */
+#battery-percentage {
+  font-size: 18px;
+  margin-top: 5px;
+  color: white;
+}
+
+/* Hide Preloader Smoothly */
+body.loaded #preloader {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+}
+
+
+
+
+/* ---------------Preloader ends------------- */
+
 /* body::before {
   content: "";
   position: fixed;
