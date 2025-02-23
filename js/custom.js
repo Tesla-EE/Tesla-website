@@ -162,38 +162,31 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(document.querySelector(".stats-container"));
 });
 /*countdown*/
-/*document.addEventListener("DOMContentLoaded", function () {
-    function startCountdown(targetDate) {
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const timeRemaining = targetDate - now;
+document.addEventListener("DOMContentLoaded", function () {
+    function updateCountdown() {
+        const eventDate = new Date("March 14, 2025 00:00:00").getTime();
+        const now = new Date().getTime();
+        const timeLeft = eventDate - now;
 
-            if (timeRemaining <= 0) {
-                document.getElementById("countdown").innerHTML = "<span style='color: #ff0000;'>Event Started!</span>";
-                clearInterval(countdownInterval);
-                return;
-            }
-
-            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-            document.getElementById("days").textContent = days.toString().padStart(2, '0');
-            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+        if (timeLeft <= 0) {
+            document.getElementById("countdown").innerHTML = "<span style='color: #8DE602;'>Event Started!</span>";
+            return;
         }
 
-        updateCountdown(); // Update immediately
-        const countdownInterval = setInterval(updateCountdown, 1000);
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days.toString().padStart(2, '0');
+        document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
     }
 
-    // Set the target date (YYYY, MM-1, DD, HH, MM, SS)
-    const eventDate = new Date(2025, 2, 14, 0, 0, 0).getTime(); // Example: March 25, 2025, at 6:00 PM
-    startCountdown(eventDate);
-});*/
-
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // Run immediately to avoid 1s delay
+});
 
 	// SMOOTH SCROLL
 	$(function () {
