@@ -1659,7 +1659,7 @@ body {
         overflow-x: hidden ;
     }
     .hero-section {
-      padding-top: 100px;
+      padding-top: 100px !important;
   }
     .events-container {
       overflow-x: scroll;
@@ -2080,10 +2080,11 @@ body {
     padding: 10px 20px;
   }
   .hero-bg-logo {
-    /* top: 55%; */
-    width: 75%; /* Slightly larger on smaller screens */
+    top: 35%;
+    width: 70%; /* Slightly larger on smaller screens */
     max-width: 900px;
 }
+
 }
 
 @media screen and (max-width: 480px) {
@@ -2125,7 +2126,7 @@ body {
 .hero-bg-logo {
   /* top: 40%; */
   width: 70%; /* Even larger on very small screens */
-  max-width: 500px;
+  max-width: 470px;
   /* max-width: none; */
 }
 
