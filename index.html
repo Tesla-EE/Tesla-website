@@ -590,43 +590,30 @@ T e m p l a t e M o
         // -------------Preloader battery animation---------
 
         document.addEventListener("DOMContentLoaded", function () {
-    let preloader = document.getElementById("preloader");
+    let batteryFill = document.querySelector(".battery-fill");
+    let batteryText = document.getElementById("battery-percentage");
+    let batteryLevel = 0;
 
-    // Check if the user has already visited the site in this session
-    if (sessionStorage.getItem("visited")) {
-        preloader.style.display = "none"; // Instantly hide loader on repeat visits
-    } else {
-        let batteryFill = document.querySelector(".battery-fill");
-        let batteryText = document.getElementById("battery-percentage");
-        let batteryLevel = 0;
-
-        function updateBattery() {
-            if (batteryLevel <= 100) {
-                batteryFill.style.width = batteryLevel + "%"; 
-                batteryText.textContent = batteryLevel + "%";
-                batteryLevel += 5;
-            }
-
-            if (batteryLevel > 100) {
-                batteryFill.style.width = "100%";
-                batteryFill.style.background = "#8de602"; 
-                clearInterval(batteryInterval);
-
-                // Ensure everything (including images) is fully loaded before hiding preloader
-                window.addEventListener("load", function () {
-                    setTimeout(() => {
-                        preloader.style.display = "none"; 
-                        sessionStorage.setItem("visited", "true"); // Set after full load
-                    }, 2000); // Hold for 2 seconds before removing preloader
-                });
-            }
+    function updateBattery() {
+        if (batteryLevel <= 100) {
+            batteryFill.style.width = batteryLevel + "%"; // Update battery width
+            batteryText.textContent = batteryLevel + "%"; // Update percentage text
+            batteryLevel += 5; // Increase battery charge every interval
         }
 
-        let batteryInterval = setInterval(updateBattery, 200);
+        // Ensure battery fully fills & stays green at 100%
+        if (batteryLevel > 100) {
+            batteryFill.style.width = "100%";
+            batteryFill.style.background = "#8de602"; // Change to bright green at 100%
+            clearInterval(batteryInterval); // Stop animation
+            setTimeout(() => {
+                document.getElementById("preloader").style.display = "none"; // Instantly remove preloader
+            },700); // Extra delay to ensure full fill is shown
+        }
     }
+
+    let batteryInterval = setInterval(updateBattery, 200); // Increase every 200ms
 });
-
-
 
 
 
