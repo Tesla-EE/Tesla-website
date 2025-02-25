@@ -584,33 +584,39 @@ T e m p l a t e M o
 
         // -------------Preloader battery animation---------
         document.addEventListener("DOMContentLoaded", function () {
-    let charge = document.querySelector(".charge"); // Battery fill
-    let loadingText = document.getElementById("loading-text"); // Percentage text
-    let batteryLevel = 0; // Start at 0%
+    let charge = document.querySelector(".charge");
+    let loadingText = document.getElementById("loading-text");
+    let retroImg = document.querySelector(".retro-img"); // Select the retro image
+    let batteryLevel = 0;
 
     function updateBattery() {
         if (batteryLevel <= 100) {
-            let fillWidth = batteryLevel + "%"; // Ensure width = percentage
+            let fillWidth = batteryLevel + "%"; 
 
             charge.style.width = fillWidth;  // Battery fill grows with percentage
-            loadingText.textContent = batteryLevel + "%"; // Display correct text
+            loadingText.textContent = batteryLevel + "%"; 
 
-            batteryLevel += 5; // Increase by 5% per step
+            // Opacity increases from 0.1 to 0.5 as battery fills from 0% to 100%
+            let newOpacity = 0.1 + (batteryLevel / 100) * 0.2;
+            retroImg.style.opacity = newOpacity;
+
+            batteryLevel += 5; 
         }
 
         if (batteryLevel > 100) {
-            charge.style.width = "100%"; // Ensure full charge
-            charge.style.background = "#7bc901"; // Change color at full charge
-            clearInterval(batteryInterval); // Stop updating
+            charge.style.width = "100%"; 
+            charge.style.background = "#8de602"; 
+            clearInterval(batteryInterval);
 
             setTimeout(() => {
-                document.getElementById("preloader").style.display = "none"; // Hide preloader after 2 seconds
-            }, 2000); // Hold for 2 seconds
+                document.getElementById("preloader").style.display = "none"; 
+            }, 2000);
         }
     }
 
-    let batteryInterval = setInterval(updateBattery, 400); // Increase every 400ms for a smooth fill
+    let batteryInterval = setInterval(updateBattery, 400);
 });
+
 
 
 
