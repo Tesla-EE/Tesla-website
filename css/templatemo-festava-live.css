@@ -683,7 +683,7 @@ body {
 }
 
 
-@keyframes glitch {
+/* @keyframes glitch {
   0% { transform: translateX(0) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
   5% { transform: translateX(-2px) skew(-1deg); opacity: 0.97; filter: hue-rotate(5deg); }
   12% { transform: translateX(4px) skew(2deg); opacity: 0.95; filter: hue-rotate(-8deg); }
@@ -697,6 +697,32 @@ body {
   85% { transform: translateX(1px) skew(1deg); opacity: 0.96; filter: hue-rotate(-3deg); }
   90% { transform: translateX(0px) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
   100% { transform: translateX(0) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
+} */
+
+@keyframes glitch {
+  0% { transform: translateX(0) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
+  5% { transform: translateX(-2px) skew(-1deg); opacity: 0.97; filter: hue-rotate(5deg); }
+  10% { transform: translateX(4px) skew(2deg); opacity: 0.95; filter: hue-rotate(-8deg); }
+  15% { transform: translateX(-5px) skew(-3deg); opacity: 0.94; filter: hue-rotate(10deg); }
+  20% { transform: translateX(3px) skew(2deg); opacity: 0.96; filter: hue-rotate(-6deg); }
+  25% { transform: translateX(-3px) skew(-1deg); opacity: 1; filter: hue-rotate(4deg); }
+  30% { transform: translateX(5px) skew(3deg); opacity: 0.98; filter: hue-rotate(-10deg); }
+  35% { transform: translateX(-4px) skew(-2deg); opacity: 0.96; filter: hue-rotate(8deg); }
+  40% { transform: translateX(2px) skew(1deg); opacity: 0.99; filter: hue-rotate(-4deg); }
+  45% { transform: translateX(-1px) skew(0deg); opacity: 0.97; filter: hue-rotate(3deg); }
+  50% { transform: translateX(1px) skew(1deg); opacity: 0.96; filter: hue-rotate(-3deg); }
+
+
+  100% { transform: translateX(0) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
+  95% { transform: translateX(-2px) skew(-1deg); opacity: 0.97; filter: hue-rotate(5deg); }
+  90% { transform: translateX(4px) skew(2deg); opacity: 0.95; filter: hue-rotate(-8deg); }
+  85% { transform: translateX(-5px) skew(-3deg); opacity: 0.94; filter: hue-rotate(10deg); }
+  80% { transform: translateX(3px) skew(2deg); opacity: 0.96; filter: hue-rotate(-6deg); }
+  75% { transform: translateX(-3px) skew(-1deg); opacity: 1; filter: hue-rotate(4deg); }
+  70% { transform: translateX(5px) skew(3deg); opacity: 0.98; filter: hue-rotate(-10deg); }
+  65% { transform: translateX(-4px) skew(-2deg); opacity: 0.96; filter: hue-rotate(8deg); }
+  60% { transform: translateX(2px) skew(1deg); opacity: 0.99; filter: hue-rotate(-4deg); }
+  55% { transform: translateX(-1px) skew(0deg); opacity: 0.97; filter: hue-rotate(3deg); }
 }
 
 
@@ -714,7 +740,7 @@ body {
 
 /* Apply the glitch effect only to the image */
 .glitch-img {
-  animation: glitch 0.75s infinite alternate ease-in-out;
+  animation: glitch 1s infinite alternate ease-in-out;
 }
 
 @media screen and (max-width: 768px) {  /* For tablets & smaller screens */
