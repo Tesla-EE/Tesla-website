@@ -33,14 +33,14 @@
 </head>
 
 <div id="preloader">
-    <div class="battery-container">
+    <div class="preloader-content">
+        <img src="images/retro-img.jpg" alt="Retro Robot" class="retro-img">
         <div class="battery">
-            <div class="battery-fill"></div>
+            <div class="charge"></div>
         </div>
-        <p id="battery-percentage">0%</p>
+        <p id="loading-text">0%</p>
     </div>
 </div>
-
 
 
 <body class="home-page">
@@ -583,32 +583,35 @@ T e m p l a t e M o
         });
 
         // -------------Preloader battery animation---------
-
         document.addEventListener("DOMContentLoaded", function () {
-    let batteryFill = document.querySelector(".battery-fill");
-    let batteryText = document.getElementById("battery-percentage");
-    let batteryLevel = 0;
+    let charge = document.querySelector(".charge"); // Battery fill
+    let loadingText = document.getElementById("loading-text"); // Percentage text
+    let batteryLevel = 0; // Start at 0%
 
     function updateBattery() {
         if (batteryLevel <= 100) {
-            batteryFill.style.width = batteryLevel + "%"; // Update battery width
-            batteryText.textContent = batteryLevel + "%"; // Update percentage text
-            batteryLevel += 5; // Increase battery charge every interval
+            let fillWidth = batteryLevel + "%"; // Ensure width = percentage
+
+            charge.style.width = fillWidth;  // Battery fill grows with percentage
+            loadingText.textContent = batteryLevel + "%"; // Display correct text
+
+            batteryLevel += 5; // Increase by 5% per step
         }
 
-        // Ensure battery fully fills & stays green at 100%
         if (batteryLevel > 100) {
-            batteryFill.style.width = "100%";
-            batteryFill.style.background = "#8de602"; // Change to bright green at 100%
-            clearInterval(batteryInterval); // Stop animation
+            charge.style.width = "100%"; // Ensure full charge
+            charge.style.background = "#7bc901"; // Change color at full charge
+            clearInterval(batteryInterval); // Stop updating
+
             setTimeout(() => {
-                document.getElementById("preloader").style.display = "none"; // Instantly remove preloader
-            },700); // Extra delay to ensure full fill is shown
+                document.getElementById("preloader").style.display = "none"; // Hide preloader after 2 seconds
+            }, 2000); // Hold for 2 seconds
         }
     }
 
-    let batteryInterval = setInterval(updateBattery, 200); // Increase every 200ms
+    let batteryInterval = setInterval(updateBattery, 400); // Increase every 400ms for a smooth fill
 });
+
 
 
 

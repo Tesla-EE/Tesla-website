@@ -135,7 +135,7 @@ https://templatemo.com/tm-583-festava-live
   position: fixed;
   width: 100%;
   height: 100%;
-  background: #262626; /* Background while loading */
+  background: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,40 +143,62 @@ https://templatemo.com/tm-583-festava-live
   z-index: 9999;
 }
 
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.retro-img {
+  width: 400px; /* Adjust size */
+  height: auto;
+  margin: 0px;
+  padding: 0px;
+  /* margin-bottom: 5px; */
+}
+
 /* Battery Container */
-.battery-container {
+/* .battery-container {
   text-align: center;
   color: white;
   font-size: 20px;
   font-weight: bold;
-}
+} */
 
 /* Battery Outer Shell */
 .battery {
-  width: 150px;
-  height: 50px;
-  border: 5px solid #474747;
-  border-radius: 10px;
+  width: 390px;
+  height: 16px;
+  border: 2px solid white;
+  border-radius: 3px;
   position: relative;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin: 0px;
+  padding: 0px;
 }
 
-/* Battery Fill (Charging Animation) */
-/* Battery Fill (Charging Animation) */
-.battery-fill {
+.charge {
   width: 0%;
   height: 100%;
-  background: #8DE602; /* Default green */
-  transition: width 0.5s linear;
+  background: #7bc901;
+  transition: width 0.4s linear;
 }
 
+/* Battery Fill (Charging Animation) */
+/* Battery Fill (Charging Animation) */
+/* .battery-fill {
+  width: 0%;
+  height: 100%;
+  background: #8DE602; 
+  transition: width 0.5s linear;
+} */
+
 /* Battery Percentage Text */
-#battery-percentage {
+/* #battery-percentage {
   font-size: 18px;
   margin-top: 5px;
   color: white;
-}
+} */
 
 /* Hide Preloader Smoothly */
 body.loaded #preloader {
@@ -185,7 +207,19 @@ body.loaded #preloader {
   pointer-events: none;
 }
 
-
+@media (max-width: 768px) {
+  .retro-img {
+      width: 250px;
+      margin: 0px;
+  padding: 0px;
+  }
+  .battery {
+      width: 250px;
+      height: 12px;
+      margin: 0px;
+  padding: 0px;
+  }
+}
 
 
 /* ---------------Preloader ends------------- */
