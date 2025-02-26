@@ -28,6 +28,8 @@
 			);
 		}
 	});
+
+
 	document.addEventListener("scroll", function () {
 		let logo = document.getElementById("teslaLogo");
 		if (window.scrollY > 100) {
@@ -36,6 +38,8 @@
 			logo.classList.remove("shrink");
 		}
 	});
+
+
 	document.addEventListener("scroll", function () {
 		let aboutSection = document.getElementById("aboutTesla");
 		let aboutPosition = aboutSection.getBoundingClientRect().top;
@@ -53,6 +57,8 @@
 			aboutSection.classList.add("hidden-out-left");
 		}
 	});
+
+
 	document.addEventListener("scroll", function () {
 		let aboutSection = document.getElementById("stat");
 		let aboutPosition = aboutSection.getBoundingClientRect().top;
@@ -70,8 +76,10 @@
 			aboutSection.classList.add("hidden-out-right");
 		}
 	});
+
+
 	document.addEventListener("scroll", function () {
-		let aboutSection = document.getElementById("preEvents");
+		let aboutSection = document.getElementById("workshops");
 		let aboutPosition = aboutSection.getBoundingClientRect().top;
 		let aboutBottom = aboutSection.getBoundingClientRect().bottom;
 		let screenHeight = window.innerHeight;
@@ -85,6 +93,25 @@
 		else {
 			aboutSection.classList.remove("visible");
 			aboutSection.classList.add("hidden-out-left");
+		}
+	});
+
+
+	document.addEventListener("scroll", function () {
+		let aboutSection = document.getElementById("preEvents");
+		let aboutPosition = aboutSection.getBoundingClientRect().top;
+		let aboutBottom = aboutSection.getBoundingClientRect().bottom;
+		let screenHeight = window.innerHeight;
+	
+		// When the section comes into view, slide it in
+		if (aboutPosition < screenHeight / 1.3 && aboutBottom > 0) {
+			aboutSection.classList.add("visible");
+			aboutSection.classList.remove("hidden-out-right");
+		} 
+		// When the section is scrolled past (up or down), move it out
+		else {
+			aboutSection.classList.remove("visible");
+			aboutSection.classList.add("hidden-out-right");
 		}
 	});
 	

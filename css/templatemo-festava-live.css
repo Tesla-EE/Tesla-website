@@ -135,7 +135,7 @@ https://templatemo.com/tm-583-festava-live
   position: fixed;
   width: 100%;
   height: 100%;
-  background: black;
+  background: #262626; /* Background while loading */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,82 +143,40 @@ https://templatemo.com/tm-583-festava-live
   z-index: 9999;
 }
 
-.preloader-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Updated Glitch Effect with Dynamic Opacity */
-
-/* Even More Intense Glitch Effect */
-
-.retro-img {
-  width: 400px;
-  height: auto;
-  margin: 0px;
-  padding: 0px;
-  animation: glitchr 0.3s infinite alternate ease-in-out;
-  opacity: 0.1; /* Starts at lowest opacity */
-  filter: contrast(1.3) brightness(1.2) saturate(1.3); /* Enhance glitch effect */
-}
-
-@keyframes glitchr {
-  0% { transform: translateX(0) skew(0deg); filter: hue-rotate(0deg) contrast(1.3); }
-  5% { transform: translateX(-6px) skew(-4deg) scale(1.02); filter: hue-rotate(20deg) contrast(1.4); }
-  10% { transform: translateX(6px) skew(4deg) scale(0.98); filter: hue-rotate(-15deg) contrast(1.5); }
-  15% { transform: translateX(-8px) skew(-5deg) scale(1.03); filter: hue-rotate(25deg) contrast(1.6); }
-  20% { transform: translateX(8px) skew(5deg) scale(0.97); filter: hue-rotate(-18deg) contrast(1.7); }
-  25% { transform: translateX(-10px) skew(-6deg) scale(1.04); filter: hue-rotate(30deg) contrast(1.8); }
-  30% { transform: translateX(10px) skew(6deg) scale(0.96); filter: hue-rotate(-22deg) contrast(1.5); }
-  35% { transform: translateX(-12px) skew(-7deg) scale(1.05); filter: hue-rotate(35deg) contrast(1.9); }
-  40% { transform: translateX(12px) skew(7deg) scale(0.95); filter: hue-rotate(-25deg) contrast(1.6); }
-  50% { transform: translateX(-4px) skew(-2deg) scale(1.01); filter: hue-rotate(10deg) contrast(1.3); }
-  100% { transform: translateX(0) skew(0deg); filter: hue-rotate(0deg) contrast(1.3); }
-}
-
 /* Battery Container */
-/* .battery-container {
+.battery-container {
   text-align: center;
   color: white;
   font-size: 20px;
   font-weight: bold;
-} */
+}
 
 /* Battery Outer Shell */
 .battery {
-  width: 390px;
-  height: 16px;
-  border: 2px solid white;
-  border-radius: 3px;
+  width: 150px;
+  height: 50px;
+  border: 5px solid #474747;
+  border-radius: 10px;
   position: relative;
   overflow: hidden;
-  margin: 0px;
-  padding: 0px;
-}
-
-.charge {
-  width: 0%;
-  height: 100%;
-  background: #7bc901;
-  transition: width 0.4s linear;
+  margin-bottom: 10px;
 }
 
 /* Battery Fill (Charging Animation) */
 /* Battery Fill (Charging Animation) */
-/* .battery-fill {
+.battery-fill {
   width: 0%;
   height: 100%;
-  background: #8DE602; 
+  background: #8DE602; /* Default green */
   transition: width 0.5s linear;
-} */
+}
 
 /* Battery Percentage Text */
-/* #battery-percentage {
+#battery-percentage {
   font-size: 18px;
   margin-top: 5px;
   color: white;
-} */
+}
 
 /* Hide Preloader Smoothly */
 body.loaded #preloader {
@@ -227,19 +185,7 @@ body.loaded #preloader {
   pointer-events: none;
 }
 
-@media (max-width: 768px) {
-  .retro-img {
-      width: 250px;
-      margin: 0px;
-  padding: 0px;
-  }
-  .battery {
-      width: 250px;
-      height: 12px;
-      margin: 0px;
-  padding: 0px;
-  }
-}
+
 
 
 /* ---------------Preloader ends------------- */
@@ -703,7 +649,7 @@ body {
 }
 
 
-/* @keyframes glitch {
+@keyframes glitch {
   0% { transform: translateX(0) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
   5% { transform: translateX(-2px) skew(-1deg); opacity: 0.97; filter: hue-rotate(5deg); }
   12% { transform: translateX(4px) skew(2deg); opacity: 0.95; filter: hue-rotate(-8deg); }
@@ -717,32 +663,6 @@ body {
   85% { transform: translateX(1px) skew(1deg); opacity: 0.96; filter: hue-rotate(-3deg); }
   90% { transform: translateX(0px) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
   100% { transform: translateX(0) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
-} */
-
-@keyframes glitch {
-  0% { transform: translateX(0) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
-  5% { transform: translateX(-2px) skew(-1deg); opacity: 0.97; filter: hue-rotate(5deg); }
-  10% { transform: translateX(4px) skew(2deg); opacity: 0.95; filter: hue-rotate(-8deg); }
-  15% { transform: translateX(-5px) skew(-3deg); opacity: 0.94; filter: hue-rotate(10deg); }
-  20% { transform: translateX(3px) skew(2deg); opacity: 0.96; filter: hue-rotate(-6deg); }
-  25% { transform: translateX(-3px) skew(-1deg); opacity: 1; filter: hue-rotate(4deg); }
-  30% { transform: translateX(5px) skew(3deg); opacity: 0.98; filter: hue-rotate(-10deg); }
-  35% { transform: translateX(-4px) skew(-2deg); opacity: 0.96; filter: hue-rotate(8deg); }
-  40% { transform: translateX(2px) skew(1deg); opacity: 0.99; filter: hue-rotate(-4deg); }
-  45% { transform: translateX(-1px) skew(0deg); opacity: 0.97; filter: hue-rotate(3deg); }
-  50% { transform: translateX(1px) skew(1deg); opacity: 0.96; filter: hue-rotate(-3deg); }
-
-
-  100% { transform: translateX(0) skew(0deg); opacity: 1; filter: hue-rotate(0deg); }
-  95% { transform: translateX(-2px) skew(-1deg); opacity: 0.97; filter: hue-rotate(5deg); }
-  90% { transform: translateX(4px) skew(2deg); opacity: 0.95; filter: hue-rotate(-8deg); }
-  85% { transform: translateX(-5px) skew(-3deg); opacity: 0.94; filter: hue-rotate(10deg); }
-  80% { transform: translateX(3px) skew(2deg); opacity: 0.96; filter: hue-rotate(-6deg); }
-  75% { transform: translateX(-3px) skew(-1deg); opacity: 1; filter: hue-rotate(4deg); }
-  70% { transform: translateX(5px) skew(3deg); opacity: 0.98; filter: hue-rotate(-10deg); }
-  65% { transform: translateX(-4px) skew(-2deg); opacity: 0.96; filter: hue-rotate(8deg); }
-  60% { transform: translateX(2px) skew(1deg); opacity: 0.99; filter: hue-rotate(-4deg); }
-  55% { transform: translateX(-1px) skew(0deg); opacity: 0.97; filter: hue-rotate(3deg); }
 }
 
 
@@ -760,7 +680,7 @@ body {
 
 /* Apply the glitch effect only to the image */
 .glitch-img {
-  animation: glitch 1s infinite alternate ease-in-out;
+  animation: glitch 0.75s infinite alternate ease-in-out;
 }
 
 @media screen and (max-width: 768px) {  /* For tablets & smaller screens */
