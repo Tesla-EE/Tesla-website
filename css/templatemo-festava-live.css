@@ -1645,12 +1645,19 @@ body {
   color: var(--white-color);
 }
 
-/* View all button */
 .view-all-button {
   display: block;
   text-align: center;
-  color: #000000;
+  color: black; /* Default color for PC */
 }
+
+/* Apply white color for mobile screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .view-all-button {
+    color: white;
+  }
+}
+
 
 /* Media query for phone view */
 @media (max-width: 768px) {
