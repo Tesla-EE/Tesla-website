@@ -1576,20 +1576,30 @@ body {
   text-align: center;
 }
 
-.grab-your-tees h2 {
+.grab-your-tees h3 {
   color: white;
+  font-size: 25px;
+  font-family: "Mokoto Glitch";
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-in-out forwards 0.3s;
 }
 
 .grab-your-tees img {
   display: block;
   margin: 0 auto;
-  max-width: 40%;
+  max-width: 30%;
   transition: max-width 0.5s ease;
+  padding-bottom: 15px;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-in-out forwards 0.3s;
+  border-radius: 15px;
 }
 
-.grab-your-tees img:hover{
-  max-width: 45%;
-}
+/* .grab-your-tees img:hover{
+  max-width: 27%;
+} */
 
 .events-container {
   overflow-x: auto;
@@ -1655,6 +1665,10 @@ body {
 @media (max-width: 768px) {
   .view-all-button {
     color: white;
+  }
+  .grab-your-tees img{
+    max-width: 75%;
+
   }
 }
 
@@ -1747,9 +1761,9 @@ body {
 }
 
 /* Title Styling */
-.event-gallery h2 {
+.event-gallery h3 {
   color: white;
-  font-size: 20px;
+  font-size: 22px;
   font-family: "Mokoto Glitch";
   margin-bottom: 20px;
   opacity: 0;
@@ -1856,12 +1870,18 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  border-radius: 15px;
+  /* width: 100%;  
+  height: auto; */
 }
 
-.media-container.video iframe {
+
+.media-container.video iframe,
+.media-container.video video {
   width: 100%;
   height: 100%;
   border-radius: 15px;
+  object-fit: cover; /* Ensures video scales properly */
 }
 
 /* Responsive Adjustments */

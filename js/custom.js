@@ -114,6 +114,8 @@
 			aboutSection.classList.add("hidden-out-right");
 		}
 	});
+
+
 	
 	/*document.addEventListener("scroll", function () {
 		let aboutSection = document.getElementById("footer");
@@ -222,47 +224,48 @@ document.addEventListener("DOMContentLoaded", function () {
         "images/Tesla-24/img5.JPG",
 		"images/Tesla-24/img7.JPG",
 		"images/Tesla-24/img9.JPG",
-		"images/Tesla-24/img11.png"
-    ];
-    const rightImages = [
-        "images/Tesla-24/img2.JPG",
+		"images/Tesla-24/img11.png",
+		"images/Tesla-24/img2.JPG",
         "images/Tesla-24/img4.JPG",
         "images/Tesla-24/img6.JPG",
 		"images/Tesla-24/img8.JPG",
 		"images/Tesla-24/img10.png",
 		"images/Tesla-24/img12.png"
     ];
+    // const rightImages = [
+        
+    // ];
 
     let index = 0;
     const leftImgElement = document.getElementById("left-image");
-    const rightImgElement = document.getElementById("right-image");
+    // const rightImgElement = document.getElementById("right-image");
 
     function changeImages() {
 		index = (index + 1) % leftImages.length;
 	
 		// Create new Image objects for preloading
 		const newLeftImage = new Image();
-		const newRightImage = new Image();
+		// const newRightImage = new Image();
 	
 		// Set the source of the new images
 		newLeftImage.src = leftImages[index];
-		newRightImage.src = rightImages[index];
+		// newRightImage.src = rightImages[index];
 	
 		// Wait for both images to load before swapping
-		newLeftImage.onload = newRightImage.onload = function () {
+		newLeftImage.onload = function () {
 			leftImgElement.style.opacity = "0";
-			rightImgElement.style.opacity = "0";
+			// rightImgElement.style.opacity = "0";
 	
 			setTimeout(() => {
 				leftImgElement.src = newLeftImage.src;
-				rightImgElement.src = newRightImage.src;
+				// rightImgElement.src = newRightImage.src;
 	
 				// Fade in only after the new images are completely loaded
 				setTimeout(() => {
 					leftImgElement.style.opacity = "1";
-					rightImgElement.style.opacity = "1";
+					// rightImgElement.style.opacity = "1";
 				}, 100);
-			}, 300); // Adjust delay if needed
+			}, 500); // Adjust delay if needed
 		};
 	}
 	
