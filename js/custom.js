@@ -220,55 +220,47 @@ document.addEventListener("DOMContentLoaded", function () {
         "images/Tesla-24/img1.jpeg",
         "images/Tesla-24/img3.JPG",
         "images/Tesla-24/img5.JPG",
-		"images/Tesla-24/img7.JPG",
-		"images/Tesla-24/img9.JPG",
-		"images/Tesla-24/img11.png"
-    ];
-    const rightImages = [
+        "images/Tesla-24/img7.JPG",
+        "images/Tesla-24/img9.JPG",
+        "images/Tesla-24/img11.png",
         "images/Tesla-24/img2.JPG",
         "images/Tesla-24/img4.JPG",
         "images/Tesla-24/img6.JPG",
-		"images/Tesla-24/img8.JPG",
-		"images/Tesla-24/img10.png",
-		"images/Tesla-24/img12.png"
+        "images/Tesla-24/img8.JPG",
+        "images/Tesla-24/img10.png",
+        "images/Tesla-24/img12.png"
     ];
 
     let index = 0;
     const leftImgElement = document.getElementById("left-image");
-    const rightImgElement = document.getElementById("right-image");
 
     function changeImages() {
-		index = (index + 1) % leftImages.length;
-	
-		// Create new Image objects for preloading
-		const newLeftImage = new Image();
-		const newRightImage = new Image();
-	
-		// Set the source of the new images
-		newLeftImage.src = leftImages[index];
-		newRightImage.src = rightImages[index];
-	
-		// Wait for both images to load before swapping
-		newLeftImage.onload = newRightImage.onload = function () {
-			leftImgElement.style.opacity = "0";
-			rightImgElement.style.opacity = "0";
-	
-			setTimeout(() => {
-				leftImgElement.src = newLeftImage.src;
-				rightImgElement.src = newRightImage.src;
-	
-				// Fade in only after the new images are completely loaded
-				setTimeout(() => {
-					leftImgElement.style.opacity = "1";
-					rightImgElement.style.opacity = "1";
-				}, 100);
-			}, 300); // Adjust delay if needed
-		};
-	}
-	
+        index = (index + 1) % leftImages.length;
+        
+        // Preload the new image
+        const newLeftImage = new Image();
+        newLeftImage.src = leftImages[index];
+
+        newLeftImage.onload = function () {
+            // Fade out
+            leftImgElement.style.opacity = "0";
+
+			 setTimeout(() => {
+                // Change image source after fade-out
+                leftImgElement.src = newLeftImage.src;
+
+                // Fade in
+                setTimeout(() => {
+                    leftImgElement.style.opacity = "1";
+                }, 100);
+            }, 500); // Adjust delay for smooth transition
+        };
+    }
 
     setInterval(changeImages, 3000); // Change every 3 seconds
 });
+
+
 
 
 
