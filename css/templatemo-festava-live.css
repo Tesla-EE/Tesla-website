@@ -920,6 +920,16 @@ body {
   z-index: -100;
 }
 
+.video-wrapper {
+  border-radius: 15px; /* Adjust as needed */
+  overflow: hidden; /* Forces video to stay within border */
+  display: inline-block;
+}
+video {
+  width: 100%; /* Ensures video fills the wrapper */
+  height: auto;
+}
+
 .custom-video {
   position: absolute;
   top: 0;
