@@ -1679,7 +1679,9 @@ video {
 /* Event title */
 .event-title {
   font-size: 18px;
-  color: #232323;
+  /* color: #232323; */
+  color: #8DE602;
+  font-weight: bold;
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
@@ -1700,6 +1702,7 @@ video {
   margin-top: 10px;
   /* color: #8fe60293; */
   color: var(--white-color);
+  font-weight: bold;
 }
 
 .view-all-button {
