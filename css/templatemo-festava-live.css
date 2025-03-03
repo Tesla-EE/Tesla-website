@@ -1271,7 +1271,7 @@ body {
 
 .logistics-section{
   /* background: linear-gradient(to bottom, var(--dark-color),#8fe60237);  */
-  background: #394B1A;  
+  background-color: #8fe60237;
   padding-top: 10px !important;
 }
 
@@ -1640,7 +1640,7 @@ body {
   margin: 0 auto;
   max-width: 30%;
   transition: max-width 0.5s ease;
-  padding-bottom: 15px;
+  margin-bottom: 15px;
   transform: translateY(20px);
   animation: fadeInUp 1s ease-in-out forwards 0.3s;
   border-radius: 15px;
@@ -1820,103 +1820,45 @@ body {
   color: white;
   font-size: 22px;
   font-family: "Mokoto Glitch";
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 1s ease-in-out forwards 0.3s;
-}
+} 
 
-/* Gallery Container */
-/* .gallery-container {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  justify-content: center;
-} */
-
-/* Image Slider (True Infinite Loop) */
-/* .event-slider {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 27px;
-  width: max-content;
-  animation: slide 15s linear infinite; 
-} */
-
-/* Images */
-/* .event-slider img {
-  width: 240px; 
-  height: auto;
-  border-radius: 10px;
-} */
-
-/* Keyframes for True Infinite Loop */
-/* @keyframes slide {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-} */
-
-/* Fade-in Title Animation */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive Adjustments */
-/* @media (max-width: 768px) {
-  .event-slider img {
-      width: 180px;
-  }
-  .event-slider {
-      animation: slide 25s linear infinite;
-  }
-}
-
-@media (max-width: 480px) {
-  .event-slider img {
-      width: 90px;
-  }
-  .event-slider {
-      animation: slide 25s linear infinite;
-  }
-} */
-/* Main Gallery Container */
 .gallery-container {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Wrapper for Infinite Scroll */
+.slider-track {
+  display: flex;
+  gap: 20px;
+  width: calc(400px * 24); /* 12 images * 2 for duplication */
+  animation: scrollLoop 60s linear infinite;
+}
+
+/* Common Styling for Images & Videos */
+.media-container {
+  width: 400px; 
+  height: 225px;
+  overflow: hidden;
+  border-radius: 15px;
+  flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  padding: 30px;
-  max-width: 100vw;
-  overflow-x: hidden;
-  flex-wrap: wrap; /* Allows responsiveness */
 }
-
-#left-image, #right-image {
-  transition: opacity 0.5s ease-in-out;
-}
-
-
-/* Common Styling for Images & Video */
-.media-container {
-  width: 400px; /* Fixed width for large screens */
-  height: 225px; /* 16:9 aspect ratio */
-  overflow: hidden;
-  border-radius: 15px;
-  position: relative;
-  display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
 
 /* Image Styling */
 .media-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures full coverage */
+  object-fit: cover;
 }
 
 /* Video Styling */
@@ -1926,17 +1868,26 @@ body {
   align-items: center;
   overflow: hidden;
   border-radius: 15px;
-  /* width: 100%;  
-  height: auto; */
 }
-
 
 .media-container.video iframe,
 .media-container.video video {
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  object-fit: cover; /* Ensures video scales properly */
+  object-fit: cover;
+}
+
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Infinite Scroll Animation */
+@keyframes scrollLoop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-400px * 12 - 240px)); } /* Moves full set left */
 }
 
 /* Responsive Adjustments */
@@ -1959,6 +1910,7 @@ body {
       aspect-ratio: 16 / 9; 
   }
 }
+
 
 
 /*---------------------------------------
