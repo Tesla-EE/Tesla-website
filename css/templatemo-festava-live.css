@@ -1807,6 +1807,7 @@ body {
 
 /* -------------Event Gallery Section---------- */
 
+/* Event Gallery Section */
 .event-gallery {
   text-align: center;
   background-color: #262626;
@@ -1816,6 +1817,135 @@ body {
 }
 
 /* Title Styling */
+.event-gallery h3 {
+  color: white;
+  font-size: 22px;
+  font-family: "Mokoto Glitch";
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-in-out forwards 0.3s;
+}
+
+/* Gallery Container */
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;  /* Allows wrapping for responsiveness */
+  gap: 20px;
+  padding: 30px;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Media Container */
+.media-container {
+  display: flex;
+  flex-direction: column; /* Ensures video and caption stack vertically */
+  align-items: center;
+  width: calc(25% - 20px); /* 4 per row */
+  height: auto;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+/* Video Wrapper */
+.video-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Force uniform height for all videos */
+.video-wrapper video,
+.video-wrapper iframe {
+  width: 100%;
+  height: 225px; /* Ensures all videos have the same height */
+  border-radius: 15px;
+  object-fit: cover; /* Ensures video fills the box */
+}
+
+
+/* Caption Styling */
+.video-caption {
+  text-align: center;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  margin-top: 8px;
+  font-weight: 500;
+  display: block;
+}
+
+/* Browse Gallery Button */
+.view-all-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.view-all-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: #8DE602; /* Green color from your theme */
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.view-all-btn:hover {
+  background: #7AD501;
+}
+
+/* Responsive Adjustments */
+
+/* Tablets (2 per row) */
+@media (max-width: 1024px) {
+  .media-container {
+      width: calc(50% - 20px); /* 2 per row */
+  }
+}
+
+/* Mobile (1 per row) */
+@media (max-width: 768px) {
+  .gallery-container {
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .media-container {
+      width: 90%; /* Ensures it takes full width */
+      max-width: 400px;
+  }
+
+  /* Ensure captions don’t disappear on small screens */
+  .video-caption {
+      font-size: 15px; /* Slightly smaller for better fit */
+      margin-top: 5px;
+      display: block; /* Force visibility */
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* -------------------------SLIDER STUFF DOWN------------------- */
+
+/* .event-gallery {
+  text-align: center;
+  background-color: #262626;
+  padding: 50px 0;
+  position: relative;
+  overflow: hidden;
+}
+
 .event-gallery h3 {
   color: white;
   font-size: 22px;
@@ -1834,15 +1964,13 @@ body {
   position: relative;
 }
 
-/* Wrapper for Infinite Scroll */
 .slider-track {
   display: flex;
   gap: 20px;
-  width: calc(400px * 24); /* 12 images * 2 for duplication */
+  width: calc(400px * 24); 
   animation: scrollLoop 60s linear infinite;
 }
 
-/* Common Styling for Images & Videos */
 .media-container {
   width: 400px; 
   height: 225px;
@@ -1854,14 +1982,12 @@ body {
   align-items: center;
 }
 
-/* Image Styling */
 .media-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Video Styling */
 .media-container.video {
   display: flex;
   justify-content: center;
@@ -1884,13 +2010,11 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Infinite Scroll Animation */
 @keyframes scrollLoop {
   0% { transform: translateX(0); }
   100% { transform: translateX(calc(-400px * 12 - 240px)); } /* Moves full set left */
-}
+/* }
 
-/* Responsive Adjustments */
 @media (max-width: 1024px) {
   .media-container {
       width: 350px;
@@ -1909,7 +2033,7 @@ body {
       max-width: 400px;
       aspect-ratio: 16 / 9; 
   }
-}
+} */
 
 
 
