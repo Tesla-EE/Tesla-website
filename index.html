@@ -32,6 +32,16 @@
 
 </head>
 
+<div id="preloader">
+    <div class="preloader-content">
+        <img src="images/retro-img.png" alt="Retro Image" class="retro-img">
+        <div class="battery">
+            <div class="charge"></div>
+        </div>
+        <p id="loading-text">0%</p>
+    </div>
+</div>
+
 
 
 <body class="home-page">
@@ -82,6 +92,11 @@
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="#section_3">Events</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#event-gallery">Gallery</a>
+                        </li>
+                        
 
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="committee.html">Committee</a>
@@ -138,7 +153,7 @@
             <!-- </div> -->
         </section>
         <section class="countdown-section">
-            <h2 class="countdown-title">Powering Up In:</h2>
+            <h2 class="countdown-title">Powering Up in :</h2>
             <div class="countdown-timer" id="countdown">
                 <div class="time-box"><span id="days">00</span><br><span class="label">Days</span></div>
                 <div class="time-box"><span id="hours">00</span><br><span class="label">Hours</span></div>
@@ -161,7 +176,7 @@
 
                             <p class="text-white">
                                 TESLA isn’t just an event;<br/> it’s a surge of innovation and energy! Inspired by Nikola Tesla’s 
-                                genius, it brings together the brightest minds in electrical engineering to showcase groundbreaking 
+                                genius, it brings together the brightest minds to showcase groundbreaking 
                                 ideas, tackle high-voltage challenges, and spark the future. With cutting-edge projects, 
                                 power-packed workshops, expert panels, and electrifying hackathons, TESLA is where innovation 
                                 meets opportunity. Be part of the revolution—charge ahead with TESLA!
@@ -245,21 +260,21 @@
 
 
             <!-- Events Container -->
-            <!-- <div class="container events-container">
+            <div class="container events-container hidden" id="workshops">
 
                 <div class="flex-container">
-                    <h2 class="text-white">Events</h2>
-                    <a href="events-listing.html" class="view-all-button">View All Events</a>
+                    <h2 class="text-white">Workshops</h2>
+                    <!-- <a href="events-listing.html" class="view-all-button">View All</a> -->
                 </div>
                 <div class="events-container">
                     
                     <div class="event-card">
-                        <img src="images/coming-soon.png" alt="Event 1 Image" style="width: 100%;">
-                        <div class="event-title">TESLA MUN</div>
-                        <a href="https://forms.gle/taacNwZGzPNKhxvQ6" class="register-link">Register</a>
+                        <img src="images/Workshops/Choreo.png" alt="Event 1 Image" style="width: 100%;">
+                        <div class="event-title">Choreo Workshop</div>
+                        <a href="https://makemypass.com/tesla-choreo-workshop" class="register-link">Register</a>
                     </div>
 
-                    <div class="event-card">
+                    <!-- <div class="event-card">
                         <img src="images/Events/Code and Connect.jpg" alt="Event 2 Image" style="width: 100%;">
                         <div class="event-title">CODE AND CONNECT</div>
                        
@@ -272,10 +287,10 @@
                         <div class="event-title">SIGNAL SHOWDOWN</div>
                         <a href="https://docs.google.com/forms/d/192Ven5G08ata8VagC7u53hsx2wMURcth8RfIFdGr4b0/edit"
                             class="register-link">Register</a>
-                    </div>
+                    </div> -->
 
                 </div>
-            </div> -->
+            </div> 
 
             <!-- Pre-events -->
 
@@ -284,54 +299,71 @@
             <div class="container events-container hidden" id="preEvents">
 
                 <div class="flex-container mb-4">
-                    <h2 class="text-white">Pre-Events</h2>
-                    <a href="events-listing2.html" class="view-all-button">View All Events</a>
+                    <h2 class="text-white">Competitions</h2>
+                    <a href="events-listing2.html" class="view-all-button">View All</a>
                 </div>
                 <div class="events-container">
                     <!-- Event Card 1 -->
 
                     <div class="event-card">
-                        <img src="images/Events/MiniMilitia.jpg" alt="Event 1 Image" style="width: 100%;">
+                        <img src="images/Competitions/Photography.jpg" alt="Event 1 Image" style="width: 100%;">
+                        <div class="event-title">Photography Competition</div>
+                        <!-- <div class="event-date">Date: March 25, 2024</div> -->
+                        <a href="https://tinyurl.com/Tesla25PhotographyCompetition" class="register-link">Register</a>
+                    </div>
+
+                    <div class="event-card">
+                        <img src="images/Competitions/TreasureHunt.jpg" alt="Event 1 Image" style="width: 100%;">
+                        <div class="event-title">Treasure Hunt</div>
+                        <!-- <div class="event-date">Date: March 25, 2024</div> -->
+                        <a href="https://tinyurl.com/Tesla25TreasureHunt " class="register-link">Register</a>
+                    </div>
+
+                    <div class="event-card">
+                        <img src="images/Competitions/MiniMilitia.jpg" alt="Event 1 Image" style="width: 100%;">
                         <div class="event-title">Mini Militia</div>
                         <!-- <div class="event-date">Date: March 25, 2024</div> -->
-                        <a href="https://tinyurl.com/tesla25esports " class="register-link">Register</a>
+                        <a href="https://tinyurl.com/tesla25esports " class="register-link" style="pointer-events: none; cursor: default; color: #262626;">Closed</a>
                     </div>
 
                     <div class="event-card">
-                        <img src="images/Events/Chess.jpg" alt="Event 1 Image" style="width: 100%;">
+                        <img src="images/Competitions/Chess.jpg" alt="Event 1 Image" style="width: 100%;">
                         <div class="event-title">Chess</div>
                         <!-- <div class="event-date">Date: March 25, 2024</div> -->
-                        <a href="https://tinyurl.com/tesla25esports " class="register-link">Register</a>
+                        <a href="https://tinyurl.com/tesla25esports " class="register-link" style="pointer-events: none; cursor: default; color: #262626;">Closed</a>
                     </div>
 
                     <div class="event-card">
-                        <img src="images/Events/BGMI.jpg" alt="Event 1 Image" style="width: 100%;">
+                        <img src="images/Competitions/BGMI.jpg" alt="Event 1 Image" style="width: 100%;">
                         <div class="event-title">BGMI</div>
                         <!-- <div class="event-date">Date: March 25, 2024</div> -->
-                        <a href="https://tinyurl.com/tesla25esports " class="register-link">Register</a>
+                        <a href="https://tinyurl.com/tesla25esports " class="register-link" style="pointer-events: none; cursor: default; color: #262626;">Closed</a>
                     </div>
 
                     <div class="event-card">
-                        <img src="images/Events/Valorant.jpg" alt="Event 1 Image" style="width: 100%;">
-                        <div class="event-title">BGMI</div>
+                        <img src="images/Competitions/Valorant.jpg" alt="Event 1 Image" style="width: 100%;">
+                        <div class="event-title">Valorant</div>
                         <!-- <div class="event-date">Date: March 25, 2024</div> -->
-                        <a href="https://tinyurl.com/tesla25esports " class="register-link">Register</a>
-                    </div>
-
-                    <div class="event-card">
-                        <img src="images/Events/Football Tournament.jpg" alt="Event 2 Image" style="width: 100%;">
-                        <div class="event-title">CODE AND CONNECT</div>
-                        <!-- <div class="event-date">Date: March 25, 2024</div> -->
-                        <a href="https://forms.gle/sHpAV8unCLeJTJLk8" class="register-link">Register</a>
+                        <a href="https://tinyurl.com/tesla25esports " class="register-link" style="pointer-events: none; cursor: default; color: #262626;">Closed</a>
                     </div>
 
 
                     <div class="event-card">
-                        <img src="images/Events/Tesla MUN.jpg" alt="Event 1 Image" style="width: 100%;">
+                        <img src="images/Competitions/Tesla MUN.jpg" alt="Event 1 Image" style="width: 100%;">
                         <div class="event-title">TESLA MUN</div>
                         <!-- <div class="event-date">Date: March 25, 2024</div> -->
-                        <a href="https://forms.gle/eT2pPVmZc3B3wv2Y8" class="register-link">Register</a>
+                        <a href="https://forms.gle/eT2pPVmZc3B3wv2Y8" class="register-link" style="pointer-events: none; cursor: default; color: #262626;">Closed</a>
                     </div>
+
+                    <div class="event-card">
+                        <img src="images/Competitions/Football Tournament.jpg" alt="Event 2 Image" style="width: 100%;">
+                        <div class="event-title">Football Tournament</div>
+                        <!-- <div class="event-date">Date: March 25, 2024</div> -->
+                        <a href="" class="register-link" style="pointer-events: none; cursor: default; color: #262626;">Closed</a>
+                    </div>
+
+
+                   
 
                     
                 </div>
@@ -399,36 +431,78 @@
 
             <!-- t-shirt -->
 
-            <!-- <div class="grab-your-tees mb-4">
-                <h4 class="mb-4">Check them out!</h4>
-                <a href="http://bit.ly/Tesla_tshirts">
-                    <img src="images/TSHIRT SALE.jpg" alt="Tee Image">
+            <div class="grab-your-tees mb-4" id="grabt">
+                <br><br>
+                <h3 class="mb-4">Grab your tees!</h3>
+                <!-- <a href="http://bit.ly/Tesla_tshirts"> -->
+                    <img src="images/Tesla-Tshirt.jpg" alt="Tee Image" id="teeimg">
+                    <a class="nav-link click-scroll" href="https://tinyurl.com/Tesla25T-Shirt" id="events-btn"><button>Buy Now</button></a>
+
                 </a>
-            </div> -->
-
-        </section>
-
-
-        <section class="event-gallery">
-            <h2>Tesla through the years</h2>
-            <div class="gallery-container">
-                <!-- Left Image Container -->
-                <div class="media-container left">
-                    <img id="left-image" src="images/Tesla-24/img1.jpeg" alt="Event Image 1">
-                </div>
-        
-                <!-- Video Container (Center) -->
-                <div class="media-container video">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZM897tWzFB8?si=W6yrGm19GCsJSrww" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <!-- <p>Tesla Inaugaration - 2018</p> -->
-                </div>
-        
-                <!-- Right Image Container -->
-                <div class="media-container right">
-                    <img id="right-image" src="images/Tesla-24/img2.JPG" alt="Event Image 2">
-                </div>
             </div>
+
         </section>
+
+        <section id="event-gallery" class="event-gallery">
+            <h3>Tesla through the years</h3>
+            
+            <div class="gallery-container">
+                
+                <!-- Video 1 -->
+                <div class="media-container">
+                    <div class="video-wrapper">
+                        <video width="560" height="315" autoplay muted loop>
+                            <source src="video/aftervideo.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <p class="video-caption">TESLA 2024</p>
+                </div>
+        
+                <!-- Video 2 -->
+                <div class="media-container">
+                    <div class="video-wrapper">
+                        <video width="560" height="315" autoplay muted loop>
+                            <source src="video/tesla22.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <p class="video-caption">TESLA 2022</p>
+                </div>
+        
+                <!-- Video 3 -->
+                <div class="media-container">
+                    <div class="video-wrapper">
+                        <video width="560" height="315" autoplay muted loop>
+                            <source src="video/tesla20.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <p class="video-caption">TESLA 2020</p>
+                </div>
+        
+                <!-- Video 4 -->
+                <div class="media-container">
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" 
+                            src="https://www.youtube.com/embed/ZM897tWzFB8?autoplay=1&mute=1&loop=1&playlist=ZM897tWzFB8"
+                            title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="video-caption">TESLA 2018</p>
+                </div>
+        
+            </div>
+        
+            <a class="nav-link click-scroll" href="gallery.html" id="events-btn">
+                <button>Browse Gallery &nbsp; <img src="images/arrow-icon.png" alt="" width="25px" style="opacity: 0.8;"></button>
+            </a>
+        
+        </section>
+        
+        
+        
+        
         
         
         
@@ -459,20 +533,20 @@
                         <h5 class="site-footer-title mb-3">Any Queries?</h5>
 
                         <p class="text-white d-flex mb-1">
-                            <a href="tel: +91 96055 77592" class="site-footer-link">
+                            <a href="tel: +918547958592" class="site-footer-link">
                                 Pranav M - +91 85479 58592
 
                             </a>
                         </p>
                         <p class="text-white d-flex mb-1">
-                            <a href="tel: +91 96055 77592" class="site-footer-link">
+                            <a href="tel: +919747104733" class="site-footer-link">
                                 Christo Stanly - +91 97471 04733
 
                             </a>
                         </p>
 
                         <p class="text-white d-flex">
-                            <a href="mailto:hello@company.com" class="site-footer-link">
+                            <a href="mailto:tesla25cet@gmail.com" class="site-footer-link">
                                 Email : tesla25cet@gmail.com
                             </a>
                         </p>
@@ -485,23 +559,18 @@
                             <h5 class="site-footer-title mb-3">Want to sponsor?</h5>
 
                             <p class="text-white d-flex mb-1">
-                                <a href="tel: +91 96055 77592" class="site-footer-link">
-                                    Asna : +91 90727 77246
+                                <a href="tel: +918714305499" class="site-footer-link">
+                                    Abhishek : +91 87143 05499
 
                                 </a>
                             </p>
 
                             <p class="text-white d-flex mb-1">
-                                <a href="tel: +91 96055 77592" class="site-footer-link">
-                                    Gowri : +91 82898 40257
+                                <a href="tel: +919446028123" class="site-footer-link">
+                                    Karun : +91 94460 28123
                                 </a>
                             </p>
 
-                            <p class="text-white d-flex mb-1">
-                                <a href="tel: +91 96055 77592" class="site-footer-link">
-                                    Sarang : +91 70251 40214
-                                </a>
-                            </p>
 
                         </div>
                     </div>
@@ -577,6 +646,64 @@ T e m p l a t e M o
             if (contactBtn) fadeInObserver.observe(contactBtn);
             if (eventsBtn) fadeInObserver.observe(eventsBtn);
         });
+
+        // -------------Preloader battery animation---------
+
+    //     if (localStorage.getItem("preloaderShown")) {
+    //     document.getElementById("preloader").style.display = "none"; // Hide preloader if already shown
+    //     return; // Stop further execution
+    // }
+    // localStorage.setItem("preloaderShown", "true");
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+    // Check if the preloader was already shown
+    if (sessionStorage.getItem("preloaderShown")) {
+        document.getElementById("preloader").style.display = "none"; // Hide preloader instantly
+        return;
+    }
+    sessionStorage.setItem("preloaderShown", "true");
+
+
+    let charge = document.querySelector(".charge");
+    let loadingText = document.getElementById("loading-text");
+    let batteryLevel = 0;
+
+    function updateBattery() {
+        if (batteryLevel <= 100) {
+            charge.style.width = batteryLevel + "%"; // Update battery width
+            loadingText.textContent = batteryLevel + "%"; // Update percentage text
+            // if (batteryLevel === 50) {
+            //     setTimeout(() => {
+            //         batteryLevel += 5; // Continue filling normally
+            //     }, 300);
+            // }
+            batteryLevel += 5; // Increase battery charge every interval
+        }
+
+        // Ensure battery fully fills & stays green at 100%
+        if (batteryLevel > 100) {
+            charge.style.width = "100%"; // Ensure full width at 100%
+            charge.style.background = "#6c9c28"; // Change to bright green at full charge
+            clearInterval(batteryInterval); // Stop animation
+
+
+            
+
+            setTimeout(() => {
+                document.getElementById("preloader").style.display = "none"; // Remove preloader
+            }, 2000); // Delay to ensure full battery animation is seen
+        }
+    }
+
+    let batteryInterval = setInterval(updateBattery, 300); // Increase every 200ms
+});
+
+
+
+
         </script>
         
 

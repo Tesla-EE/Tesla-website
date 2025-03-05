@@ -28,6 +28,8 @@
 			);
 		}
 	});
+
+
 	document.addEventListener("scroll", function () {
 		let logo = document.getElementById("teslaLogo");
 		if (window.scrollY > 100) {
@@ -36,6 +38,8 @@
 			logo.classList.remove("shrink");
 		}
 	});
+
+
 	document.addEventListener("scroll", function () {
 		let aboutSection = document.getElementById("aboutTesla");
 		let aboutPosition = aboutSection.getBoundingClientRect().top;
@@ -53,6 +57,8 @@
 			aboutSection.classList.add("hidden-out-left");
 		}
 	});
+
+
 	document.addEventListener("scroll", function () {
 		let aboutSection = document.getElementById("stat");
 		let aboutPosition = aboutSection.getBoundingClientRect().top;
@@ -70,8 +76,10 @@
 			aboutSection.classList.add("hidden-out-right");
 		}
 	});
+
+
 	document.addEventListener("scroll", function () {
-		let aboutSection = document.getElementById("preEvents");
+		let aboutSection = document.getElementById("workshops");
 		let aboutPosition = aboutSection.getBoundingClientRect().top;
 		let aboutBottom = aboutSection.getBoundingClientRect().bottom;
 		let screenHeight = window.innerHeight;
@@ -87,6 +95,27 @@
 			aboutSection.classList.add("hidden-out-left");
 		}
 	});
+
+
+	document.addEventListener("scroll", function () {
+		let aboutSection = document.getElementById("preEvents");
+		let aboutPosition = aboutSection.getBoundingClientRect().top;
+		let aboutBottom = aboutSection.getBoundingClientRect().bottom;
+		let screenHeight = window.innerHeight;
+	
+		// When the section comes into view, slide it in
+		if (aboutPosition < screenHeight / 1.3 && aboutBottom > 0) {
+			aboutSection.classList.add("visible");
+			aboutSection.classList.remove("hidden-out-right");
+		} 
+		// When the section is scrolled past (up or down), move it out
+		else {
+			aboutSection.classList.remove("visible");
+			aboutSection.classList.add("hidden-out-right");
+		}
+	});
+
+
 	
 	/*document.addEventListener("scroll", function () {
 		let aboutSection = document.getElementById("footer");
@@ -192,35 +221,54 @@ document.addEventListener("DOMContentLoaded", function () {
     const leftImages = [
         "images/Tesla-24/img1.jpeg",
         "images/Tesla-24/img3.JPG",
-        "images/Tesla-24/img5.JPG"
-    ];
-    const rightImages = [
-        "images/Tesla-24/img2.JPG",
+        "images/Tesla-24/img5.JPG",
+		"images/Tesla-24/img7.JPG",
+		"images/Tesla-24/img9.JPG",
+		"images/Tesla-24/img11.png",
+		"images/Tesla-24/img2.JPG",
         "images/Tesla-24/img4.JPG",
-        "images/Tesla-24/img6.JPG"
+        "images/Tesla-24/img6.JPG",
+		"images/Tesla-24/img8.JPG",
+		"images/Tesla-24/img10.png",
+		"images/Tesla-24/img12.png"
     ];
+    // const rightImages = [
+        
+    // ];
 
     let index = 0;
     const leftImgElement = document.getElementById("left-image");
-    const rightImgElement = document.getElementById("right-image");
+    // const rightImgElement = document.getElementById("right-image");
 
     function changeImages() {
-        index = (index + 1) % leftImages.length;
-
-        // Fade out images before changing
-        leftImgElement.style.opacity = "0";
-        rightImgElement.style.opacity = "0";
-
-        // Wait for the fade-out effect to complete before swapping images
-        setTimeout(() => {
-            leftImgElement.src = leftImages[index];
-            rightImgElement.src = rightImages[index];
-
-            // Ensure images are loaded before fading back in
-            leftImgElement.onload = () => leftImgElement.style.opacity = "1";
-            rightImgElement.onload = () => rightImgElement.style.opacity = "1";
-        }); // Wait 500ms before changing images
-    }
+		index = (index + 1) % leftImages.length;
+	
+		// Create new Image objects for preloading
+		const newLeftImage = new Image();
+		// const newRightImage = new Image();
+	
+		// Set the source of the new images
+		newLeftImage.src = leftImages[index];
+		// newRightImage.src = rightImages[index];
+	
+		// Wait for both images to load before swapping
+		newLeftImage.onload = function () {
+			leftImgElement.style.opacity = "0";
+			// rightImgElement.style.opacity = "0";
+	
+			setTimeout(() => {
+				leftImgElement.src = newLeftImage.src;
+				// rightImgElement.src = newRightImage.src;
+	
+				// Fade in only after the new images are completely loaded
+				setTimeout(() => {
+					leftImgElement.style.opacity = "1";
+					// rightImgElement.style.opacity = "1";
+				}, 100);
+			}, 500); // Adjust delay if needed
+		};
+	}
+	
 
     setInterval(changeImages, 3000); // Change every 3 seconds
 });
