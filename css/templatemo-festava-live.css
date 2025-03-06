@@ -1225,6 +1225,11 @@ body {
     border-radius: 25px;
 }
 
+.stat-item i {
+  font-size: 3rem !important; /* Force the size change */
+}
+
+
 /*---------------------------------------
   ABOUT              
 -----------------------------------------*/
