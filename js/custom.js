@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*countdown*/
 document.addEventListener("DOMContentLoaded", function () {
     function updateCountdown() {
-        const eventDate = new Date("March 14, 2025 00:00:00").getTime();
+        const eventDate = new Date("March 21, 2025 00:00:00").getTime();
         const now = new Date().getTime();
         const timeLeft = eventDate - now;
 
