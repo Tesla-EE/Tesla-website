@@ -1667,28 +1667,12 @@ body {
 }
 
 /* Event card */
-.event-card {
-  display: inline-block;
-  width: 25%;
-  /*height: 400px; /*Adjust this height to fit the height of the poster */
-  margin-right: 20px;
-  background-color: #839e2975;
-  border-radius: 10px; /* Curved corners */
-  padding: 10px; /* Updated padding */
-  margin-bottom: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+
 .event-card:hover {
   /* transform: scale(1.02);  */
   box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.2); /* Soft glow effect */
 }
-.event-card.spcl {
-  width: 30%; /* Make it full width if needed */
-  height: auto; /* Let it adjust to content */
-  text-align: center; /* Center content */
-  background-color: #556B2F; /* Example: Different background */
-  padding: 20px; /* More padding for better spacing */
-}
+
 
 /* Adjust the video size */
 .event-card.spcl video {
@@ -1746,6 +1730,41 @@ body {
     font-size: 18px !important;
   }
 }
+/* Default for larger screens */
+.event-card {
+  display: inline-block;
+  width: 25%;
+  margin-right: 20px;
+  background-color: #839e2975;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Special event card */
+.event-card.spcl {
+  width: 30%;
+  height: auto;
+  text-align: center;
+  background-color: #556B2F;
+  padding: 20px;
+}
+
+/* Make it responsive for smaller screens */
+@media (max-width: 768px) {
+  .event-card, .event-card.spcl {
+    width: 190%; /* Increase width on smaller screens */
+    margin-right: 0; /* Remove side margin */
+  }
+
+  /* Adjust video size */
+  .event-card.spcl video {
+    max-width: 100%; /* Full width on mobile */
+    height: auto; /* Keep aspect ratio */
+  }
+}
+
 
 
 /* Media query for phone view */
