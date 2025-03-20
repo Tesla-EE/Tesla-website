@@ -1677,9 +1677,14 @@ body {
 /* Adjust the video size */
 .event-card.spcl video {
   width: 100%; /* Full width */
+  height: 150%;
   max-width: 860px; /* Keep it responsive */
   height: auto; /* Maintain aspect ratio */
   aspect-ratio: 16 / 9; 
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 
 /* Event title */
@@ -1748,22 +1753,29 @@ body {
   height: auto;
   text-align: center;
   background-color: #556B2F;
-  padding: 20px;
+  padding: 10px;
+  margin-bottom: 0%;
+  padding-bottom: 0%;
+  
 }
 
 /* Make it responsive for smaller screens */
 @media (max-width: 768px) {
   .event-card, .event-card.spcl {
-    width: 190%; /* Increase width on smaller screens */
-    margin-right: 0; /* Remove side margin */
+    width: 100%; /* Make it fit the screen properly */
+    margin: 0 auto; /* Center the card */
+    padding: 8px; /* Ensure some spacing */
+    padding-bottom: 0px;
+    margin-bottom: 0px;
   }
 
   /* Adjust video size */
   .event-card.spcl video {
-    max-width: 100%; /* Full width on mobile */
-    height: auto; /* Keep aspect ratio */
+    width: 100%; /* Ensure full width */
+    height: auto; /* Maintain aspect ratio */
   }
 }
+
 
 
 
