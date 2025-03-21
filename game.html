@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Leaderboard</title>
+    <link rel="icon" type="image/x-icon" href="/images/tesla_logo.ico">
+    
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="assets/css/committe_styles.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/templatemo-festava-live.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
+    
+    <style>
+        body { 
+            background: var(--dark-color);
+        }
+
+        #gameTitle {
+            color: var(--primary-color);
+            text-align: center;
+            padding: 2rem;
+            font-family: 'Mokoto Glitch';
+        }
+
+        table { 
+            width: 40%; 
+            margin: auto; 
+            border-collapse: collapse; 
+            /* animation: glowEffect 200s infinite alternate ease-in-out; */
+        }
+
+        th {
+            font-family: 'Mokoto Glitch';
+            font-size: 16px;
+            border: 4px solid rgb(70, 70, 70); 
+            padding: 10px; 
+            text-align: center;
+            color: var(--primary-color);
+            opacity: 0.8;
+        }
+
+        td { 
+            border: 2px solid rgb(70, 70, 70); 
+            padding: 10px; 
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            color: #ffffff;
+        }
+
+        .hidden { 
+            display: none; 
+        }
+
+        @media screen and (max-width: 768px) {
+            table { 
+                width: 60%; 
+            }
+            th {
+                font-size: 13px;
+            }
+            #gameTitle {
+                font-size: 27px;
+            }
+        }
+
+        /* No scores message styling */
+        .no-scores {
+            text-align: center;
+            color: #ccc;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<h2 id="gameTitle">Leaderboard</h2>
+<div id="leaderboard" class="leaderboard"></div>
+
+<script>
+    const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBHyTGh57CXclyZWod6AQ_6pszkJI9AMckIS3-sF-u8-Bn60DBh76ff0Hi1k7DxZA5JDXYCO887iQc/pub?output=csv";
+    const noCacheUrl = `${csvUrl}&t=${new Date().getTime()}`;  // Unique timestamp
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const gameName = urlParams.get('game').trim();
+    document.getElementById("gameTitle").textContent = `${gameName}`;
+
+    fetch(noCacheUrl)
+        .then(response => response.text())
+        .then(data => {
+            try {
+                let rows = data.split(/\r?\n/).map(row => row.split(","));
+                rows.shift();  // Remove header
+
+                // Filter players for the selected game
+                let players = rows
+                    .filter(row => row[3]?.trim().replace(/['"]+/g, '') === gameName)  // Match game name
+                    .map(row => ({
+                        name: row[2]?.trim().replace(/['"]+/g, ''),  // Clean player name
+                        score: row[4]?.trim() ? parseInt(row[4].trim()) || 0 : 0
+                    }))
+                    .sort((a, b) => b.score - a.score);
+
+                let leaderboardDiv = document.getElementById("leaderboard");
+
+                if (players.length > 0) {
+                    let table = `<table><tr><th>Name</th><th>Score</th></tr>`;
+
+                    players.forEach(p => {
+                        table += `<tr><td>${p.name}</td><td>${p.score}</td></tr>`;
+                    });
+
+                    table += `</table>`;
+                    leaderboardDiv.innerHTML = table;
+
+                } else {
+                    leaderboardDiv.innerHTML = `<p class="no-scores">No scores available yet</p>`;
+                }
+
+            } catch (error) {
+                console.error("Error processing CSV:", error);
+                document.getElementById("leaderboard").innerHTML = `<p class="no-scores">Error loading leaderboard.</p>`;
+            }
+        })
+        .catch(error => {
+            console.error("Failed to fetch CSV:", error);
+            document.getElementById("leaderboard").innerHTML = `<p class="no-scores">Failed to load leaderboard.</p>`;
+        });
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+</body>
+</html>
