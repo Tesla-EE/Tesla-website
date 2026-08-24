@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 interface NavbarProps {
-  onOpenRegister: () => void;
+  onOpenRegister?: () => void;
 }
 
 export default function Navbar({ onOpenRegister }: NavbarProps) {
@@ -19,100 +19,67 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 250);
+      setScrolled(window.scrollY > 350);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  if (!scrolled) {
+    return null;
+  }
+
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled 
-          ? 'translate-y-0 opacity-100 py-3.5 border-b shadow-2xl shadow-black/80' 
-          : '-translate-y-full opacity-0 pointer-events-none py-3.5'
-      }`}
-      style={{
-        backgroundColor: 'rgba(5, 5, 6, 0.90)',
-        backdropFilter: 'blur(16px)',
-        borderColor: 'var(--border-subtle)',
-      }}
+      className="fixed top-0 left-0 right-0 z-50 py-3.5 bg-[#050506]/90 backdrop-blur-md border-b border-white/[0.08] shadow-2xl shadow-black/80 transition-all duration-300 animate-fadeIn"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 flex items-center justify-between">
 
-        {/* Logo */}
-        <a href="#hero" className="flex items-center gap-2 group">
-          <div 
-            className="w-7 h-7 rounded flex items-center justify-center transition-colors"
-            style={{ border: '1px solid var(--border-default)', background: 'rgba(255,255,255,0.03)' }}
-          >
-            <Zap className="w-3.5 h-3.5" style={{ color: 'var(--accent-warm)' }} />
-          </div>
-          <span 
-            className="font-display text-2xl font-bold tracking-widest transition-colors"
-            style={{ color: 'var(--text-primary)' }}
-          >
-            TESLA <span className="text-xs font-mono-tech align-top text-slate-400">‘26</span>
+        {/* Top-Left Branding */}
+        <a href="#hero" className="inline-block group">
+          <span className="font-display text-2xl sm:text-3xl tracking-widest text-white/95 group-hover:text-white transition-colors">
+            TESLA <span className="font-mono-tech text-xs sm:text-sm text-slate-400 align-top">‘26</span>
           </span>
         </a>
 
-        {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center space-x-8">
+        {/* Top-Right Numbered Navigation Links (Desktop) */}
+        <nav className="hidden md:flex items-center space-x-8 lg:space-x-12">
           {navItems.map((item) => (
-            <a 
-              key={item.num} 
+            <a
+              key={item.num}
               href={item.href}
-              className="flex flex-col items-center group text-xs font-mono-tech tracking-widest transition-colors"
-              style={{ color: 'var(--text-secondary)' }}
+              className="flex flex-col items-center group text-xs font-mono-tech tracking-[0.2em] transition-colors"
             >
-              <span className="text-[10px] transition-colors" style={{ color: 'var(--text-muted)' }}>
+              <span className="text-[10px] text-slate-500 group-hover:text-white transition-colors">
                 {item.num}
               </span>
-              <span className="font-semibold group-hover:text-white transition-colors">{item.name}</span>
+              <span className="text-slate-300 font-semibold group-hover:text-white transition-colors">
+                {item.name}
+              </span>
             </a>
           ))}
-
-          <button 
-            onClick={onOpenRegister}
-            className="px-4 py-2 text-xs font-mono-tech tracking-wider rounded-sm transition-all duration-300 cursor-pointer"
-            style={{
-              border: '1px solid var(--border-strong)',
-              background: 'rgba(255,255,255,0.05)',
-              color: 'var(--text-primary)',
-            }}
-          >
-            JOIN EVENT
-          </button>
         </nav>
 
-        {/* Mobile Trigger */}
-        <button 
+        {/* Mobile Hamburger Menu Button */}
+        <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg transition-colors text-slate-300 hover:text-white"
-          style={{ border: '1px solid var(--border-default)' }}
-          aria-label="Toggle Navigation Menu"
+          className="md:hidden p-2 rounded text-slate-300 hover:text-white border border-white/10 hover:border-white/30 transition-colors"
+          aria-label="Toggle navigation"
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div 
-          className="md:hidden fixed inset-x-0 top-[56px] p-6 shadow-2xl"
-          style={{
-            background: 'rgba(5,5,6,0.98)',
-            backdropFilter: 'blur(20px)',
-            borderBottom: '1px solid var(--border-subtle)',
-          }}
-        >
-          <div className="flex flex-col space-y-3">
+        <div className="md:hidden fixed inset-x-0 top-[60px] z-40 bg-[#070709]/95 backdrop-blur-xl border-b border-white/10 p-6 shadow-2xl animate-fadeIn">
+          <div className="flex flex-col space-y-4">
             {navItems.map((item) => (
-              <a 
-                key={item.num} 
+              <a
+                key={item.num}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between p-3 rounded-lg transition-colors border border-white/5"
+                className="flex items-center justify-between p-3 rounded border border-white/5 hover:border-white/20 hover:bg-white/5 transition-colors"
               >
                 <span className="font-tech text-base tracking-wider text-white">
                   {item.name}
@@ -122,12 +89,6 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
                 </span>
               </a>
             ))}
-            <button 
-              onClick={() => { setMobileMenuOpen(false); onOpenRegister(); }}
-              className="w-full py-3 text-sm font-mono-tech tracking-widest font-bold rounded cursor-pointer bg-white text-black mt-2"
-            >
-              REGISTER FOR TESLA '26
-            </button>
           </div>
         </div>
       )}

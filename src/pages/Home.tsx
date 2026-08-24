@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar/Navbar';
 import Hero from '../components/Hero/Hero';
 import About from '../components/About/About';
 import Highlights from '../components/Highlights/Highlights';
@@ -24,8 +23,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#030304] text-white selection:bg-cyan-500 selection:text-black font-body overflow-x-hidden">
-      <Navbar onOpenRegister={() => handleOpenRegister('ALL ACCESS PASS')} />
-
       <main>
         <Hero onOpenRegister={() => handleOpenRegister('HERO PASS')} />
         <About />

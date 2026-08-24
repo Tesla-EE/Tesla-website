@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import TeslaCoilCanvas from './TeslaCoilCanvas';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -21,55 +20,25 @@ export default function Hero({ onOpenRegister }: HeroProps) {
   return (
     <section 
       id="hero" 
-      className="relative min-h-screen w-full bg-[#050506] bg-grain bg-tech-grid overflow-hidden flex flex-col justify-between"
+      className="relative min-h-screen w-full bg-[#050506] bg-grain overflow-hidden flex flex-col justify-between pt-6 sm:pt-8 pb-8 px-6 sm:px-12 lg:px-16"
+      style={{
+        backgroundImage: "url('/images/herobg.png')",
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
-      {/* =========================================================
-          BACKGROUND TECHNICAL / CELESTIAL SCOPE DIAGRAMS
-          ========================================================= */}
-      
-      {/* Giant Technical Celestial Circle on Left */}
-      <div className="absolute -left-20 sm:-left-32 top-1/2 -translate-y-1/2 w-[550px] h-[550px] sm:w-[750px] sm:h-[750px] lg:w-[900px] lg:h-[900px] pointer-events-none opacity-[0.14] select-none">
-        <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full animate-spin-slow">
-          {/* Concentric rings */}
-          <circle cx="400" cy="400" r="380" stroke="currentColor" strokeWidth="1" strokeDasharray="6 4" className="text-white" />
-          <circle cx="400" cy="400" r="320" stroke="currentColor" strokeWidth="0.75" className="text-white" />
-          <circle cx="400" cy="400" r="240" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 6" className="text-white" />
-          <circle cx="400" cy="400" r="160" stroke="currentColor" strokeWidth="0.75" className="text-white" />
-          <circle cx="400" cy="400" r="80" stroke="currentColor" strokeWidth="0.5" className="text-white" />
-          
-          {/* Radial degree axes */}
-          <line x1="400" y1="20" x2="400" y2="780" stroke="currentColor" strokeWidth="0.75" className="text-white" />
-          <line x1="20" y1="400" x2="780" y2="400" stroke="currentColor" strokeWidth="0.75" className="text-white" />
-          <line x1="131" y1="131" x2="669" y2="669" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 8" className="text-white" />
-          <line x1="669" y1="131" x2="131" y2="669" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 8" className="text-white" />
-
-          {/* Coordinate tick marks around perimeter */}
-          {Array.from({ length: 24 }).map((_, i) => {
-            const angle = (i * 15 * Math.PI) / 180;
-            const x1 = 400 + Math.cos(angle) * 370;
-            const y1 = 400 + Math.sin(angle) * 370;
-            const x2 = 400 + Math.cos(angle) * 380;
-            const y2 = 400 + Math.sin(angle) * 380;
-            return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="currentColor" strokeWidth="1" className="text-white" />;
-          })}
-        </svg>
-      </div>
-
-      {/* Axis Reticle Crosshair Line */}
-      <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-white/[0.03] pointer-events-none" />
-      <div className="absolute left-[38%] top-0 bottom-0 w-[1px] bg-white/[0.03] pointer-events-none hidden lg:block" />
-
-      {/* Subtle Dark Vignette Edges */}
-      <div className="absolute inset-0 bg-radial-gradient from-transparent via-[#050506]/30 to-[#050506]/90 pointer-events-none" />
+      {/* Subtle Ambient Vignette Overlay */}
+      <div className="absolute inset-0 bg-black/25 pointer-events-none" />
 
       {/* =========================================================
-          TOP NAVIGATION BAR (Matches screenshot layout)
+          TOP NAVIGATION BAR (Directly inside Hero - Zero Upper Void)
           ========================================================= */}
-      <header className="relative z-30 w-full pt-8 px-6 sm:px-12 lg:px-16 flex items-start justify-between">
+      <header className="relative z-30 w-full max-w-7xl mx-auto flex items-start justify-between pb-4">
         
         {/* Top-Left Branding */}
         <a href="#hero" className="inline-block group">
-          <span className="font-display text-3xl sm:text-4xl tracking-widest text-white/90 group-hover:text-white transition-colors">
+          <span className="font-display text-3xl sm:text-4xl tracking-widest text-white/95 group-hover:text-white transition-colors">
             TESLA <span className="font-mono-tech text-base sm:text-lg text-slate-400 align-top">‘26</span>
           </span>
         </a>
@@ -104,7 +73,7 @@ export default function Hero({ onOpenRegister }: HeroProps) {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[80px] z-40 bg-[#070709]/95 backdrop-blur-xl border-b border-white/10 p-6 shadow-2xl animate-fadeIn">
+        <div className="md:hidden fixed inset-x-0 top-[70px] z-40 bg-[#070709]/95 backdrop-blur-xl border-b border-white/10 p-6 shadow-2xl animate-fadeIn">
           <div className="flex flex-col space-y-4">
             {navItems.map((item) => (
               <a
@@ -126,31 +95,27 @@ export default function Hero({ onOpenRegister }: HeroProps) {
       )}
 
       {/* =========================================================
-          MAIN HERO CONTENT (Asymmetric 2-Column Desktop Grid)
+          MAIN HERO CONTENT (Immediately Below Navbar)
           ========================================================= */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 my-auto py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="relative z-20 w-full max-w-7xl mx-auto my-auto py-4 sm:py-6 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
         {/* Left Column: Festival Branding, Title, and Date */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="lg:col-span-7 flex flex-col justify-center space-y-6 sm:space-y-8 text-left"
+          className="lg:col-span-7 flex flex-col justify-center space-y-5 sm:space-y-7 text-left"
         >
           {/* Subtitle Presenter Tagline */}
           <div className="font-mono-tech text-[11px] sm:text-xs tracking-[0.25em] text-slate-400 uppercase font-medium">
             DEPARTMENT OF ELECTRICAL ENGINEERING PRESENTS
           </div>
 
-          {/* Massive Display Title */}
-          <div className="relative select-none">
-            <h1 className="font-display text-8xl sm:text-[10rem] lg:text-[12rem] xl:text-[14rem] leading-[0.82] font-normal tracking-tight text-gradient-stone drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
-              TESLA <span className="font-display tracking-tight">‘26</span>
-            </h1>
-          </div>
+          {/* Spacer to frame the background TESLA '26 title */}
+          <div className="h-28 sm:h-40 lg:h-52 xl:h-60" />
 
           {/* Date Badge: ┌ 21 , 22 SEP */}
-          <div className="inline-flex items-center pt-2">
+          <div className="inline-flex items-center pt-1">
             <div className="flex items-center gap-3 font-mono-tech text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.2em] text-white">
               <span className="text-slate-400 font-light text-2xl sm:text-3xl lg:text-4xl -mr-1">┌</span>
               <span>21 , 22 SEP</span>
@@ -158,21 +123,25 @@ export default function Hero({ onOpenRegister }: HeroProps) {
           </div>
         </motion.div>
 
-        {/* Right Column: High-Voltage Tesla Coil Apparatus with Lightning */}
+        {/* Right Column: Lamp / Tesla Coil Image from public/images/lamp.png */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.15 }}
-          className="lg:col-span-5 flex justify-center lg:justify-end items-center"
+          className="lg:col-span-5 flex justify-center lg:justify-center items-center relative"
         >
-          <TeslaCoilCanvas />
+          <img 
+            src="/images/lamp.png" 
+            alt="TESLA '26 Apparatus" 
+            className="w-auto max-h-[62vh] sm:max-h-[72vh] lg:max-h-[80vh] xl:max-h-[85vh] max-w-[300px] sm:max-w-[380px] lg:max-w-[460px] xl:max-w-[520px] object-contain filter contrast-125 brightness-110 drop-shadow-[0_0_50px_rgba(255,255,255,0.25)] select-none pointer-events-none lg:translate-y-2"
+          />
         </motion.div>
       </div>
 
       {/* =========================================================
           BOTTOM FOOTER / SCROLL INDICATOR
           ========================================================= */}
-      <div className="relative z-20 w-full pb-8 px-6 sm:px-12 lg:px-16 flex items-end justify-between">
+      <div className="relative z-20 w-full max-w-7xl mx-auto flex items-end justify-between pt-2">
         
         {/* Technical Calibration Footnote (Hidden on mobile) */}
         <div className="hidden sm:block font-mono-tech text-[9px] text-slate-600 tracking-widest">
