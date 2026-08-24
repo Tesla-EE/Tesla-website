@@ -1,0 +1,310 @@
+/* ============================================
+   TESLA '26 — Textures, Borders & Animations
+   ============================================
+   Reusable visual effect utilities for the
+   electrical / industrial / cosmic aesthetic.
+   ============================================ */
+
+/* ===========================================
+   1. NOISE / GRAIN TEXTURES
+   =========================================== */
+
+/* Film grain — fixed overlay, very subtle.
+   Apply to sections via class, NOT as a
+   pseudo-element on body (prevents stacking). */
+.bg-grain {
+  position: relative;
+}
+
+.bg-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Ensure children sit above the grain */
+.bg-grain > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===========================================
+   2. TECHNICAL GRID PATTERNS
+   =========================================== */
+
+/* Very faint engineering-style grid lines */
+.bg-tech-grid {
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+}
+
+/* Denser micro-grid for cards */
+.bg-micro-grid {
+  background-size: 16px 16px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+/* ===========================================
+   3. RADIAL OVERLAYS
+   =========================================== */
+
+/* Concentric radar / scope rings */
+.bg-radar-rings {
+  background:
+    radial-gradient(circle at center, transparent 25%, rgba(255, 255, 255, 0.015) 25.5%, transparent 26%),
+    radial-gradient(circle at center, transparent 50%, rgba(255, 255, 255, 0.012) 50.5%, transparent 51%),
+    radial-gradient(circle at center, transparent 75%, rgba(255, 255, 255, 0.008) 75.5%, transparent 76%);
+}
+
+/* Soft ambient radial — dark vignette edges */
+.bg-vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+
+/* Very subtle cool-toned center glow */
+.bg-center-glow {
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    rgba(140, 160, 180, 0.04) 0%,
+    transparent 60%
+  );
+}
+
+/* ===========================================
+   4. HUD / TECHNICAL BORDER STYLES
+   =========================================== */
+
+/* Chamfered corner clip-path (8-sided polygon) */
+.chamfer-card {
+  clip-path: polygon(
+    10px 0, calc(100% - 10px) 0,
+    100% 10px, 100% calc(100% - 10px),
+    calc(100% - 10px) 100%, 10px 100%,
+    0 calc(100% - 10px), 0 10px
+  );
+}
+
+/* Top-notched frame (V-shaped indent) */
+.hud-notched-top {
+  clip-path: polygon(
+    0 0,
+    calc(50% - 60px) 0,
+    calc(50% - 40px) 14px,
+    calc(50% + 40px) 14px,
+    calc(50% + 60px) 0,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+}
+
+/* Technical corner marks — applied via CSS pseudo-elements.
+   Use on containers that need HUD corner brackets. */
+.hud-corners {
+  position: relative;
+}
+
+.hud-corners::before,
+.hud-corners::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Top-left and top-right corners */
+.hud-corners::before {
+  top: 6px;
+  left: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hud-corners::after {
+  top: 6px;
+  right: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Bottom corners via a wrapper's children or additional element */
+.hud-corners-bottom {
+  position: relative;
+}
+
+.hud-corners-bottom::before {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  width: 14px;
+  height: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hud-corners-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 14px;
+  height: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Full 4-corner HUD frame (all corners via single element + children) */
+.hud-frame {
+  position: relative;
+  border: 1px solid var(--border-subtle);
+}
+
+.hud-frame::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+}
+
+/* Crosshair center mark */
+.hud-crosshair {
+  position: relative;
+}
+
+.hud-crosshair::before,
+.hud-crosshair::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+
+.hud-crosshair::before {
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 1px;
+  transform: translate(-50%, -50%);
+}
+
+.hud-crosshair::after {
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+}
+
+/* Technical border — thin line with subtle glow */
+.border-tech {
+  border: 1px solid var(--border-default);
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.01);
+}
+
+.border-tech-hover:hover {
+  border-color: var(--border-strong);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02);
+}
+
+/* ===========================================
+   5. ELECTRICAL / LIGHTNING TEXTURES
+   =========================================== */
+
+/* Very faint lightning / crack texture overlay.
+   Uses a CSS radial crack pattern */
+.bg-electric-cracks {
+  position: relative;
+}
+
+.bg-electric-cracks::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.03;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(200, 210, 220, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(200, 210, 220, 0.2) 0%, transparent 40%),
+    radial-gradient(ellipse at 60% 80%, rgba(200, 210, 220, 0.15) 0%, transparent 35%);
+}
+
+/* ===========================================
+   6. ANIMATIONS
+   =========================================== */
+
+/* Slow rotating scope / radar */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 45s linear infinite;
+}
+
+/* Gentle floating bob */
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float-subtle {
+  animation: float-subtle 5s ease-in-out infinite;
+}
+
+/* Slow pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Scan line sweep */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+/* Flicker — subtle electrical flicker */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.7; }
+  94% { opacity: 1; }
+  96% { opacity: 0.85; }
+  97% { opacity: 1; }
+}
+
+.animate-flicker {
+  animation: flicker 4s ease-in-out infinite;
+}

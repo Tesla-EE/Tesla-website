@@ -1,0 +1,108 @@
+/* ============================================
+   TESLA '26 — Global Design System
+   ============================================
+   Visual identity: electrical engineering ×
+   futuristic technology × industrial grit ×
+   cosmic/experimental aesthetics.
+   
+   Monochrome. Restrained. Textured.
+   The only vivid color is neon-green on merch.
+   ============================================ */
+
+@import "tailwindcss";
+@import "./typography.css";
+@import "./textures.css";
+
+/* ---- Design Tokens ---- */
+:root {
+  color-scheme: dark;
+
+  /* Backgrounds — layered near-blacks */
+  --bg-void:     #050506;
+  --bg-surface:  #0a0a0c;
+  --bg-card:     #0d0d10;
+  --bg-elevated: #111114;
+
+  /* Text — warm off-whites, not pure #fff */
+  --text-primary:   #e8e6e3;
+  --text-secondary: #7d7d82;
+  --text-muted:     #454549;
+  --text-ghost:     #252528;
+
+  /* Borders — very low opacity grays */
+  --border-subtle:  rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-strong:  rgba(255, 255, 255, 0.18);
+
+  /* Accents — restrained whites/grays */
+  --accent-warm:  #c8c4be;
+  --accent-cool:  #8a9aaa;
+  --accent-glow:  rgba(180, 200, 220, 0.08);
+  --neon-green:   #b8f148;
+
+  /* Fonts */
+  --font-display:     'Bebas Neue', 'Impact', sans-serif;
+  --font-tech:        'Chakra Petch', 'Space Grotesk', sans-serif;
+  --font-mono:        'JetBrains Mono', 'Fira Code', monospace;
+  --font-handwriting: 'Permanent Marker', cursive;
+  --font-body:        'Inter', system-ui, sans-serif;
+}
+
+/* ---- Base Reset ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-void);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+::selection {
+  background: rgba(184, 241, 72, 0.2);
+  color: #fff;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-void); }
+::-webkit-scrollbar-thumb { background: var(--text-ghost); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ---- Glow Utilities ---- */
+.glow-subtle {
+  box-shadow: 0 0 30px var(--accent-glow), 0 0 80px rgba(180,200,220,0.02);
+}
+
+.glow-green {
+  box-shadow: 0 0 15px rgba(184, 241, 72, 0.12), 0 0 50px rgba(184, 241, 72, 0.04);
+}
+
+/* ---- Section Helpers ---- */
+.section-void    { background-color: var(--bg-void); }
+.section-surface { background-color: var(--bg-surface); }
+
+/* ---- Utility: accent color via CSS var for Tailwind arbitrary ---- */
+.text-accent   { color: var(--accent-warm); }
+.text-accent-2 { color: var(--accent-cool); }
+.text-muted    { color: var(--text-secondary); }
+.text-faint    { color: var(--text-muted); }
+.text-ghost    { color: var(--text-ghost); }
+.border-line   { border-color: var(--border-default); }
+.border-faint  { border-color: var(--border-subtle); }

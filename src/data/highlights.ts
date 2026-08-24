@@ -1,0 +1,39 @@
+import arcadiaImg from '../assets/arcadia.jpg';
+import autoExpoImg from '../assets/auto-expo.jpg';
+import proshowImg from '../assets/proshow.jpg';
+
+export interface HighlightItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  image: string;
+  desc: string;
+  category: string;
+}
+
+export const highlightsData: HighlightItem[] = [
+  {
+    id: 'arcadia',
+    title: 'ARCADIA',
+    subtitle: 'GAMING & LASER FIREWORKS FEST',
+    image: arcadiaImg,
+    desc: 'High-voltage gaming arena, VR simulations, laser fireworks show, and night entertainment.',
+    category: 'ENTERTAINMENT'
+  },
+  {
+    id: 'auto-expo',
+    title: 'AUTO EXPO',
+    subtitle: 'SUPERBIKES & EV SHOWCASE',
+    image: autoExpoImg,
+    desc: 'Exotic superbikes, electric vehicles, autonomous robotics, and hyper-car mechanical displays.',
+    category: 'EXHIBITION'
+  },
+  {
+    id: 'proshow',
+    title: 'PROSHOW',
+    subtitle: 'LIVE ARTIST NIGHT',
+    image: proshowImg,
+    desc: 'Electrifying musical night featuring celebrity artists, violinist virtuosos, and live bands.',
+    category: 'CULTURAL'
+  }
+];
