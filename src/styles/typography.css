@@ -36,7 +36,8 @@
   font-size: clamp(4rem, 12vw, 11rem);
   line-height: 0.85;
   letter-spacing: 0.02em;
-  font-weight: 400; /* Bebas Neue is already bold */
+  font-weight: 400;
+  /* Bebas Neue is already bold */
 }
 
 .text-section {
@@ -59,7 +60,8 @@
 
 .text-label {
   font-family: var(--font-mono);
-  font-size: 0.625rem; /* 10px */
+  font-size: 0.625rem;
+  /* 10px */
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-secondary);
@@ -67,7 +69,8 @@
 
 .text-meta {
   font-family: var(--font-mono);
-  font-size: 0.5625rem; /* 9px */
+  font-size: 0.5625rem;
+  /* 9px */
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -75,13 +78,11 @@
 
 /* ---- Metallic Title Fill ---- */
 .text-gradient-metallic {
-  background: linear-gradient(
-    180deg,
-    #e8e6e3 0%,
-    #b8b4ae 40%,
-    #6e6a64 85%,
-    #3a3834 100%
-  );
+  background: linear-gradient(180deg,
+      #e8e6e3 0%,
+      #b8b4ae 40%,
+      #6e6a64 85%,
+      #3a3834 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -89,14 +90,12 @@
 
 /* Stone / Concrete texture effect for hero title */
 .text-gradient-stone {
-  background: linear-gradient(
-    175deg,
-    #d4d0ca 0%,
-    #9e9a94 25%,
-    #c8c4be 45%,
-    #7a766e 70%,
-    #5a5650 100%
-  );
+  background: linear-gradient(175deg,
+      #d4d0ca 0%,
+      #9e9a94 25%,
+      #c8c4be 45%,
+      #7a766e 70%,
+      #5a5650 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
