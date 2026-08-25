@@ -10,7 +10,7 @@ export default function Highlights({ onSelectCard }: HighlightsProps) {
   return (
     <section
       id="highlights"
-      className="relative w-full bg-[#0a0a0a] text-white py-16 sm:py-20 lg:py-24 overflow-hidden select-none"
+      className="relative w-full bg-[#0a0a0a] text-white pt-16 sm:pt-20 lg:pt-24 pb-0 overflow-hidden select-none"
       style={{
         backgroundColor: '#0a0a0a',
       }}
