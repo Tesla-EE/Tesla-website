@@ -4,9 +4,11 @@ export interface CompetitionItem {
   subtitle: string;
   desc: string;
   prize: string;
+  badge?: string;
   iconName: 'Code' | 'ShieldAlert' | 'Trophy';
   teamSize: string;
   venue: string;
+  image: string;
 }
 
 export const competitionsData: CompetitionItem[] = [
@@ -16,9 +18,11 @@ export const competitionsData: CompetitionItem[] = [
     subtitle: 'HARDWARE + SOFTWARE SPRINT',
     desc: 'Build functional energy prototypes to solve real-world grid stabilization and IoT problems.',
     prize: '₹50,000 CASH',
+    badge: 'NEW',
     iconName: 'Code',
     teamSize: '2 - 4 Members',
-    venue: 'Main Seminar Hall'
+    venue: 'Main Seminar Hall',
+    image: '/images/events/comp_hackathon.jpg'
   },
   {
     id: 'comp-2',
@@ -26,9 +30,11 @@ export const competitionsData: CompetitionItem[] = [
     subtitle: 'BOT COMBAT LEAGUE',
     desc: 'Custom-built heavyweight robot warfare battle in a bulletproof steel cage arena.',
     prize: '₹40,000 CASH',
+    badge: 'NEW',
     iconName: 'ShieldAlert',
     teamSize: 'Up to 5 Members',
-    venue: 'Outdoor Sports Arena'
+    venue: 'Outdoor Sports Arena',
+    image: '/images/events/comp_robowars.jpg'
   },
   {
     id: 'comp-3',
@@ -36,8 +42,10 @@ export const competitionsData: CompetitionItem[] = [
     subtitle: 'FAULT ISOLATION CHALLENGE',
     desc: 'Troubleshoot complex high-frequency PCB circuit boards under intense timed rounds.',
     prize: '₹30,000 CASH',
+    badge: 'NEW',
     iconName: 'Trophy',
     teamSize: 'Individual / Pair',
-    venue: 'Advanced EE Lab 3'
+    venue: 'Advanced EE Lab 3',
+    image: '/images/events/comp_circuits.jpg'
   }
 ];

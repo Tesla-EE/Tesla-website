@@ -8,98 +8,254 @@ interface HighlightsProps {
 
 export default function Highlights({ onSelectCard }: HighlightsProps) {
   return (
-    <section id="highlights" className="py-24 sm:py-32 lg:py-36 relative bg-[#040405] bg-grain overflow-hidden">
-      
-      {/* Subtle background celestial radar rings */}
+    <section
+      id="highlights"
+      className="relative w-full bg-[#0a0a0a] text-white py-16 sm:py-20 lg:py-24 overflow-hidden select-none"
+      style={{
+        backgroundColor: '#0a0a0a',
+      }}
+    >
+      {/* =========================================================
+          LAYER 1: FILM GRAIN / NOISE OVERLAY (feTurbulence)
+          ========================================================= */}
+      <svg
+        className="pointer-events-none absolute inset-0 w-full h-full opacity-[0.04] z-[1]"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <filter id="noiseFilter-highlights">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.8"
+            numOctaves="4"
+            stitchTiles="stitch"
+          />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noiseFilter-highlights)" />
+      </svg>
 
-      <div className="max-w-7xl xl:max-w-[1380px] mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
+      {/* =========================================================
+          LAYER 2: FAINT BLUEPRINT / GRID LINES (~5-8% opacity)
+          ========================================================= */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[2] opacity-[0.06]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(255, 255, 255, 0.7) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 1px, transparent 1px)
+          `,
+          backgroundSize: '56px 56px',
+        }}
+      />
+
+      {/* =========================================================
+          COOL BLUE-WHITE AMBIENT GLOW (Left Edge)
+          ========================================================= */}
+      <div
+        className="pointer-events-none absolute -left-32 top-1/4 w-[450px] h-[550px] rounded-full z-[2] opacity-35 blur-[90px]"
+        style={{
+          background: 'radial-gradient(circle, rgba(74, 144, 226, 0.18) 0%, rgba(74, 144, 226, 0.04) 50%, transparent 80%)',
+        }}
+      />
+
+      {/* =========================================================
+          LAYER 3: CIRCULAR TARGETING / RADAR RETICLE (Bottom-Left)
+          ========================================================= */}
+      <div className="pointer-events-none absolute -bottom-36 -left-36 w-[520px] h-[520px] sm:w-[620px] sm:h-[620px] z-[2] opacity-[0.10]">
+        <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-white">
+          {/* Concentric rings */}
+          <circle cx="250" cy="250" r="230" stroke="currentColor" strokeWidth="1" strokeDasharray="3 4" />
+          <circle cx="250" cy="250" r="175" stroke="currentColor" strokeWidth="1" />
+          <circle cx="250" cy="250" r="115" stroke="currentColor" strokeWidth="1" strokeDasharray="2 3" />
+          <circle cx="250" cy="250" r="60" stroke="currentColor" strokeWidth="1" />
+          <circle cx="250" cy="250" r="4" fill="currentColor" />
+
+          {/* Full crosshair axes */}
+          <line x1="20" y1="250" x2="480" y2="250" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
+          <line x1="250" y1="20" x2="250" y2="480" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
+
+          {/* Diagonal ticks */}
+          <line x1="100" y1="100" x2="115" y2="115" stroke="currentColor" strokeWidth="1.5" />
+          <line x1="400" y1="100" x2="385" y2="115" stroke="currentColor" strokeWidth="1.5" />
+          <line x1="100" y1="400" x2="115" y2="385" stroke="currentColor" strokeWidth="1.5" />
+          <line x1="400" y1="400" x2="385" y2="385" stroke="currentColor" strokeWidth="1.5" />
+
+          {/* Target degrees text */}
+          <text x="256" y="85" fill="currentColor" fontSize="10" fontFamily="monospace" letterSpacing="2">090°</text>
+          <text x="415" y="246" fill="currentColor" fontSize="10" fontFamily="monospace" letterSpacing="2">180°</text>
+          <text x="256" y="425" fill="currentColor" fontSize="10" fontFamily="monospace" letterSpacing="2">270°</text>
+          <text x="75" y="246" fill="currentColor" fontSize="10" fontFamily="monospace" letterSpacing="2">360°</text>
+        </svg>
+      </div>
+
+      {/* =========================================================
+          TOP NOTCH / TRAPEZOID TAB (Centered on Top Edge)
+          ========================================================= */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+        <svg width="96" height="10" viewBox="0 0 96 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0 0 H18 L26 9 H70 L78 0 H96"
+            fill="#0a0a0a"
+            stroke="rgba(255, 255, 255, 0.12)"
+            strokeWidth="1"
+          />
+          <line x1="38" y1="5" x2="58" y2="5" stroke="rgba(255, 255, 255, 0.25)" strokeWidth="1" />
+        </svg>
+      </div>
+
+      {/* =========================================================
+          CORNER ACCENT MARKS
+          ========================================================= */}
+      {/* Top-Left Corner: Bracket + Circular Target Icon with Blue Accent */}
+      <div className="absolute top-6 left-6 z-10 flex items-center gap-2 pointer-events-none">
+        <div className="w-3.5 h-3.5 border-t border-l border-white/30" />
+        <div className="flex items-center gap-1.5 opacity-60">
+          <div className="w-3 h-3 rounded-full border border-[#4a90e2]/80 flex items-center justify-center">
+            <div className="w-1 h-1 rounded-full bg-[#4a90e2]" />
+          </div>
+          <span className="font-mono text-[9px] tracking-[0.2em] text-[#4a90e2]/90">REC·01</span>
+        </div>
+      </div>
+
+      {/* Top-Right Corner */}
+      <div className="absolute top-6 right-6 z-10 pointer-events-none">
+        <div className="w-3.5 h-3.5 border-t border-r border-white/30" />
+      </div>
+
+      {/* Bottom-Left Corner */}
+      <div className="absolute bottom-6 left-6 z-10 pointer-events-none">
+        <div className="w-3.5 h-3.5 border-b border-l border-white/30" />
+      </div>
+
+      {/* Bottom-Right Corner */}
+      <div className="absolute bottom-6 right-6 z-10 pointer-events-none">
+        <div className="w-3.5 h-3.5 border-b border-r border-white/30" />
+      </div>
+
+      {/* =========================================================
+          MAIN CONTAINER & CONTENT
+          ========================================================= */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         
-        {/* Outer Section Frame with Top HUD Notch */}
-        <div className="relative border border-white/[0.08] rounded-2xl p-8 sm:p-14 lg:p-18 bg-[#07070a]/90 backdrop-blur-md shadow-2xl">
+        {/* SECTION HEADING AREA */}
+        <div className="relative mb-10 sm:mb-12">
           
-          {/* Top Notch Accent (inspired by screenshots) */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-44 sm:w-60 h-4 bg-[#040405] border-b border-x border-white/[0.08] rounded-b-lg flex items-center justify-center">
-            <div className="w-12 h-[1px] bg-white/25" />
-          </div>
-
-          {/* Section Header */}
-          <div className="relative mb-14 sm:mb-20 flex items-center">
-            {/* Background Watermark Text */}
-            <div className="absolute left-16 top-1/2 -translate-y-1/2 select-none pointer-events-none opacity-[0.035]">
-              <span className="font-tech text-7xl sm:text-9xl lg:text-[11rem] font-bold tracking-[0.2em] text-stroke-ghost uppercase">
-                HIGHLIGHTS
-              </span>
-            </div>
-
-            {/* Target Reticle Icon on Left */}
-            <div className="w-12 h-12 sm:w-16 sm:h-16 border border-white/20 rounded-lg flex items-center justify-center mr-5 sm:mr-8 text-white/70 flex-shrink-0 select-none">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="7" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
-                <line x1="12" y1="2" x2="12" y2="22" stroke="currentColor" strokeWidth="1" />
-                <line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" strokeWidth="1" />
-                <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-              </svg>
-            </div>
-
-            {/* Section Title */}
-            <h2 className="font-tech text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-[0.12em] text-white uppercase select-none">
+          {/* LAYER 4: GHOST / WATERMARK ECHO TEXT BEHIND HEADING */}
+          <div
+            aria-hidden="true"
+            className="absolute -top-3 sm:-top-5 -left-2 sm:-left-3 pointer-events-none select-none opacity-[0.05] z-0"
+            style={{
+              fontFamily: "'Anton', 'Archivo Black', sans-serif",
+              letterSpacing: '0.05em',
+            }}
+          >
+            <span className="text-5xl sm:text-7xl md:text-8xl lg:text-[100px] font-black uppercase text-white leading-none whitespace-nowrap">
               HIGHLIGHTS
-            </h2>
+            </span>
           </div>
 
-          {/* 3 Visual Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-            {highlightsData.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                viewport={{ once: true }}
-                onClick={() => onSelectCard(item)}
-                className="group cursor-pointer flex flex-col items-center select-none"
-              >
-                {/* HUD Framed Image Container */}
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/15 bg-black/60 p-2 transition-all duration-500 group-hover:border-white/40 group-hover:shadow-[0_0_35px_rgba(255,255,255,0.1)]">
-                  
-                  {/* Chamfered Corners Cut */}
-                  <div className="w-full h-full overflow-hidden rounded-lg relative">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover filter grayscale contrast-125 brightness-90 group-hover:scale-105 group-hover:contrast-110 group-hover:brightness-100 transition-all duration-700 ease-out"
-                    />
+          {/* REAL HEADING */}
+          <h2
+            className="relative z-10 text-4xl sm:text-5xl md:text-[52px] font-bold uppercase tracking-[0.05em] text-[#f0f0f0] leading-none"
+            style={{
+              fontFamily: "'Anton', 'Archivo Black', sans-serif",
+            }}
+          >
+            HIGHLIGHTS
+          </h2>
+        </div>
 
-                    {/* Subtle Scanline Overlay on Image */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/60 pointer-events-none" />
+        {/* =========================================================
+            3-COLUMN VIDEO PREVIEW CARDS GRID
+            ========================================================= */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7 items-start">
+          {highlightsData.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              onClick={() => onSelectCard(item)}
+              className="group cursor-pointer flex flex-col items-center select-none"
+            >
+              {/* VIDEO CARD THUMBNAIL CONTAINER */}
+              <div
+                className="relative w-full aspect-[4/3] rounded-[12px] overflow-hidden bg-[#0d0d0d] border border-white/[0.08] transition-all duration-300 ease-out group-hover:scale-[1.02] group-hover:border-white/20 group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.8)]"
+              >
+                {/* Thumbnail Image with Desaturated Cinematic Grading */}
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-all duration-300 ease-out"
+                  style={{
+                    filter: 'grayscale(40%) brightness(0.7) contrast(1.1)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'grayscale(15%) brightness(0.92) contrast(1.05)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'grayscale(40%) brightness(0.7) contrast(1.1)';
+                  }}
+                />
+
+                {/* Subtle dark vignette gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/20 pointer-events-none" />
+
+                {/* CORNER BRACKET ACCENTS (L-shaped viewfinder ticks in bottom corners) */}
+                {/* Top-Left Viewfinder Tick */}
+                <div className="absolute top-2.5 left-2.5 w-2.5 h-2.5 border-t border-l border-white/40 pointer-events-none" />
+                {/* Top-Right Viewfinder Tick */}
+                <div className="absolute top-2.5 right-2.5 w-2.5 h-2.5 border-t border-r border-white/40 pointer-events-none" />
+                {/* Bottom-Left Viewfinder Tick */}
+                <div className="absolute bottom-2.5 left-2.5 w-2.5 h-2.5 border-b border-l border-white/60 pointer-events-none z-10" />
+                {/* Bottom-Right Viewfinder Tick */}
+                <div className="absolute bottom-2.5 right-2.5 w-2.5 h-2.5 border-b border-r border-white/60 pointer-events-none z-10" />
+
+                {/* =======================================================
+                    MINIMAL VIDEO PROGRESS / SCRUB BAR (Pinned near bottom)
+                    ======================================================= */}
+                <div className="absolute bottom-3 inset-x-0 px-5 flex items-center justify-between gap-3 pointer-events-none z-10">
+                  {/* Left: Play/Pause indicator icon */}
+                  <div className="text-white/60 group-hover:text-white/90 transition-colors flex items-center justify-center flex-shrink-0">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
                   </div>
 
-                  {/* Corner HUD Bracket Ticks on the Image Frame */}
-                  <div className="absolute top-3 left-3 text-[9px] font-mono-tech text-white/40 pointer-events-none">┌</div>
-                  <div className="absolute top-3 right-3 text-[9px] font-mono-tech text-white/40 pointer-events-none">┐</div>
-                  <div className="absolute bottom-3 left-3 text-[9px] font-mono-tech text-white/40 pointer-events-none">└</div>
-                  <div className="absolute bottom-3 right-3 text-[9px] font-mono-tech text-white/40 pointer-events-none">┘</div>
+                  {/* Center: Thin horizontal progress scrub track */}
+                  <div className="flex-1 h-[2px] bg-white/20 rounded-full overflow-hidden relative">
+                    <div
+                      className="h-full bg-white/70 rounded-full transition-all duration-300 group-hover:bg-white"
+                      style={{
+                        width: `${35 + index * 20}%`,
+                      }}
+                    />
+                  </div>
 
-                  {/* Bottom Technical Scale Indicator (— · · —) */}
-                  <div className="absolute bottom-2.5 inset-x-0 flex items-center justify-center gap-2 pointer-events-none opacity-40 group-hover:opacity-80 transition-opacity">
-                    <div className="w-8 h-[1px] bg-white" />
-                    <div className="w-1.5 h-1.5 rounded-full bg-white" />
-                    <div className="w-1.5 h-1.5 rounded-full bg-white" />
-                    <div className="w-8 h-[1px] bg-white" />
+                  {/* Right: Fullscreen / Expand icon */}
+                  <div className="text-white/60 group-hover:text-white/90 transition-colors flex items-center justify-center flex-shrink-0">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+                    </svg>
                   </div>
                 </div>
+              </div>
 
-                {/* Card Title Below Frame */}
-                <h3 className="font-tech text-2xl sm:text-3xl lg:text-4xl font-bold tracking-[0.18em] text-white/90 group-hover:text-white transition-colors uppercase mt-6 text-center">
-                  {item.title}
-                </h3>
-              </motion.div>
-            ))}
-          </div>
-
+              {/* CARD TITLE LABEL (Outside bordered box, centered below) */}
+              <h3
+                className="mt-4 text-center text-[19px] sm:text-[21px] font-bold uppercase tracking-[0.1em] text-[#e5e5e5] group-hover:text-white transition-colors duration-200"
+                style={{
+                  fontFamily: "'Anton', 'Archivo Black', sans-serif",
+                }}
+              >
+                {item.title}
+              </h3>
+            </motion.div>
+          ))}
         </div>
 
       </div>
     </section>
   );
 }
+

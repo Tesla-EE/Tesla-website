@@ -8,6 +8,7 @@ export interface WorkshopItem {
   date: string;
   instructor: string;
   seatsLeft: number;
+  image: string;
 }
 
 export const workshopsData: WorkshopItem[] = [
@@ -18,9 +19,10 @@ export const workshopsData: WorkshopItem[] = [
     desc: 'Master ROS2, embedded microcontroller programming, and autonomous robot navigation.',
     badge: 'NEW',
     iconName: 'Cpu',
-    date: 'DAY 1 - 09:30 AM',
+    date: 'DAY 1 — 09:30 AM',
     instructor: 'Dr. V. Sharma (IIT M)',
-    seatsLeft: 15
+    seatsLeft: 15,
+    image: '/images/events/workshop_robotics.jpg'
   },
   {
     id: 'ws-2',
@@ -29,9 +31,10 @@ export const workshopsData: WorkshopItem[] = [
     desc: 'Deep dive into electric powertrain design, BMS algorithms, and regenerative braking circuits.',
     badge: 'NEW',
     iconName: 'Zap',
-    date: 'DAY 1 - 02:00 PM',
+    date: 'DAY 1 — 02:00 PM',
     instructor: 'Er. A. Kulkarni (Tesla Motors)',
-    seatsLeft: 8
+    seatsLeft: 8,
+    image: '/images/events/workshop_ev.jpg'
   },
   {
     id: 'ws-3',
@@ -40,8 +43,9 @@ export const workshopsData: WorkshopItem[] = [
     desc: 'Build SDR receivers, analyze microwave signals, and simulate satellite link budgets.',
     badge: 'NEW',
     iconName: 'Radio',
-    date: 'DAY 2 - 10:00 AM',
+    date: 'DAY 2 — 10:00 AM',
     instructor: 'Prof. R. Menon (ISRO)',
-    seatsLeft: 22
+    seatsLeft: 22,
+    image: '/images/events/workshop_satellite.jpg'
   }
 ];
