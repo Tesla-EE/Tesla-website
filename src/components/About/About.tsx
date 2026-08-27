@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   return (
-    <section id="about" className="pt-0 pb-20 sm:pb-28 lg:pb-32 relative bg-[#050506] bg-grain overflow-hidden">
+    <section id="about" className="pt-0 pb-0 relative bg-[#050506] bg-grain overflow-hidden">
 
       {/* SECTION 1 — IMPACT (Full Screen Width) */}
-      <div className="w-full max-w-full px-0 mb-1 sm:mb-2 relative z-10">
+      <div className="w-full max-w-full px-0 mb-8 sm:mb-10 lg:mb-12 relative z-10">
         <Impact />
       </div>
 

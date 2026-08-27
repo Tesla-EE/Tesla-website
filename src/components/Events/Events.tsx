@@ -121,7 +121,7 @@ export default function Events({ onSelectCard }: EventsProps) {
           ========================================================= */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-28 sm:space-y-36 lg:space-y-44">
         {/* SECTION 1: WORKSHOPS */}
-        <Workshops onSelectCard={onSelectCard} />
+        {/*<Workshops onSelectCard={onSelectCard} />*/}
 
         {/* SECTION 2: COMPETITIONS */}
         <Competitions onSelectCard={onSelectCard} />

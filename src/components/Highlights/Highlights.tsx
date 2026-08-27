@@ -10,7 +10,8 @@ export default function Highlights({ onSelectCard }: HighlightsProps) {
   return (
     <section
       id="highlights"
-      className="relative w-full bg-[#0a0a0a] text-white pt-16 sm:pt-20 lg:pt-24 pb-0 overflow-hidden select-none"
+      className="relative w-full bg-[#0a0a0a] text-white pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 lg:pb-24 overflow-hidden select-none"
+
       style={{
         backgroundColor: '#0a0a0a',
       }}
@@ -134,7 +135,7 @@ export default function Highlights({ onSelectCard }: HighlightsProps) {
       {/* =========================================================
           MAIN CONTAINER & CONTENT
           ========================================================= */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="relative z-10 max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* SECTION HEADING AREA */}
         <div className="relative mb-10 sm:mb-12">
@@ -167,7 +168,7 @@ export default function Highlights({ onSelectCard }: HighlightsProps) {
         {/* =========================================================
             3-COLUMN VIDEO PREVIEW CARDS GRID
             ========================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-7 lg:gap-9 items-start">
           {highlightsData.map((item, index) => (
             <motion.div
               key={item.id}
@@ -182,21 +183,31 @@ export default function Highlights({ onSelectCard }: HighlightsProps) {
               <div
                 className="relative w-full aspect-[4/3] rounded-[12px] overflow-hidden bg-[#0d0d0d] border border-white/[0.08] transition-all duration-300 ease-out group-hover:scale-[1.02] group-hover:border-white/20 group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.8)]"
               >
-                {/* Thumbnail Image with Desaturated Cinematic Grading */}
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-all duration-300 ease-out"
-                  style={{
-                    filter: 'grayscale(40%) brightness(0.7) contrast(1.1)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'grayscale(15%) brightness(0.92) contrast(1.05)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'grayscale(40%) brightness(0.7) contrast(1.1)';
-                  }}
-                />
+                {/* Use a video when supplied, keeping the image as the poster/fallback. */}
+                {item.video ? (
+                  <video
+                    src={item.video}
+                    poster={item.image}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    aria-label={item.title}
+                    className="w-full h-full object-cover transition-all duration-300 ease-out"
+                    style={{
+                      filter: 'grayscale(40%) brightness(0.7) contrast(1.1)',
+                    }}
+                  />
+                ) : (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-all duration-300 ease-out"
+                    style={{
+                      filter: 'grayscale(40%) brightness(0.7) contrast(1.1)',
+                    }}
+                  />
+                )}
 
                 {/* Subtle dark vignette gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/20 pointer-events-none" />
@@ -243,7 +254,7 @@ export default function Highlights({ onSelectCard }: HighlightsProps) {
 
               {/* CARD TITLE LABEL (Outside bordered box, centered below) */}
               <h3
-                className="mt-4 text-center text-[19px] sm:text-[21px] font-bold uppercase tracking-[0.1em] text-[#e5e5e5] group-hover:text-white transition-colors duration-200"
+                className="mt-5 text-center text-[21px] sm:text-[23px] font-bold uppercase tracking-[0.1em] text-[#e5e5e5] group-hover:text-white transition-colors duration-200"
                 style={{
                   fontFamily: "'Anton', 'Archivo Black', sans-serif",
                 }}

@@ -5,6 +5,7 @@ import Highlights from '../components/Highlights/Highlights';
 import Events from '../components/Events/Events';
 import Merchandise from '../components/Merchandise/Merchandise';
 import Footer from '../components/Footer/Footer';
+import Navbar from '../components/Navbar/Navbar';
 import RegistrationModal from '../components/common/RegistrationModal';
 
 export default function Home() {
@@ -23,12 +24,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#030304] text-white selection:bg-cyan-500 selection:text-black font-body overflow-x-hidden">
+      <Navbar />
       <main>
         <Hero onOpenRegister={() => handleOpenRegister('HERO PASS')} />
         <About />
         <Highlights onSelectCard={(item) => handleOpenRegister(item.title)} />
         <Events onSelectCard={(item) => handleOpenRegister(item.title)} />
-        <Merchandise onOpenBuy={() => handleOpenRegister("TESLA '26 OFFICIAL T-SHIRT")} />
+        {/* <Merchandise onSelectCard={(item) => handleOpenRegister(item.title)} /> */}
       </main>
 
       <Footer />

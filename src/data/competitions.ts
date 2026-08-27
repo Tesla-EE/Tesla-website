@@ -14,7 +14,7 @@ export interface CompetitionItem {
 export const competitionsData: CompetitionItem[] = [
   {
     id: 'comp-1',
-    title: '24-HR ELECTRIC HACKATHON',
+    title: 'E-FOOTBALL',
     subtitle: 'HARDWARE + SOFTWARE SPRINT',
     desc: 'Build functional energy prototypes to solve real-world grid stabilization and IoT problems.',
     prize: '₹50,000 CASH',
@@ -22,7 +22,7 @@ export const competitionsData: CompetitionItem[] = [
     iconName: 'Code',
     teamSize: '2 - 4 Members',
     venue: 'Main Seminar Hall',
-    image: '/images/events/comp_hackathon.jpg'
+    image: '/images/competition/E-FOOTBALL.jpeg'
   },
   {
     id: 'comp-2',
@@ -34,7 +34,7 @@ export const competitionsData: CompetitionItem[] = [
     iconName: 'ShieldAlert',
     teamSize: 'Up to 5 Members',
     venue: 'Outdoor Sports Arena',
-    image: '/images/events/comp_robowars.jpg'
+    image: '/images/competition/Battlegrounds%20Mobile%20India%20Tournament.jpeg'
   },
   {
     id: 'comp-3',
@@ -46,6 +46,6 @@ export const competitionsData: CompetitionItem[] = [
     iconName: 'Trophy',
     teamSize: 'Individual / Pair',
     venue: 'Advanced EE Lab 3',
-    image: '/images/events/comp_circuits.jpg'
+    image: '/images/competition/Mini%20Militia.jpeg'
   }
 ];
