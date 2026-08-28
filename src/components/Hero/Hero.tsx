@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -9,13 +9,28 @@ export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const stillVideoRef = useRef<HTMLVideoElement>(null);
+  
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check for mobile viewport
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile(); // Check immediately on mount
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
+    // If we are on mobile, abort all the heavy canvas/video and GSAP loading
+    if (isMobile) return;
+
     const canvas = canvasRef.current;
     const stillVideo = stillVideoRef.current;
     const context = canvas?.getContext('2d');
 
-    // Autoplay the initial looping video
+    // Autoplay the initial looping video for desktop
     if (stillVideo) {
       stillVideo.muted = true;
       const playStill = () => {
@@ -32,7 +47,7 @@ export default function Hero() {
 
     // Canvas setup for crisp rendering
     canvas.width = 1280;
-    canvas.height = 731; // Matches the aspect ratio of the extracted frames (768 originally, scaled to 731)
+    canvas.height = 731; // Matches the aspect ratio of the extracted frames
 
     // Sequence configuration
     const frameCount = 118; // Total extracted frames
@@ -42,7 +57,7 @@ export default function Hero() {
     const images: HTMLImageElement[] = [];
     const airpods = { frame: 0 };
 
-    // Preload images
+    // Preload images for desktop scrub
     for (let i = 0; i < frameCount; i++) {
       const img = new Image();
       img.src = currentFrame(i);
@@ -94,11 +109,11 @@ export default function Hero() {
     return () => {
       ctx.revert();
     };
-  }, []);
+  }, [isMobile]);
 
   return (
-    // 700vh outer wrapper — gives massive amount of scroll room to comfortably play the sequence slowly
-    <div ref={heroRef} className="relative h-[700vh]">
+    // On mobile, just 100vh height. On desktop, 700vh for the scrub room.
+    <div ref={heroRef} className={`relative ${isMobile ? 'h-screen' : 'h-[700vh]'}`}>
       {/* Sticky inner — stays pinned while scrolling through the hero sequence */}
       <section
         id="hero"
@@ -106,34 +121,46 @@ export default function Hero() {
       >
         {/* ── Background Sequence Layer ─────────────────────────────────── */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          {/* Main scrub canvas sequence — synchronized with scroll position */}
-          <canvas
-            ref={canvasRef}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+          {isMobile ? (
+            /* STATIC MOBILE BACKGROUND */
+            <img 
+              src="/images/Hero_mob.png" 
+              alt="TESLA 26 Background" 
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          ) : (
+            /* DYNAMIC DESKTOP SEQUENCE */
+            <>
+              {/* Main scrub canvas sequence — synchronized with scroll position */}
+              <canvas
+                ref={canvasRef}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
 
-          {/* Initial ambient video — looping at top, fades out smoothly on scroll */}
-          <video
-            ref={stillVideoRef}
-            src="/videos/Bg1_A.mp4"
-            muted
-            autoPlay
-            loop
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-100"
-          />
+              {/* Initial ambient video — looping at top, fades out smoothly on scroll */}
+              <video
+                ref={stillVideoRef}
+                src="/videos/Bg1_A.mp4"
+                muted
+                autoPlay
+                loop
+                playsInline
+                preload="auto"
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-100"
+              />
+            </>
+          )}
         </div>
 
         {/* =========================================================
             MAIN HERO CONTENT (Framing the 3D title and coil)
             ========================================================= */}
-        <div className="relative z-20 w-full max-w-7xl mx-auto my-auto flex flex-col justify-between">
+        <div className="relative z-20 w-full max-w-7xl mx-auto flex-1 flex flex-col justify-between pt-1 sm:pt-16 pb-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0 }}
-            className="max-w-2xl flex flex-col space-y-4 sm:space-y-6 text-left"
+            className="flex-1 flex flex-col w-full text-left"
           >
             {/* Subtitle Presenter Tagline */}
             <div className="flex items-center gap-2.5">
@@ -143,11 +170,8 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Spacer to frame the background 3D TESLA '26 title rendered in the sequence */}
-            <div className="h-32 sm:h-44 lg:h-56 xl:h-64" />
-
-            {/* Date Badge: ┌ 21 , 22 SEP */}
-            <div className="inline-flex items-center pt-2">
+            {/* Date Badge: ┌ 21 , 22 SEP pushed to bottom via mt-auto and translate-y */}
+            <div className="mt-auto inline-flex items-center translate-y-3">
               <div className="flex items-center gap-3 font-mono-tech text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.2em] text-white">
                 <span className="text-slate-300 font-light text-2xl sm:text-3xl lg:text-4xl -mr-1">┌</span>
                 <span>21 , 22 SEP</span>
@@ -167,7 +191,7 @@ export default function Hero() {
           </div>
 
           {/* Scroll-to-Explore Vertical Text */}
-          <div className="ml-auto flex items-center gap-3 rotate-90 origin-bottom-right translate-x-4 sm:translate-x-0 font-mono-tech text-[10px] sm:text-[11px] tracking-[0.35em] text-slate-400 hover:text-white transition-colors select-none">
+          <div className="ml-auto flex items-center gap-3 rotate-90 origin-bottom-right translate-x-2 sm:translate-x-0 font-mono-tech text-[10px] sm:text-[11px] tracking-[0.35em] text-slate-400 hover:text-white transition-colors select-none">
             <span className="uppercase">SCROLL TO EXPLORE</span>
           </div>
         </div>
