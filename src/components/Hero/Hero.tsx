@@ -135,7 +135,7 @@ export default function Hero() {
           >
             {/* Subtitle Presenter Tagline */}
             <div className="flex items-center gap-2.5">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
+              <span className="w-2 h-2 rounded-full bg-slate-300 animate-pulse shadow-[0_0_8px_rgba(203,213,225,0.8)]" />
               <span className="font-mono-tech text-[11px] sm:text-xs tracking-[0.25em] text-slate-300 uppercase font-medium">
                 DEPARTMENT OF ELECTRICAL ENGINEERING PRESENTS
               </span>
@@ -147,7 +147,7 @@ export default function Hero() {
             {/* Date Badge: ┌ 21 , 22 SEP */}
             <div className="inline-flex items-center pt-2">
               <div className="flex items-center gap-3 font-mono-tech text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.2em] text-white">
-                <span className="text-cyan-400 font-light text-2xl sm:text-3xl lg:text-4xl -mr-1">┌</span>
+                <span className="text-slate-300 font-light text-2xl sm:text-3xl lg:text-4xl -mr-1">┌</span>
                 <span>21 , 22 SEP</span>
               </div>
             </div>
