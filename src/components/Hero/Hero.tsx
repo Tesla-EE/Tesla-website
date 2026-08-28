@@ -1,16 +1,21 @@
 import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
-  const scrollVideoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const stillVideoRef = useRef<HTMLVideoElement>(null);
-  const targetRatioRef = useRef<number>(0);
 
   useEffect(() => {
-    const scrollVideo = scrollVideoRef.current;
+    const canvas = canvasRef.current;
     const stillVideo = stillVideoRef.current;
+    const context = canvas?.getContext('2d');
 
+    // Autoplay the initial looping video
     if (stillVideo) {
       stillVideo.muted = true;
       const playStill = () => {
@@ -23,94 +28,94 @@ export default function Hero() {
       }
     }
 
-    if (scrollVideo) {
-      scrollVideo.muted = true;
-      scrollVideo.load();
-      const initScrollVideo = () => {
-        scrollVideo.pause();
-        scrollVideo.currentTime = 0.001;
-      };
-      if (scrollVideo.readyState >= 1) {
-        initScrollVideo();
-      } else {
-        scrollVideo.addEventListener('loadedmetadata', initScrollVideo, { once: true });
-      }
+    if (!canvas || !context) return;
+
+    // Canvas setup for crisp rendering
+    canvas.width = 1280;
+    canvas.height = 731; // Matches the aspect ratio of the extracted frames (768 originally, scaled to 731)
+
+    // Sequence configuration
+    const frameCount = 118; // Total extracted frames
+    const currentFrame = (index: number) => 
+      `/hero-frames/frame_${(index + 1).toString().padStart(4, '0')}.webp`;
+
+    const images: HTMLImageElement[] = [];
+    const airpods = { frame: 0 };
+
+    // Preload images
+    for (let i = 0; i < frameCount; i++) {
+      const img = new Image();
+      img.src = currentFrame(i);
+      images.push(img);
     }
 
-    const onScroll = () => {
-      const hero = heroRef.current;
-      if (!hero) return;
-      const rect = hero.getBoundingClientRect();
-      const totalScroll = hero.offsetHeight - window.innerHeight;
-      if (totalScroll <= 0) {
-        targetRatioRef.current = 0;
-        return;
-      }
-      const scrolled = Math.max(0, Math.min(totalScroll, -rect.top));
-      // 3× speed multiplier — video completes at ~33% of scroll distance
-      targetRatioRef.current = Math.min(1, (scrolled / totalScroll) * 3);
+    // Draw the first frame once it loads
+    images[0].onload = () => {
+      context.drawImage(images[0], 0, 0, canvas.width, canvas.height);
     };
 
-    let currentRatio = 0;
-    let rafId: number;
-
-    const renderLoop = () => {
-      // Smooth interpolation for fluid scrub
-      currentRatio += (targetRatioRef.current - currentRatio) * 0.25;
-
-      if (scrollVideo && scrollVideo.duration && !isNaN(scrollVideo.duration)) {
-        const targetTime = currentRatio * scrollVideo.duration;
-        const clampedTime = Math.min(Math.max(0, targetTime), Math.max(0, scrollVideo.duration - 0.05));
-        if (Math.abs(scrollVideo.currentTime - clampedTime) > 0.02) {
-          scrollVideo.currentTime = clampedTime;
-        }
-      }
-
+    const ctx = gsap.context(() => {
+      // 1. Fade out the still video smoothly in the first part of the scroll
       if (stillVideo) {
-        // Fade out ambient video within first 20% of scrolling
-        const opacity = Math.max(0, 1 - currentRatio * 5);
-        stillVideo.style.opacity = opacity.toFixed(3);
+        gsap.to(stillVideo, {
+          opacity: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: 'top top',
+            end: '+=800', // fade out over the first 800px of scroll
+            scrub: true,
+          }
+        });
       }
 
-      rafId = requestAnimationFrame(renderLoop);
-    };
-
-    rafId = requestAnimationFrame(renderLoop);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
-    onScroll();
+      // 2. Scrub the image sequence using GSAP's optimized ScrollTrigger with 1.5s smoothing
+      gsap.to(airpods, {
+        frame: frameCount - 1,
+        snap: 'frame',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 1.5, // buttery smooth GSAP interpolation
+        },
+        onUpdate: () => {
+          // Render current frame to canvas
+          if (images[airpods.frame]) {
+            requestAnimationFrame(() => {
+              context.drawImage(images[airpods.frame], 0, 0, canvas.width, canvas.height);
+            });
+          }
+        }
+      });
+    }, heroRef);
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-      cancelAnimationFrame(rafId);
+      ctx.revert();
     };
   }, []);
 
   return (
-    // 150vh outer wrapper — gives scroll room; 2× multiplier completes video at ~50% scroll
-    <div ref={heroRef} className="relative h-[110vh]">
-      {/* Sticky inner — stays pinned while scrolling through the hero video sequence */}
+    // 700vh outer wrapper — gives massive amount of scroll room to comfortably play the sequence slowly
+    <div ref={heroRef} className="relative h-[700vh]">
+      {/* Sticky inner — stays pinned while scrolling through the hero sequence */}
       <section
         id="hero"
         className="sticky top-0 h-screen w-full bg-[#050506] overflow-hidden flex flex-col justify-between pt-28 sm:pt-32 pb-8 px-6 sm:px-12 lg:px-16 select-none"
       >
-        {/* ── Background Video Layer ─────────────────────────────────── */}
+        {/* ── Background Sequence Layer ─────────────────────────────────── */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          {/* bg2.mp4 — scrubbed synchronously with scroll position */}
-          <video
-            ref={scrollVideoRef}
-            src="/videos/bg2.mp4"
-            muted
-            playsInline
-            preload="auto"
+          {/* Main scrub canvas sequence — synchronized with scroll position */}
+          <canvas
+            ref={canvasRef}
             className="absolute inset-0 w-full h-full object-cover"
           />
 
-          {/* bg1.mp4 — ambient looping video at top, fades out smoothly on scroll */}
+          {/* Initial ambient video — looping at top, fades out smoothly on scroll */}
           <video
             ref={stillVideoRef}
-            src="/videos/bg1.mp4"
+            src="/videos/Bg1_A.mp4"
             muted
             autoPlay
             loop
@@ -118,13 +123,10 @@ export default function Hero() {
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-100"
           />
-
-          {/* Subtle vignette gradients */}
-         
         </div>
 
         {/* =========================================================
-            MAIN HERO CONTENT (Framing the 3D video title and coil)
+            MAIN HERO CONTENT (Framing the 3D title and coil)
             ========================================================= */}
         <div className="relative z-20 w-full max-w-7xl mx-auto my-auto flex flex-col justify-between">
           <motion.div
@@ -141,7 +143,7 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Spacer to frame the background 3D TESLA '26 title rendered in the video */}
+            {/* Spacer to frame the background 3D TESLA '26 title rendered in the sequence */}
             <div className="h-32 sm:h-44 lg:h-56 xl:h-64" />
 
             {/* Date Badge: ┌ 21 , 22 SEP */}
