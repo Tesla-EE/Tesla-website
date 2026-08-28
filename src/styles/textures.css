@@ -28,12 +28,6 @@
   background-size: 256px 256px;
 }
 
-/* Ensure children sit above the grain */
-.bg-grain > * {
-  position: relative;
-  z-index: 1;
-}
-
 /* ===========================================
    2. TECHNICAL GRID PATTERNS
    =========================================== */
