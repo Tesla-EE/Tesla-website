@@ -1,69 +1,166 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { competitionsData, CompetitionItem } from '../../data/competitions';
 import EventCard from '../common/EventCard';
-import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-interface CompetitionsProps {
-  onSelectCard: (item: CompetitionItem) => void;
-}
+export default function Competitions() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
-export default function Competitions({ onSelectCard }: CompetitionsProps) {
+  const checkScroll = () => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const { scrollLeft, scrollWidth, clientWidth } = el;
+    setCanScrollLeft(scrollLeft > 10);
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+
+    const maxScroll = scrollWidth - clientWidth;
+    if (maxScroll > 0) {
+      setScrollProgress((scrollLeft / maxScroll) * 100);
+    }
+  };
+
+  useEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener('scroll', checkScroll, { passive: true });
+    window.addEventListener('resize', checkScroll);
+    return () => {
+      el.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
+  }, []);
+
+  const handleScroll = (direction: 'left' | 'right') => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const scrollAmount = direction === 'left' ? -350 : 350;
+    el.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  };
+
   return (
-    <div className="relative">
+    <div className="relative w-full select-none">
       {/* =========================================================
-          SECTION HEADER: COMPETITIONS
+          SECTION HEADER WITH SLIDER CONTROLS
           ========================================================= */}
-      <div className="relative mb-10 sm:mb-14">
-        {/* Ghost Watermark Text */}
-        <div
-          aria-hidden="true"
-          className="absolute -top-3 sm:-top-5 -left-2 sm:-left-3 pointer-events-none select-none opacity-[0.045] z-0"
-          style={{
-            fontFamily: "'Anton', 'Archivo Black', sans-serif",
-            letterSpacing: '0.05em',
-          }}
-        >
-          <span className="text-5xl sm:text-7xl md:text-8xl lg:text-[96px] font-black uppercase text-white leading-none whitespace-nowrap">
+      <div className="relative mb-8 sm:mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+        <div>
+          {/* Ghost Watermark Text */}
+          <div
+            aria-hidden="true"
+            className="absolute -top-3 sm:-top-5 -left-2 sm:-left-3 pointer-events-none select-none opacity-[0.045] z-0"
+            style={{
+              fontFamily: "'Anton', 'Archivo Black', sans-serif",
+              letterSpacing: '0.05em',
+            }}
+          >
+            <span className="text-5xl sm:text-7xl md:text-8xl lg:text-[96px] font-black uppercase text-white leading-none whitespace-nowrap">
+              COMPETITIONS
+            </span>
+          </div>
+
+          {/* Section Subtag */}
+          <div className="flex items-center gap-2 mb-2 font-mono-tech text-[10px] sm:text-xs tracking-[0.25em] text-slate-400 uppercase">
+            <span className="text-slate-600">02 //</span> HIGH-VOLTAGE COMBAT & HACKATHONS
+          </div>
+
+          {/* Main Heading */}
+          <h2
+            className="relative z-10 text-4xl sm:text-5xl md:text-[52px] font-bold uppercase tracking-[0.05em] text-[#f0f0f0] leading-none"
+            style={{
+              fontFamily: "'Anton', 'Archivo Black', sans-serif",
+            }}
+          >
             COMPETITIONS
-          </span>
+          </h2>
         </div>
 
-        {/* Section Subtag */}
-        <div className="flex items-center gap-2 mb-2 font-mono-tech text-[10px] sm:text-xs tracking-[0.25em] text-slate-400 uppercase">
-          <span className="text-slate-600">02 //</span> HIGH-VOLTAGE COMBAT & HACKATHONS
-        </div>
+        {/* Desktop & Tablet Slider Controls */}
+        <div className="flex items-center gap-3 self-end sm:self-auto z-10">
+          <div className="hidden sm:flex items-center gap-2 font-mono-tech text-[10px] tracking-widest text-slate-400 mr-2 uppercase">
+            <span>SLIDE TO EXPLORE</span>
+            <span className="text-white/30">[05 EVENTS]</span>
+          </div>
 
-        {/* Main Heading */}
-        <h2
-          className="relative z-10 text-4xl sm:text-5xl md:text-[52px] font-bold uppercase tracking-[0.05em] text-[#f0f0f0] leading-none"
-          style={{
-            fontFamily: "'Anton', 'Archivo Black', sans-serif",
-          }}
-        >
-          COMPETITIONS
-        </h2>
+          {/* Left Arrow Button */}
+          <button
+            onClick={() => handleScroll('left')}
+            disabled={!canScrollLeft}
+            aria-label="Slide Left"
+            className={`p-2.5 rounded-xl border transition-all duration-300 flex items-center justify-center ${
+              canScrollLeft
+                ? 'bg-white/10 hover:bg-white text-white hover:text-black border-white/20 hover:border-white shadow-[0_0_15px_rgba(255,255,255,0.15)] cursor-pointer'
+                : 'bg-white/[0.02] text-white/20 border-white/5 cursor-not-allowed'
+            }`}
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          {/* Right Arrow Button */}
+          <button
+            onClick={() => handleScroll('right')}
+            disabled={!canScrollRight}
+            aria-label="Slide Right"
+            className={`p-2.5 rounded-xl border transition-all duration-300 flex items-center justify-center ${
+              canScrollRight
+                ? 'bg-white/10 hover:bg-white text-white hover:text-black border-white/20 hover:border-white shadow-[0_0_15px_rgba(255,255,255,0.15)] cursor-pointer'
+                : 'bg-white/[0.02] text-white/20 border-white/5 cursor-not-allowed'
+            }`}
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
       </div>
 
       {/* =========================================================
-          3-COLUMN / 2-COLUMN / 1-COLUMN RESPONSIVE CARD GRID
+          SINGLE ROW HORIZONTAL SLIDER TRACK
           ========================================================= */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8 items-stretch">
-        {competitionsData.map((comp, index) => (
-          <EventCard
-            key={comp.id}
-            id={comp.id}
-            title={comp.title}
-            subtitle={comp.subtitle}
-            desc={comp.desc}
-            badge={comp.badge || 'NEW'}
-            image={comp.image}
-            tag={`PRIZE // ${comp.prize}`}
-            secondaryMeta={comp.teamSize}
-            actionText="REGISTER TEAM →"
-            index={index}
-            onClick={() => onSelectCard(comp)}
+      <div className="relative -mx-6 sm:-mx-10 lg:-mx-12 px-6 sm:px-10 lg:px-12">
+        <div
+          ref={scrollContainerRef}
+          className="flex flex-nowrap overflow-x-auto gap-5 sm:gap-6 lg:gap-7 pb-6 pt-2 snap-x snap-mandatory scroll-smooth scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-white/5 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-white/[0.04] [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/25 hover:[&::-webkit-scrollbar-thumb]:bg-white/50 [&::-webkit-scrollbar-thumb]:rounded-full"
+          style={{
+            scrollbarWidth: 'thin',
+            scrollbarColor: 'rgba(255, 255, 255, 0.25) rgba(255, 255, 255, 0.04)',
+            WebkitOverflowScrolling: 'touch',
+          }}
+        >
+          {competitionsData.map((comp, index) => (
+            <div
+              key={comp.id}
+              className="flex-shrink-0 w-[270px] sm:w-[310px] lg:w-[335px] snap-start"
+            >
+              <EventCard
+                id={comp.id}
+                title={comp.title}
+                badge={comp.badge}
+                isCompleted={comp.isCompleted}
+                image={comp.image}
+                secondaryMeta={comp.teamSize}
+                actionText="REGISTER TEAM →"
+                variant="poster"
+                index={index}
+                onClick={comp.registrationLink ? () => window.open(comp.registrationLink, '_blank', 'noopener,noreferrer') : undefined}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* =========================================================
+          MOBILE SWIPE HINT & PROGRESS BAR
+          ========================================================= */}
+      <div className="mt-4 flex sm:hidden items-center justify-between font-mono-tech text-[9px] tracking-widest text-slate-400">
+        <span>← SWIPE TO VIEW ALL →</span>
+        <div className="w-24 h-1 bg-white/10 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-white/70 rounded-full transition-all duration-150"
+            style={{ width: `${Math.max(15, scrollProgress)}%` }}
           />
-        ))}
+        </div>
       </div>
     </div>
   );

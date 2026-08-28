@@ -1,11 +1,7 @@
-﻿import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-interface HeroProps {
-  onOpenRegister?: () => void;
-}
-
-export default function Hero({ onOpenRegister }: HeroProps) {
+export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const scrollVideoRef = useRef<HTMLVideoElement>(null);
   const stillVideoRef = useRef<HTMLVideoElement>(null);

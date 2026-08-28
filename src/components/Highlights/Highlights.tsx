@@ -2,11 +2,7 @@ import React from 'react';
 import { highlightsData, HighlightItem } from '../../data/highlights';
 import { motion } from 'framer-motion';
 
-interface HighlightsProps {
-  onSelectCard: (item: HighlightItem) => void;
-}
-
-export default function Highlights({ onSelectCard }: HighlightsProps) {
+export default function Highlights() {
   return (
     <section
       id="highlights"
@@ -176,7 +172,6 @@ export default function Highlights({ onSelectCard }: HighlightsProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
-              onClick={() => onSelectCard(item)}
               className="group cursor-pointer flex flex-col items-center select-none"
             >
               {/* VIDEO CARD THUMBNAIL CONTAINER */}
