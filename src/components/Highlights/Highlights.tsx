@@ -146,7 +146,7 @@ export default function Highlights() {
             }}
           >
             <span className="text-5xl sm:text-7xl md:text-8xl lg:text-[100px] font-black uppercase text-white leading-none whitespace-nowrap">
-              HIGHLIGHTS
+              TESLA THROUGH THE YEARS
             </span>
           </div>
 
@@ -157,7 +157,7 @@ export default function Highlights() {
               fontFamily: "'Anton', 'Archivo Black', sans-serif",
             }}
           >
-            HIGHLIGHTS
+            TESLA THROUGH THE YEARS
           </h2>
         </div>
 
