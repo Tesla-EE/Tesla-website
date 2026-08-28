@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+﻿import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 interface HeroProps {
@@ -51,7 +51,8 @@ export default function Hero({ onOpenRegister }: HeroProps) {
         return;
       }
       const scrolled = Math.max(0, Math.min(totalScroll, -rect.top));
-      targetRatioRef.current = scrolled / totalScroll;
+      // 3× speed multiplier — video completes at ~33% of scroll distance
+      targetRatioRef.current = Math.min(1, (scrolled / totalScroll) * 3);
     };
 
     let currentRatio = 0;
@@ -91,8 +92,8 @@ export default function Hero({ onOpenRegister }: HeroProps) {
   }, []);
 
   return (
-    // 200vh outer wrapper — gives the hero scroll room to scrub the video smoothly
-    <div ref={heroRef} className="relative h-screen">
+    // 150vh outer wrapper — gives scroll room; 2× multiplier completes video at ~50% scroll
+    <div ref={heroRef} className="relative h-[110vh]">
       {/* Sticky inner — stays pinned while scrolling through the hero video sequence */}
       <section
         id="hero"
@@ -123,8 +124,7 @@ export default function Hero({ onOpenRegister }: HeroProps) {
           />
 
           {/* Subtle vignette gradients */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050506] via-transparent to-[#050506]/70 pointer-events-none" />
-          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+         
         </div>
 
         {/* =========================================================
@@ -134,7 +134,7 @@ export default function Hero({ onOpenRegister }: HeroProps) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0 }}
             className="max-w-2xl flex flex-col space-y-4 sm:space-y-6 text-left"
           >
             {/* Subtitle Presenter Tagline */}
