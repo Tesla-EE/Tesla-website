@@ -82,7 +82,7 @@ export default function Competitions() {
         <div className="flex items-center gap-3 self-end sm:self-auto z-10">
           <div className="hidden sm:flex items-center gap-2 font-tacticsans text-[10px] tracking-widest text-slate-400 mr-2 uppercase">
             <span>SLIDE TO EXPLORE</span>
-            <span className="text-white/30">[05 EVENTS]</span>
+            <span className="text-white/30">[{String(competitionsData.length).padStart(2, '0')} EVENTS]</span>
           </div>
 
           {/* Left Arrow Button */}

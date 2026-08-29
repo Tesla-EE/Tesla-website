@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
+import { competitionsData } from '../../data/competitions';
+
 interface NavbarProps {
   onOpenRegister?: () => void;
 }
@@ -30,7 +32,7 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
     { num: '01', name: 'HOME', href: '#hero' },
     { num: '02', name: 'ABOUT', href: '#about' },
     { num: '03', name: 'THROUGH THE YEARS', href: '#highlights' },
-    { num: '04', name: 'COMPETITIONS', href: '#events' },
+    { num: String(competitionsData.length).padStart(2, '0'), name: 'COMPETITIONS', href: '#events' },
   ];
 
   return (
