@@ -1,7 +1,8 @@
 import React from 'react';
+import { ArrowUpRight } from 'lucide-react';
 
 const IconInstagram = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="2" width="20" height="20" rx="5" />
     <circle cx="12" cy="12" r="4" />
     <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
@@ -9,23 +10,16 @@ const IconInstagram = () => (
 );
 
 const IconLinkedIn = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="2" width="20" height="20" rx="3" />
     <path d="M8 11v5M8 8v.01M12 16v-5M12 11a3 3 0 0 1 6 0v5" />
   </svg>
 );
 
 const IconYouTube = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="5" width="20" height="14" rx="4" />
     <polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none" />
-  </svg>
-);
-
-const IconMail = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <rect x="2" y="4" width="20" height="16" rx="2" />
-    <path d="M22 7l-10 7L2 7" />
   </svg>
 );
 
@@ -33,95 +27,137 @@ const navGroups = [
   {
     label: 'EXPLORE',
     links: [
-      { text: 'Home', href: '#hero' },
-      { text: 'Events', href: '#events' },
-      { text: 'Leaderboard', href: '#' },
+      { text: 'HOME', href: '#hero' },
+      { text: 'ABOUT', href: '#about' },
+      { text: 'THROUGH THE YEARS', href: '#highlights' },
+      { text: 'COMPETITIONS', href: '#events' },
     ],
   },
   {
-    label: 'CONNECT',
+    label: 'SOCIALS',
     links: [
-      { text: 'Instagram', href: 'https://instagram.com', icon: <IconInstagram />, external: true },
-      { text: 'LinkedIn', href: 'https://linkedin.com', icon: <IconLinkedIn />, external: true },
-      { text: 'YouTube', href: 'https://youtube.com', icon: <IconYouTube />, external: true },
-      { text: 'Email', href: 'mailto:tesla@college.edu', icon: <IconMail /> },
-    ],
-  },
-  {
-    label: 'RESOURCES',
-    links: [
-      { text: 'Brochure', href: '#' },
-      { text: 'Rules', href: '#' },
-      { text: 'Schedule', href: '#' },
-    ],
-  },
-  {
-    label: 'JOIN US',
-    links: [
-      { text: 'Register', href: '#' },
-      { text: 'Volunteer', href: '#' },
-      { text: 'Sponsor', href: '#' },
+      { text: 'INSTAGRAM', href: 'https://instagram.com', icon: <IconInstagram />, external: true },
+      { text: 'LINKEDIN', href: 'https://linkedin.com', icon: <IconLinkedIn />, external: true },
+      { text: 'YOUTUBE', href: 'https://youtube.com', icon: <IconYouTube />, external: true },
     ],
   },
 ];
 
 export default function Footer() {
   return (
-    <footer id="footer" className="relative min-h-[292px] overflow-hidden bg-[#020304] text-white select-none">
-      <div className="pointer-events-none absolute inset-0 opacity-[0.035] bg-grain" />
-      <div className="pointer-events-none absolute -left-[145px] -bottom-[188px] h-[395px] w-[395px] rounded-full border border-white/[0.10] opacity-70 sm:-left-[105px]">
-        <div className="absolute inset-[34px] rounded-full border border-white/[0.07]" />
-        <div className="absolute inset-[78px] rounded-full border border-dashed border-white/[0.07]" />
-        <div className="absolute inset-[118px] rounded-full bg-[radial-gradient(circle_at_65%_34%,rgba(180,194,204,0.16),rgba(35,40,45,0.12)_42%,rgba(0,0,0,0.8)_74%)]" />
-      </div>
-      <div className="pointer-events-none absolute -right-[30px] top-[70px] h-[155px] w-[155px] rounded-full border border-white/[0.08] opacity-60 sm:right-[5%]">
-        <div className="absolute inset-[14px] rounded-full border border-dashed border-white/[0.10]" />
-        <div className="absolute inset-[43px] rounded-full border border-white/[0.12]" />
-        <div className="absolute left-1/2 top-1/2 h-1 w-1 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/40 shadow-[0_0_18px_5px_rgba(210,220,230,0.16)]" />
-        <div className="absolute left-1/2 top-0 h-full border-l border-dashed border-white/[0.06]" />
-        <div className="absolute left-0 top-1/2 w-full border-t border-dashed border-white/[0.06]" />
+    <footer id="footer" className="relative w-full bg-[#050506] bg-grain text-white overflow-hidden select-none flex flex-col items-center justify-center min-h-[450px]">
+      
+      {/* =========================================================
+          TOP 3D NOTCHED HORIZONTAL DIVIDER LINE (Like Impact Section)
+          ========================================================= */}
+      <div className="absolute top-0 left-0 right-0 flex items-center justify-center z-20">
+        <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-white/30" />
+        <div className="relative px-4">
+          <svg width="64" height="12" viewBox="0 0 64 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white/40">
+            <path d="M0 0H16L24 10H40L48 0H64" stroke="currentColor" strokeWidth="1" fill="#050506" />
+            <line x1="28" y1="5" x2="36" y2="5" stroke="currentColor" strokeWidth="1" />
+          </svg>
+        </div>
+        <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent via-white/20 to-white/30" />
       </div>
 
-      <div className="relative z-10 border-t border-white/[0.13]">
-        <div className="absolute left-1/2 top-0 h-[9px] w-[54px] -translate-x-1/2 border-x border-b border-white/[0.16] [clip-path:polygon(0_0,100%_0,76%_100%,24%_100%)]" />
-        <div className="mx-auto max-w-[760px] px-8 pb-5 pt-12 sm:px-12">
-          <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-x-10 gap-y-8 sm:grid-cols-4 sm:gap-x-8 sm:gap-y-0">
-            {navGroups.map((group) => (
-              <div key={group.label}>
-                <h2 className="mb-4 flex items-center gap-2 font-mono-tech text-[8px] font-normal tracking-[0.2em] text-white/55">
-                  <span className="text-white/25">+</span>{group.label}
-                </h2>
-                <ul className="space-y-2">
-                  {group.links.map((link) => (
-                    <li key={link.text}>
-                      <a
-                        href={link.href}
-                        target={link.external ? '_blank' : undefined}
-                        rel={link.external ? 'noreferrer' : undefined}
-                        className="group inline-flex items-center gap-2 font-mono-tech text-[8px] uppercase tracking-[0.1em] text-white/32 transition-colors hover:text-white/75"
-                      >
-                        <span className="h-px w-[7px] bg-white/25 transition-colors group-hover:bg-white/70" />
-                        {link.icon && <span className="text-white/35 group-hover:text-white/70">{link.icon}</span>}
-                        {link.text}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </nav>
+      {/* Massive Background Watermark (Behind Contents) */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
+        <h1 
+          className="text-[22vw] sm:text-[18vw] font-black uppercase text-white/[0.02] leading-none whitespace-nowrap select-none drop-shadow-md"
+          style={{ fontFamily: "'Anton', 'Archivo Black', sans-serif" }}
+        >
+          TESLA '26
+        </h1>
+      </div>
 
-          <div className="mt-9 flex flex-col items-center gap-3 border-t border-white/[0.07] pt-5">
-            <div className="flex items-center gap-2 font-display text-[17px] tracking-[0.2em] text-white/80">
-              <span className="text-[12px] text-white/35">//</span> TESLA <sup className="font-mono-tech text-[7px] tracking-[0.12em] text-white/45">'26</sup>
-            </div>
-            <p className="font-mono-tech text-[7px] uppercase tracking-[0.12em] text-white/25">Designed and engineered by Tesla</p>
+      {/* Main Content Wrapper */}
+      <div className="relative z-10 w-full max-w-[80rem] mx-auto px-6 sm:px-12 py-24 flex flex-col md:flex-row justify-between gap-16 md:gap-8 mt-4">
+        
+        {/* Outer HUD Corner Ticks for Left Box (Visual flair) */}
+        <div className="flex flex-col items-start md:max-w-[380px] relative p-6 bg-black/10 backdrop-blur-sm border border-white/10 rounded-lg group transition-all duration-300 hover:border-white/30 hover:shadow-[0_0_25px_rgba(255,255,255,0.03)]">
+          {/* Outer Calibration Crosshair Marks (+) */}
+          <div className="absolute -top-2 left-0 font-mono-tech text-[10px] text-white/30">+</div>
+          <div className="absolute -top-2 right-0 font-mono-tech text-[10px] text-white/30">+</div>
+          <div className="absolute -bottom-2 left-0 font-mono-tech text-[10px] text-white/30">+</div>
+          <div className="absolute -bottom-2 right-0 font-mono-tech text-[10px] text-white/30">+</div>
+          
+          <div className="absolute inset-1.5 border border-white/[0.05] rounded pointer-events-none" />
+
+          <a href="#hero" className="inline-flex items-center gap-4 group mb-6 z-10">
+            <img
+              src="/images/Logo.png"
+              alt="TESLA '26"
+              className="relative h-12 sm:h-14 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+            />
+            <span className="font-display text-2xl sm:text-3xl font-bold tracking-[0.1em] text-white uppercase drop-shadow-sm">TESLA '26</span>
+          </a>
+          <p className="font-mono-tech text-sm sm:text-[14px] leading-relaxed text-slate-400 tracking-wide uppercase z-10">
+            The ultimate convergence of technology, innovation, and brutalist engineering. Designed and Developed by Web team Tesla'26
+          </p>
+          <div className="mt-8 flex flex-col gap-3 z-10 w-full">
+            <a href="https://tesla.cet.ac.in" target="_blank" rel="noreferrer" className="group flex w-full items-center justify-between font-tech text-[11px] tracking-widest text-slate-300 hover:text-white transition-all duration-300 border border-white/10 hover:border-white/40 px-4 py-2.5 rounded bg-[#0c0c10] hover:bg-white/[0.05]">
+              TESLA.CET.AC.IN
+              <ArrowUpRight className="w-3 h-3 text-slate-500 group-hover:text-white transition-colors" />
+            </a>
+            <a href="tel:+919745473767" className="group flex w-full items-center justify-between font-tech text-[11px] tracking-widest text-slate-300 hover:text-white transition-all duration-300 border border-white/10 hover:border-white/40 px-4 py-2.5 rounded bg-[#0c0c10] hover:bg-white/[0.05]">
+              CONVENER: ALWIN <span className="text-white/20">|</span> +91 97454 73767
+              <ArrowUpRight className="w-3 h-3 text-slate-500 group-hover:text-white transition-colors" />
+            </a>
           </div>
         </div>
 
-        <div className="flex items-center justify-between border-t border-white/[0.08] px-6 py-3 font-mono-tech text-[7px] uppercase tracking-[0.1em] text-white/25 sm:px-12">
-          <span>© 2026 TESLA · All rights reserved</span>
-          <span className="text-right">09.5469° N · 76.0057° E</span>
+        {/* Right Side - Navigation Links */}
+        <nav aria-label="Footer navigation" className="flex flex-wrap sm:flex-nowrap gap-12 sm:gap-24 relative z-10 py-6">
+          {navGroups.map((group) => (
+            <div key={group.label} className="min-w-[140px]">
+              <div className="flex items-center gap-3 mb-6 border-b border-white/[0.08] pb-3">
+                <div className="w-1.5 h-1.5 bg-white/40" />
+                <h2 className="font-tech text-sm sm:text-base font-bold tracking-[0.2em] text-white/80">
+                  {group.label}
+                </h2>
+              </div>
+              <ul className="space-y-4">
+                {group.links.map((link) => (
+                  <li key={link.text}>
+                    <a
+                      href={link.href}
+                      target={link.external ? '_blank' : undefined}
+                      rel={link.external ? 'noreferrer' : undefined}
+                      className="group flex items-center gap-3 font-mono-tech text-xs sm:text-sm uppercase tracking-[0.15em] text-slate-400 hover:text-white transition-all px-2 py-1 -ml-2 rounded"
+                    >
+                      <span className="w-0 h-[1px] bg-white group-hover:w-3 transition-all duration-300" />
+                      {link.icon && <span className="text-slate-500 group-hover:text-white transition-colors [&>svg]:w-4 [&>svg]:h-4">{link.icon}</span>}
+                      {link.text}
+                      {link.external && <ArrowUpRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 text-white transition-all duration-300" />}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
+      </div>
+
+      {/* Bottom Footer Bar (HUD Style) */}
+      <div className="relative z-10 w-full mt-auto">
+        {/* Hairline Divider */}
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        
+        <div className="max-w-[65rem] mx-auto px-6 sm:px-12 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono-tech text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-slate-500 bg-[#050506]">
+          <div className="flex items-center gap-3">
+            <span className="text-white/30">[</span>
+            <span className="text-white/70">© TESLA 2026 · ALL RIGHTS RESERVED</span>
+            <span className="text-white/30">]</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="hidden sm:inline-flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-white/70 rounded-full animate-pulse" />
+              <span className="text-white/60">SYS. STATUS: ONLINE</span>
+            </span>
+            <span className="text-white/20">|</span>
+            <span className="text-white/40">09.5469° N · 76.0057° E</span>
+          </div>
         </div>
       </div>
     </footer>

@@ -14,8 +14,17 @@ export interface HighlightItem {
 
 export const highlightsData: HighlightItem[] = [
   {
+    id: 'proshow',
+    title: 'TESLA 24',
+    subtitle: 'LIVE ARTIST NIGHT',
+    image: proshowImg,
+    video: '/videos/tesla24.mp4',
+    desc: 'Electrifying musical night featuring celebrity artists, violinist virtuosos, and live bands.',
+    category: 'CULTURAL'
+  },
+  {
     id: 'arcadia',
-    title: 'ARCADIA',
+    title: 'TESLA 22',
     subtitle: 'GAMING & LASER FIREWORKS FEST',
     image: arcadiaImg,
     video: '/videos/tesla22.mp4',
@@ -24,20 +33,11 @@ export const highlightsData: HighlightItem[] = [
   },
   {
     id: 'auto-expo',
-    title: 'AUTO EXPO',
+    title: 'TESLA 20',
     subtitle: 'SUPERBIKES & EV SHOWCASE',
     image: autoExpoImg,
     video: '/videos/tesla20.mp4',
     desc: 'Exotic superbikes, electric vehicles, autonomous robotics, and hyper-car mechanical displays.',
     category: 'EXHIBITION'
-  },
-  {
-    id: 'proshow',
-    title: 'PROSHOW',
-    subtitle: 'LIVE ARTIST NIGHT',
-    image: proshowImg,
-    video: '/videos/tesla24.mp4',
-    desc: 'Electrifying musical night featuring celebrity artists, violinist virtuosos, and live bands.',
-    category: 'CULTURAL'
   }
 ];
