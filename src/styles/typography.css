@@ -17,12 +17,17 @@
 }
 
 .font-tech {
-  font-family: var(--font-tech);
+  font-family: var(--font-tacticsans);
   letter-spacing: 0.02em;
 }
 
 .font-mono-tech {
-  font-family: var(--font-mono);
+  font-family: var(--font-tacticsans);
+  letter-spacing: 0.05em;
+}
+
+.font-caption {
+  font-family: var(--font-tacticsans);
   letter-spacing: 0.05em;
 }
 

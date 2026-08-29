@@ -53,6 +53,20 @@
   font-family: 'Thomeo', sans-serif;
 }
 
+/* ---- TacticSans — Custom Caption & Tech Font ---- */
+@font-face {
+  font-family: 'TacticSans';
+  src:
+    url('/fonts/TacticSans-Reg.otf') format('opentype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-tacticsans {
+  font-family: 'TacticSans', 'Chakra Petch', sans-serif;
+}
+
 /* ---- Design Tokens ---- */
 :root {
   color-scheme: dark;
@@ -82,8 +96,9 @@
 
   /* Fonts */
   --font-display:     'Bebas Neue', 'Impact', sans-serif;
-  --font-tech:        'Chakra Petch', 'Space Grotesk', sans-serif;
-  --font-mono:        'JetBrains Mono', 'Fira Code', monospace;
+  --font-tacticsans:  'TacticSans', 'Chakra Petch', sans-serif;
+  --font-tech:        'TacticSans', 'Chakra Petch', 'Space Grotesk', sans-serif;
+  --font-mono:        'TacticSans', 'JetBrains Mono', 'Fira Code', monospace;
   --font-handwriting: 'Permanent Marker', cursive;
   --font-body:        'Inter', system-ui, sans-serif;
 }
