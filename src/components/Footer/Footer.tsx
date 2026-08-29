@@ -45,7 +45,7 @@ const navGroups = [
 
 export default function Footer() {
   return (
-    <footer id="footer" className="relative w-full bg-[#050506] bg-grain text-white overflow-hidden select-none flex flex-col items-center justify-center min-h-[450px]">
+    <footer id="footer" className="relative w-full bg-[#050506] bg-grain text-white overflow-hidden flex flex-col items-center justify-center min-h-[450px]">
       
       {/* =========================================================
           TOP 3D NOTCHED HORIZONTAL DIVIDER LINE (Like Impact Section)
@@ -64,7 +64,7 @@ export default function Footer() {
       {/* Massive Background Watermark (Behind Contents) */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
         <h1 
-          className="text-[22vw] sm:text-[18vw] font-black uppercase text-white/[0.02] leading-none whitespace-nowrap select-none drop-shadow-md"
+          className="text-[22vw] sm:text-[18vw] font-black uppercase text-white/[0.02] leading-none whitespace-nowrap drop-shadow-md"
           style={{ fontFamily: "'Anton', 'Archivo Black', sans-serif" }}
         >
           TESLA '26
@@ -92,15 +92,15 @@ export default function Footer() {
             />
             <span className="font-display text-2xl sm:text-3xl font-bold tracking-[0.1em] text-white uppercase drop-shadow-sm">TESLA '26</span>
           </a>
-          <p className="font-mono-tech text-sm sm:text-[14px] leading-relaxed text-slate-400 tracking-wide uppercase z-10">
-            The ultimate convergence of technology, innovation, and brutalist engineering. Designed and Developed by Web team Tesla'26
+          <p className="font-tacticsans text-sm sm:text-[14px] leading-relaxed text-slate-400 tracking-wide uppercase z-10">
+            The ultimate convergence of technology, innovation, and brutalist engineering. Designed and Curated by Rohan Kishore
           </p>
           <div className="mt-8 flex flex-col gap-3 z-10 w-full">
-            <a href="https://tesla.cet.ac.in" target="_blank" rel="noreferrer" className="group flex w-full items-center justify-between font-tech text-[11px] tracking-widest text-slate-300 hover:text-white transition-all duration-300 border border-white/10 hover:border-white/40 px-4 py-2.5 rounded bg-[#0c0c10] hover:bg-white/[0.05]">
+            <a href="https://tesla.cet.ac.in" target="_blank" rel="noreferrer" className="group flex w-full items-center justify-between font-tacticsans text-[11px] tracking-widest text-slate-300 hover:text-white transition-all duration-300 border border-white/10 hover:border-white/40 px-4 py-2.5 rounded bg-[#0c0c10] hover:bg-white/[0.05]">
               TESLA.CET.AC.IN
               <ArrowUpRight className="w-3 h-3 text-slate-500 group-hover:text-white transition-colors" />
             </a>
-            <a href="tel:+919745473767" className="group flex w-full items-center justify-between font-tech text-[11px] tracking-widest text-slate-300 hover:text-white transition-all duration-300 border border-white/10 hover:border-white/40 px-4 py-2.5 rounded bg-[#0c0c10] hover:bg-white/[0.05]">
+            <a href="tel:+919745473767" className="group flex w-full items-center justify-between font-tacticsans text-[11px] tracking-widest text-slate-300 hover:text-white transition-all duration-300 border border-white/10 hover:border-white/40 px-4 py-2.5 rounded bg-[#0c0c10] hover:bg-white/[0.05]">
               CONVENER: ALWIN <span className="text-white/20">|</span> +91 97454 73767
               <ArrowUpRight className="w-3 h-3 text-slate-500 group-hover:text-white transition-colors" />
             </a>
@@ -166,16 +166,22 @@ export default function Footer() {
         {/* Hairline Divider */}
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         
-        <div className="max-w-[65rem] mx-auto px-6 sm:px-12 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono-tech text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-slate-500 bg-[#050506]">
-          <div className="flex items-center gap-3">
-            <span className="text-white/30">[</span>
-            <span className="text-white/70">© TESLA 2026 · ALL RIGHTS RESERVED</span>
-            <span className="text-white/30">]</span>
+        <div className="max-w-[75rem] mx-auto px-6 sm:px-12 py-5 flex flex-col md:flex-row items-center justify-between gap-4 font-tacticsans text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-slate-500 bg-[#050506]">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left">
+            <div className="flex items-center gap-3">
+              <span className="text-white/30">[</span>
+              <span className="text-white/70">© TESLA 2026 · ALL RIGHTS RESERVED</span>
+              <span className="text-white/30">]</span>
+            </div>
+            <span className="hidden sm:inline text-white/20">|</span>
+            <div className="flex flex-wrap items-center gap-x-3 text-slate-400 tracking-[0.15em]">
+              <span>DESIGNED & CURATED BY <span className="text-white font-semibold tracking-[0.18em]">ROHAN KISHORE</span></span>
+              <span className="text-white/20">·</span>
+              <span>DEVELOPED BY <span className="text-white font-semibold tracking-[0.18em]">TESLA WEB TEAM</span></span>
+            </div>
           </div>
           <div className="flex items-center gap-4">
             <span className="hidden sm:inline-flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-white/70 rounded-full animate-pulse" />
-              <span className="text-white/60">SYS. STATUS: ONLINE</span>
             </span>
             <span className="text-white/20">|</span>
             <span className="text-white/40">09.5469° N · 76.0057° E</span>

@@ -116,7 +116,7 @@ export default function Hero() {
       {/* Sticky inner — stays pinned while scrolling through the hero sequence */}
       <section
         id="hero"
-        className="sticky top-0 h-screen w-full bg-[#050506] overflow-hidden flex flex-col justify-between pt-28 sm:pt-32 pb-8 px-6 sm:px-12 lg:px-16 select-none"
+        className="sticky top-0 h-screen w-full bg-[#050506] overflow-hidden flex flex-col justify-between pt-28 sm:pt-32 pb-8 px-6 sm:px-12 lg:px-16"
       >
         {/* ── Background Sequence Layer ─────────────────────────────────── */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -152,14 +152,14 @@ export default function Hero() {
             {/* Subtitle Presenter Tagline */}
             <div className="flex items-center gap-2.5">
               <span className="w-2 h-2 rounded-full bg-slate-300 animate-pulse shadow-[0_0_8px_rgba(203,213,225,0.8)]" />
-              <span className="font-mono-tech text-[11px] sm:text-xs tracking-[0.25em] text-slate-300 uppercase font-medium">
+              <span className="font-tacticsans text-[11px] sm:text-xs tracking-[0.25em] text-slate-300 uppercase font-medium">
                 DEPARTMENT OF ELECTRICAL ENGINEERING PRESENTS
               </span>
             </div>
 
             {/* Date Badge: ┌ 21 , 22 SEP pushed to bottom via mt-auto and translate-y */}
             <div className="mt-auto inline-flex items-center translate-y-3">
-              <div className="flex items-center gap-3 font-mono-tech text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.2em] text-white">
+              <div className="flex items-center gap-3 font-tacticsans text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.2em] text-white">
                 <span className="text-slate-300 font-light text-2xl sm:text-3xl lg:text-4xl -mr-1">┌</span>
                 <span>21 , 22 SEP</span>
               </div>
@@ -172,13 +172,9 @@ export default function Hero() {
             ========================================================= */}
         <div className="relative z-20 w-full max-w-7xl mx-auto flex items-end justify-between pt-2">
           {/* Technical Calibration Footnote */}
-          <div className="hidden sm:flex items-center gap-2 font-mono-tech text-[10px] text-slate-400 tracking-widest">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-            SYS // HIGH VOLTAGE DISCHARGE ACTIVE
-          </div>
 
           {/* Scroll-to-Explore Vertical Text */}
-          <div className="ml-auto flex items-center gap-3 rotate-90 origin-bottom-right translate-x-2 sm:translate-x-0 font-mono-tech text-[10px] sm:text-[11px] tracking-[0.35em] text-slate-400 hover:text-white transition-colors select-none">
+          <div className="ml-auto flex items-center gap-3 rotate-90 origin-bottom-right translate-x-2 sm:translate-x-0 font-tacticsans text-[10px] sm:text-[11px] tracking-[0.35em] text-slate-400 hover:text-white transition-colors">
             <span className="uppercase">SCROLL TO EXPLORE</span>
           </div>
         </div>

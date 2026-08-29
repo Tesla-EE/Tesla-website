@@ -18,14 +18,14 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="relative w-full px-6 pt-4 pb-8 sm:px-12 sm:pt-6 sm:pb-12 md:px-16 md:pt-8 md:pb-16 lg:px-20 lg:pt-10 lg:pb-20 xl:px-24 xl:pt-12 xl:pb-24 shadow-2xl shadow-black/90 select-none bg-no-repeat bg-center"
+          className="relative w-full px-6 pt-4 pb-8 sm:px-12 sm:pt-6 sm:pb-12 md:px-16 md:pt-8 md:pb-16 lg:px-20 lg:pt-10 lg:pb-20 xl:px-24 xl:pt-12 xl:pb-24 shadow-2xl shadow-black/90 bg-no-repeat bg-center"
           style={{
             backgroundImage: "url('/textures/abouttext.png')",
             backgroundSize: '100% 100%',
           }}
         >
           {/* Section Tag */}
-          <div className="flex items-center gap-2 mb-6 sm:mb-8 font-mono-tech text-xs sm:text-sm tracking-[0.25em] text-slate-400">
+          <div className="flex items-center gap-2 mb-6 sm:mb-8 font-tacticsans text-xs sm:text-sm tracking-[0.25em] text-slate-400">
             <span className="text-slate-500">—</span> ABOUT
           </div>
 

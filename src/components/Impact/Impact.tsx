@@ -15,7 +15,7 @@ export default function Impact() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="w-full relative select-none"
+      className="w-full relative"
     >
       {/* =========================================================
           TOP 3D NOTCHED HORIZONTAL DIVIDER LINE
@@ -83,7 +83,10 @@ export default function Impact() {
               </div>
 
               {/* Centered I M P A C T Title */}
-              <span className="font-tech text-3xl sm:text-5xl lg:text-6xl font-black tracking-[0.38em] text-white/95 uppercase drop-shadow-[0_2px_20px_rgba(255,255,255,0.15)] group-hover:text-white transition-colors">
+              <span
+                className="font-thomeo text-3xl sm:text-5xl lg:text-6xl tracking-[0.38em] text-white/95 uppercase drop-shadow-[0_2px_20px_rgba(255,255,255,0.15)] group-hover:text-white transition-colors"
+                style={{ fontFamily: "'Thomeo', sans-serif" }}
+              >
                 IMPACT
               </span>
             </div>
@@ -139,7 +142,7 @@ export default function Impact() {
                 </div>
 
                 {/* Uppercase Monospace Subtitle */}
-                <div className="font-mono-tech text-[10px] sm:text-xs lg:text-sm tracking-[0.22em] text-slate-300 mt-2.5 sm:mt-3 uppercase font-medium text-center whitespace-pre-line leading-tight">
+                <div className="font-tacticsans text-[10px] sm:text-xs lg:text-sm tracking-[0.22em] text-slate-300 mt-2.5 sm:mt-3 uppercase font-medium text-center whitespace-pre-line leading-tight">
                   {stat.label}
                 </div>
 

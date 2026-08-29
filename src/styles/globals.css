@@ -38,6 +38,35 @@
   text-transform: uppercase;
 }
 
+/* ---- Thomeo — Custom Display Font ---- */
+@font-face {
+  font-family: 'Thomeo';
+  src:
+    url('/fonts/Thomeo.ttf') format('truetype'),
+    url('/fonts/Thomeo%20.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-thomeo {
+  font-family: 'Thomeo', sans-serif;
+}
+
+/* ---- TacticSans — Custom Caption & Tech Font ---- */
+@font-face {
+  font-family: 'TacticSans';
+  src:
+    url('/fonts/TacticSans-Reg.otf') format('opentype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-tacticsans {
+  font-family: 'TacticSans', 'Chakra Petch', sans-serif;
+}
+
 /* ---- Design Tokens ---- */
 :root {
   color-scheme: dark;
@@ -67,6 +96,7 @@
 
   /* Fonts */
   --font-display:     'Bebas Neue', 'Impact', sans-serif;
+  --font-tacticsans:  'TacticSans', 'Chakra Petch', sans-serif;
   --font-tech:        'Chakra Petch', 'Space Grotesk', sans-serif;
   --font-mono:        'JetBrains Mono', 'Fira Code', monospace;
   --font-handwriting: 'Permanent Marker', cursive;
@@ -92,6 +122,8 @@ body {
   padding: 0;
   overflow-x: clip;
   line-height: 1.6;
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 ::selection {

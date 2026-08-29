@@ -6,7 +6,7 @@ export default function Highlights() {
   return (
     <section
       id="highlights"
-      className="relative w-full bg-[#0a0a0a] text-white pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 lg:pb-24 overflow-hidden select-none"
+      className="relative w-full bg-[#0a0a0a] text-white pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 lg:pb-24 overflow-hidden"
 
       style={{
         backgroundColor: '#0a0a0a',
@@ -139,7 +139,7 @@ export default function Highlights() {
           {/* LAYER 4: GHOST / WATERMARK ECHO TEXT BEHIND HEADING */}
           <div
             aria-hidden="true"
-            className="absolute -top-3 sm:-top-5 -left-2 sm:-left-3 pointer-events-none select-none opacity-[0.05] z-0"
+            className="absolute -top-3 sm:-top-5 -left-2 sm:-left-3 pointer-events-none opacity-[0.05] z-0"
             style={{
               fontFamily: "'Anton', 'Archivo Black', sans-serif",
               letterSpacing: '0.05em',
@@ -172,7 +172,7 @@ export default function Highlights() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group cursor-pointer flex flex-col items-center select-none"
+              className="group cursor-pointer flex flex-col items-center"
             >
               {/* VIDEO CARD THUMBNAIL CONTAINER */}
               <div

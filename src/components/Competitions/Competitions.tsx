@@ -42,7 +42,7 @@ export default function Competitions() {
   };
 
   return (
-    <div className="relative w-full select-none">
+    <div className="relative w-full">
       {/* =========================================================
           SECTION HEADER WITH SLIDER CONTROLS
           ========================================================= */}
@@ -51,7 +51,7 @@ export default function Competitions() {
           {/* Ghost Watermark Text */}
           <div
             aria-hidden="true"
-            className="absolute -top-3 sm:-top-5 -left-2 sm:-left-3 pointer-events-none select-none opacity-[0.045] z-0"
+            className="absolute -top-3 sm:-top-5 -left-2 sm:-left-3 pointer-events-none opacity-[0.045] z-0"
             style={{
               fontFamily: "'Anton', 'Archivo Black', sans-serif",
               letterSpacing: '0.05em',
@@ -63,7 +63,7 @@ export default function Competitions() {
           </div>
 
           {/* Section Subtag */}
-          <div className="flex items-center gap-2 mb-2 font-mono-tech text-[10px] sm:text-xs tracking-[0.25em] text-slate-400 uppercase">
+          <div className="flex items-center gap-2 mb-2 font-tacticsans text-[10px] sm:text-xs tracking-[0.25em] text-slate-400 uppercase">
             <span className="text-slate-600">02 //</span> HIGH-VOLTAGE COMBAT & HACKATHONS
           </div>
 
@@ -80,7 +80,7 @@ export default function Competitions() {
 
         {/* Desktop & Tablet Slider Controls */}
         <div className="flex items-center gap-3 self-end sm:self-auto z-10">
-          <div className="hidden sm:flex items-center gap-2 font-mono-tech text-[10px] tracking-widest text-slate-400 mr-2 uppercase">
+          <div className="hidden sm:flex items-center gap-2 font-tacticsans text-[10px] tracking-widest text-slate-400 mr-2 uppercase">
             <span>SLIDE TO EXPLORE</span>
             <span className="text-white/30">[05 EVENTS]</span>
           </div>
@@ -153,7 +153,7 @@ export default function Competitions() {
       {/* =========================================================
           MOBILE SWIPE HINT & PROGRESS BAR
           ========================================================= */}
-      <div className="mt-4 flex sm:hidden items-center justify-between font-mono-tech text-[9px] tracking-widest text-slate-400">
+      <div className="mt-4 flex sm:hidden items-center justify-between font-tacticsans text-[9px] tracking-widest text-slate-400">
         <span>← SWIPE TO VIEW ALL →</span>
         <div className="w-24 h-1 bg-white/10 rounded-full overflow-hidden">
           <div

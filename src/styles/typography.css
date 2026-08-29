@@ -26,6 +26,16 @@
   letter-spacing: 0.05em;
 }
 
+.font-tacticsans {
+  font-family: var(--font-tacticsans);
+  letter-spacing: 0.05em;
+}
+
+.font-caption {
+  font-family: var(--font-tacticsans);
+  letter-spacing: 0.05em;
+}
+
 .font-cinematic {
   font-family: 'Anton', 'Archivo Black', sans-serif;
 }

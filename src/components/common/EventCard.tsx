@@ -46,7 +46,7 @@ export default function EventCard({
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
       viewport={{ once: true }}
       onClick={handleClick}
-      className={`group relative flex flex-col justify-between h-full bg-[#08080b]/90 backdrop-blur-sm rounded-2xl overflow-hidden select-none transition-all duration-300 ease-out ${
+      className={`group relative flex flex-col justify-between h-full bg-[#08080b]/90 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 ease-out ${
         isCompleted
           ? 'border border-white/[0.06] opacity-80 cursor-default'
           : 'border border-white/[0.15] cursor-pointer hover:border-white/60 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,1),0_0_30px_rgba(255,255,255,0.15)]'
@@ -73,7 +73,7 @@ export default function EventCard({
       ) : null}
 
       {/* Top-Right Technical HUD Counter */}
-      <div className="absolute top-3 right-3.5 z-30 pointer-events-none flex items-center gap-1 font-mono-tech text-[9px] tracking-widest text-white/40 group-hover:text-white/70 transition-colors bg-black/60 backdrop-blur-md px-2 py-0.5 rounded border border-white/10">
+      <div className="absolute top-3 right-3.5 z-30 pointer-events-none flex items-center gap-1 font-tacticsans text-[9px] tracking-widest text-white/40 group-hover:text-white/70 transition-colors bg-black/60 backdrop-blur-md px-2 py-0.5 rounded border border-white/10">
         <span className="text-white/20">#</span>
         <span>{indexStr}</span>
       </div>
@@ -101,7 +101,7 @@ export default function EventCard({
           {/* Concluded Cyber Stamp Overlay */}
           {isCompleted && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
-              <span className="font-mono-tech text-[10px] tracking-[0.3em] uppercase text-white/70 bg-black/75 px-3 py-1 rounded border border-white/20 backdrop-blur-sm -rotate-6 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
+              <span className="font-tacticsans text-[10px] tracking-[0.3em] uppercase text-white/70 bg-black/75 px-3 py-1 rounded border border-white/20 backdrop-blur-sm -rotate-6 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
                 // CONCLUDED //
               </span>
             </div>
@@ -114,7 +114,7 @@ export default function EventCard({
           {/* Top Tag on image if provided (when not poster) */}
           {tag && !isPoster && (
             <div className="absolute bottom-2.5 left-4 right-4 flex items-center justify-between pointer-events-none">
-              <span className="font-mono-tech text-[9px] sm:text-[10px] tracking-[0.18em] text-white/90 bg-black/80 backdrop-blur-sm px-2.5 py-0.5 rounded border border-white/15 uppercase">
+              <span className="font-tacticsans text-[9px] sm:text-[10px] tracking-[0.18em] text-white/90 bg-black/80 backdrop-blur-sm px-2.5 py-0.5 rounded border border-white/15 uppercase">
                 {tag}
               </span>
             </div>
@@ -129,7 +129,7 @@ export default function EventCard({
             <h3 className="font-tech text-lg sm:text-xl md:text-[22px] font-bold uppercase tracking-wide text-[#f0f0f0] group-hover:text-white leading-tight transition-colors">
               {title}
             </h3>
-            <div className="font-mono-tech text-[10px] sm:text-[11px] tracking-[0.16em] text-slate-400 uppercase font-medium mt-1.5 mb-3">
+            <div className="font-tacticsans text-[10px] sm:text-[11px] tracking-[0.16em] text-slate-400 uppercase font-medium mt-1.5 mb-3">
               {subtitle}
             </div>
             <p className="font-body text-xs sm:text-[13px] text-slate-300/80 leading-relaxed line-clamp-3">
@@ -143,7 +143,7 @@ export default function EventCard({
           CARD FOOTER (Futuristic Action Bar)
           ========================================================= */}
       <div className={`p-4 sm:p-5 ${isPoster ? 'pt-3 bg-[#0a0a0d]' : 'pt-0 mt-4'}`}>
-        <div className="pt-3.5 border-t border-white/[0.08] flex items-center justify-between gap-2 font-mono-tech text-[10px] sm:text-[11px]">
+        <div className="pt-3.5 border-t border-white/[0.08] flex items-center justify-between gap-2 font-tacticsans text-[10px] sm:text-[11px]">
           {/* Action CTA Button */}
           {isCompleted ? (
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.03] text-slate-500 font-tech font-bold uppercase tracking-wider text-[11px] border border-white/[0.06] cursor-not-allowed">

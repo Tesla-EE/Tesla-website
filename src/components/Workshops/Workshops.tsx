@@ -17,7 +17,7 @@ export default function Workshops({ onSelectCard }: WorkshopsProps) {
         {/* Ghost Watermark Text */}
         <div
           aria-hidden="true"
-          className="absolute -top-3 sm:-top-5 -left-2 sm:-left-3 pointer-events-none select-none opacity-[0.045] z-0"
+          className="absolute -top-3 sm:-top-5 -left-2 sm:-left-3 pointer-events-none opacity-[0.045] z-0"
           style={{
             fontFamily: "'Anton', 'Archivo Black', sans-serif",
             letterSpacing: '0.05em',
@@ -29,7 +29,7 @@ export default function Workshops({ onSelectCard }: WorkshopsProps) {
         </div>
 
         {/* Section Subtag */}
-        <div className="flex items-center gap-2 mb-2 font-mono-tech text-[10px] sm:text-xs tracking-[0.25em] text-slate-400 uppercase">
+        <div className="flex items-center gap-2 mb-2 font-tacticsans text-[10px] sm:text-xs tracking-[0.25em] text-slate-400 uppercase">
           <span className="text-slate-600">01 //</span> HANDS-ON TECHNICAL SESSIONS
         </div>
 
