@@ -2,34 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 interface LoaderProps {
-  onComplete: () => void;
+  progress: number;
 }
 
-export default function Loader({ onComplete }: LoaderProps) {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    // Simulate loading progress
-    const duration = 2000; // 2 seconds minimum loading time
-    const intervalTime = 20;
-    const steps = duration / intervalTime;
-    let currentStep = 0;
-
-    const interval = setInterval(() => {
-      currentStep++;
-      const newProgress = Math.min((currentStep / steps) * 100, 100);
-      setProgress(newProgress);
-
-      if (currentStep >= steps) {
-        clearInterval(interval);
-        setTimeout(() => {
-          onComplete();
-        }, 300); // Short pause at 100% before fading out
-      }
-    }, intervalTime);
-
-    return () => clearInterval(interval);
-  }, [onComplete]);
+export default function Loader({ progress }: LoaderProps) {
 
   return (
     <motion.div

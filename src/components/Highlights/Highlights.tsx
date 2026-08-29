@@ -168,15 +168,20 @@ export default function Highlights() {
           {highlightsData.map((item, index) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group cursor-pointer flex flex-col items-center"
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -12, scale: 1.03 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 1, 0.5, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="group cursor-pointer flex flex-col items-center relative w-full"
             >
+              {/* Fake 3D Projection Glow Behind the Card */}
+              <div className="absolute inset-0 bg-white/0 rounded-[12px] group-hover:bg-white/15 group-hover:blur-2xl transition-all duration-500 pointer-events-none translate-y-4 group-hover:translate-y-8 -z-10" />
+
               {/* VIDEO CARD THUMBNAIL CONTAINER */}
               <div
-                className="relative w-full aspect-[4/3] rounded-[12px] overflow-hidden bg-[#0d0d0d] border border-white/[0.08] transition-all duration-300 ease-out group-hover:scale-[1.02] group-hover:border-white/20 group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.8)]"
+                className="relative w-full aspect-[4/3] rounded-[12px] overflow-hidden bg-[#0d0d0d] border border-white/[0.08] transition-all duration-500 ease-out group-hover:border-white/40 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
               >
                 {/* Use a video when supplied, keeping the image as the poster/fallback. */}
                 {item.video ? (

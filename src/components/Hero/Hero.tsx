@@ -5,7 +5,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Hero() {
+interface HeroProps {
+  onProgress?: (progress: number) => void;
+}
+
+export default function Hero({ onProgress }: HeroProps) {
   const heroRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const stillVideoRef = useRef<HTMLVideoElement>(null);
@@ -56,37 +60,43 @@ export default function Hero() {
     const images: HTMLImageElement[] = [];
     const airpods = { frame: 0 };
 
-    // Initialize array with empty image objects
-    for (let i = 0; i < frameCount; i++) {
-      images.push(new Image());
+    // We need to track the loading of all frames + the video
+    let loadedCount = 0;
+    const totalToLoad = frameCount + 1; // +1 for the video
+
+    const updateProgress = () => {
+      loadedCount++;
+      if (onProgress) {
+        onProgress((loadedCount / totalToLoad) * 100);
+      }
+    };
+
+    // Track video loading
+    if (stillVideo) {
+      if (stillVideo.readyState >= 3) {
+        updateProgress();
+      } else {
+        stillVideo.addEventListener('canplay', updateProgress, { once: true });
+        stillVideo.addEventListener('error', updateProgress, { once: true });
+      }
+    } else {
+      updateProgress();
     }
 
-    // Load the first frame immediately for initial paint
-    images[0].onload = () => {
-      context.drawImage(images[0], 0, 0, canvas.width, canvas.height);
-      
-      // Lazily load the rest of the frames sequentially in the background
-      // This prevents the network queue from being blocked on page load
-      let loadIndex = 1;
-      const loadNext = () => {
-        if (loadIndex >= frameCount) return;
-        
-        images[loadIndex].onload = () => {
-          loadIndex++;
-          if ('requestIdleCallback' in window) {
-            (window as any).requestIdleCallback(loadNext);
-          } else {
-            setTimeout(loadNext, 10);
-          }
-        };
-        images[loadIndex].src = currentFrame(loadIndex);
+    // Load all frames and track progress
+    for (let i = 0; i < frameCount; i++) {
+      const img = new Image();
+      img.onload = () => {
+        if (i === 0) {
+          // Draw the first frame once it loads
+          context.drawImage(img, 0, 0, canvas.width, canvas.height);
+        }
+        updateProgress();
       };
-      
-      // Start background loading after a short delay to prioritize other critical assets (like fonts)
-      setTimeout(loadNext, 100);
-    };
-    // Trigger the load of the first frame
-    images[0].src = currentFrame(0);
+      img.onerror = updateProgress; // Prevent stalling
+      img.src = currentFrame(i);
+      images.push(img);
+    }
 
     const ctx = gsap.context(() => {
       // 1. Fade out the still video smoothly in the first part of the scroll

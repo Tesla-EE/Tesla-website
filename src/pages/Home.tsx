@@ -11,6 +11,7 @@ import Loader from '../components/Loader/Loader';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const [heroProgress, setHeroProgress] = useState(0);
 
   // Lock scroll while loading
   useEffect(() => {
@@ -24,16 +25,23 @@ export default function Home() {
     };
   }, [isLoading]);
 
+  // Complete loading when hero reports 100%
+  useEffect(() => {
+    if (heroProgress >= 100) {
+      setTimeout(() => setIsLoading(false), 300);
+    }
+  }, [heroProgress]);
+
   return (
     <>
       <AnimatePresence mode="wait">
-        {isLoading && <Loader key="loader" onComplete={() => setIsLoading(false)} />}
+        {isLoading && <Loader key="loader" progress={heroProgress} />}
       </AnimatePresence>
       
       <div className={`min-h-screen bg-[#030304] text-white selection:bg-slate-300 selection:text-black font-body w-full transition-opacity duration-1000 ${isLoading ? 'opacity-0 h-screen overflow-hidden' : 'opacity-100'}`}>
         <Navbar />
         <main>
-          <Hero />
+          <Hero onProgress={setHeroProgress} />
           <About />
           <Highlights />
           <Events />
