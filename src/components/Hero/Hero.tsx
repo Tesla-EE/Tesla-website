@@ -15,6 +15,7 @@ export default function Hero({ onProgress }: HeroProps) {
   const stillVideoRef = useRef<HTMLVideoElement>(null);
 
   const [isMobile, setIsMobile] = useState(false);
+  const [mobileTitleVisible, setMobileTitleVisible] = useState(false);
 
   // Check for mobile viewport
   useEffect(() => {
@@ -119,7 +120,7 @@ export default function Hero({ onProgress }: HeroProps) {
       }
 
       // 2. Scrub the image sequence using GSAP's optimized ScrollTrigger with 1.5s smoothing
-      gsap.to(airpods, {
+      const seq = gsap.to(airpods, {
         frame: frameCount - 1,
         snap: 'frame',
         ease: 'none',
@@ -139,6 +140,19 @@ export default function Hero({ onProgress }: HeroProps) {
           }
         }
       });
+
+      if (isMobile) {
+        ScrollTrigger.create({
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom bottom',
+          onUpdate: (self) => {
+            setMobileTitleVisible(self.progress >= 0.96);
+          },
+        });
+      }
+
+      return seq;
     }, heroRef);
 
     return () => {
@@ -178,7 +192,10 @@ export default function Hero({ onProgress }: HeroProps) {
 
         {/* Mobile title state after the sequence finishes */}
         {isMobile && (
-          <div className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center">
+          <div
+            className={`absolute inset-0 z-10 pointer-events-none flex items-center justify-center transition-opacity duration-300 ${mobileTitleVisible ? 'opacity-100' : 'opacity-0'}`}
+            aria-hidden={!mobileTitleVisible}
+          >
             <div className="flex flex-col items-center text-center -translate-y-2">
               <span
                 className="font-display text-[2.4rem] leading-none tracking-[0.14em] text-white/95 uppercase"
