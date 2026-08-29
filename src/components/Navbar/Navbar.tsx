@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 interface NavbarProps {
@@ -7,6 +7,24 @@ interface NavbarProps {
 
 export default function Navbar({ onOpenRegister }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Navbar appears only after scrolling down past the initial Hero threshold
+      const threshold = window.innerHeight * 0.5;
+      if (window.scrollY > threshold) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+        setMobileMenuOpen(false);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
     { num: '01', name: 'HOME', href: '#hero' },
@@ -17,7 +35,11 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
 
   return (
     <header 
-      className="fixed top-0 left-0 right-0 z-50 py-5 bg-[#050506]/90 backdrop-blur-md border-b border-white/[0.08] shadow-2xl shadow-black/80 transition-all duration-300 animate-fadeIn"
+      className={`fixed top-0 left-0 right-0 z-50 py-5 bg-[#050506]/90 backdrop-blur-md border-b border-white/[0.08] shadow-2xl shadow-black/80 transition-all duration-500 ease-out ${
+        visible 
+          ? 'opacity-100 translate-y-0 pointer-events-auto' 
+          : 'opacity-0 -translate-y-full pointer-events-none'
+      }`}
     >
       <div className="w-full px-6 sm:px-12 lg:px-16 flex items-center justify-between">
 
