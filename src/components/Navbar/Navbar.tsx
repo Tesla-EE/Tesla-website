@@ -38,7 +38,7 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
       className={`fixed top-0 left-0 right-0 z-50 py-5 bg-[#050506]/90 backdrop-blur-md border-b border-white/[0.08] shadow-2xl shadow-black/80 transition-all duration-500 ease-out ${
         visible 
           ? 'opacity-100 translate-y-0 pointer-events-auto' 
-          : 'opacity-0 -translate-y-full pointer-events-none'
+          : 'opacity-100 translate-y-0 pointer-events-auto md:opacity-0 md:-translate-y-full md:pointer-events-none'
       }`}
     >
       <div className="w-full px-6 sm:px-12 lg:px-16 flex items-center justify-between">

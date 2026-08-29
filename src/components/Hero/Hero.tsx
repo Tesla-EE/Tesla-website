@@ -47,7 +47,7 @@ export default function Hero() {
     canvas.height = isMobile ? 1280 : 731; // Matches the aspect ratio of the extracted frames
 
     // Sequence configuration
-    const frameCount = isMobile ? 109 : 118; // Total extracted frames
+    const frameCount = isMobile ? 54 : 118; // Total extracted frames
     const currentFrame = (index: number) => 
       isMobile
         ? `/hero-mob-frames/frame_${(index + 1).toString().padStart(4, '0')}.webp`
@@ -56,17 +56,37 @@ export default function Hero() {
     const images: HTMLImageElement[] = [];
     const airpods = { frame: 0 };
 
-    // Preload images for desktop scrub
+    // Initialize array with empty image objects
     for (let i = 0; i < frameCount; i++) {
-      const img = new Image();
-      img.src = currentFrame(i);
-      images.push(img);
+      images.push(new Image());
     }
 
-    // Draw the first frame once it loads
+    // Load the first frame immediately for initial paint
     images[0].onload = () => {
       context.drawImage(images[0], 0, 0, canvas.width, canvas.height);
+      
+      // Lazily load the rest of the frames sequentially in the background
+      // This prevents the network queue from being blocked on page load
+      let loadIndex = 1;
+      const loadNext = () => {
+        if (loadIndex >= frameCount) return;
+        
+        images[loadIndex].onload = () => {
+          loadIndex++;
+          if ('requestIdleCallback' in window) {
+            (window as any).requestIdleCallback(loadNext);
+          } else {
+            setTimeout(loadNext, 10);
+          }
+        };
+        images[loadIndex].src = currentFrame(loadIndex);
+      };
+      
+      // Start background loading after a short delay to prioritize other critical assets (like fonts)
+      setTimeout(loadNext, 100);
     };
+    // Trigger the load of the first frame
+    images[0].src = currentFrame(0);
 
     const ctx = gsap.context(() => {
       // 1. Fade out the still video smoothly in the first part of the scroll
@@ -95,10 +115,11 @@ export default function Hero() {
           scrub: 1.5, // buttery smooth GSAP interpolation
         },
         onUpdate: () => {
-          // Render current frame to canvas
-          if (images[airpods.frame]) {
+          // Render current frame to canvas if it has finished loading
+          const currentImg = images[airpods.frame];
+          if (currentImg && currentImg.complete && currentImg.naturalWidth > 0) {
             requestAnimationFrame(() => {
-              context.drawImage(images[airpods.frame], 0, 0, canvas.width, canvas.height);
+              context.drawImage(currentImg, 0, 0, canvas.width, canvas.height);
             });
           }
         }
@@ -157,11 +178,11 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Date Badge: ┌ 21 , 22 SEP pushed to bottom via mt-auto and translate-y */}
+            {/* Date Badge: ┌ 25 , 26 SEP pushed to bottom via mt-auto and translate-y */}
             <div className="mt-auto inline-flex items-center translate-y-3">
               <div className="flex items-center gap-3 font-tacticsans text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.2em] text-white">
                 <span className="text-slate-300 font-light text-2xl sm:text-3xl lg:text-4xl -mr-1">┌</span>
-                <span>21 , 22 SEP</span>
+                <span>25 , 26 SEP</span>
               </div>
             </div>
           </motion.div>

@@ -16,10 +16,9 @@ const IconLinkedIn = () => (
   </svg>
 );
 
-const IconYouTube = () => (
+const IconFacebook = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="5" width="20" height="14" rx="4" />
-    <polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none" />
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
   </svg>
 );
 
@@ -36,9 +35,9 @@ const navGroups = [
   {
     label: 'SOCIALS',
     links: [
-      { text: 'INSTAGRAM', href: 'https://instagram.com', icon: <IconInstagram />, external: true },
-      { text: 'LINKEDIN', href: 'https://linkedin.com', icon: <IconLinkedIn />, external: true },
-      { text: 'YOUTUBE', href: 'https://youtube.com', icon: <IconYouTube />, external: true },
+      { text: 'INSTAGRAM', href: 'https://www.instagram.com/teslacet/?hl=en', icon: <IconInstagram />, external: true },
+      { text: 'LINKEDIN', href: 'https://in.linkedin.com/company/tesla-18', icon: <IconLinkedIn />, external: true },
+      { text: 'FACEBOOK', href: 'https://www.facebook.com/teslacet/', icon: <IconFacebook />, external: true },
     ],
   },
 ];
@@ -174,17 +173,38 @@ export default function Footer() {
               <span className="text-white/30">]</span>
             </div>
             <span className="hidden sm:inline text-white/20">|</span>
-            <div className="flex flex-wrap items-center gap-x-3 text-slate-400 tracking-[0.15em]">
-              <span>DESIGNED & CURATED BY <span className="text-white font-semibold tracking-[0.18em]">ROHAN KISHORE</span></span>
-              <span className="text-white/20">·</span>
-              <span>DEVELOPED BY <span className="text-white font-semibold tracking-[0.18em]">TESLA WEB TEAM</span></span>
+            <div className="flex flex-col items-center sm:items-start gap-y-1 text-slate-400 tracking-[0.15em]">
+              <span>
+                DESIGNED & CURATED BY{' '}
+                <a href="https://www.instagram.com/_rohan.kishore/?hl=en" target="_blank" rel="noreferrer" className="text-white font-semibold tracking-[0.18em] hover:text-slate-300 hover:underline hover:underline-offset-2 transition-all">
+                  ROHAN KISHORE
+                </a>
+              </span>
+              <span>
+                DEVELOPED BY{' '}
+                <a href="https://www.instagram.com/jeswin_jomi/?hl=en" target="_blank" rel="noreferrer" className="text-white font-semibold tracking-[0.18em] hover:text-slate-300 hover:underline hover:underline-offset-2 transition-all">
+                  JESWIN
+                </a>
+                <span className="text-white font-semibold tracking-[0.18em]">, </span>
+                <a href="https://www.instagram.com/abhi_sheiik_/?hl=en" target="_blank" rel="noreferrer" className="text-white font-semibold tracking-[0.18em] hover:text-slate-300 hover:underline hover:underline-offset-2 transition-all">
+                  ABHISHEK
+                </a>
+              </span>
             </div>
           </div>
           <div className="flex items-center gap-4">
             <span className="hidden sm:inline-flex items-center gap-2">
             </span>
             <span className="text-white/20">|</span>
-            <span className="text-white/40">09.5469° N · 76.0057° E</span>
+            <a 
+              href="https://share.google/yCabwr6SmBZzGvgX1" 
+              target="_blank" 
+              rel="noreferrer"
+              className="text-white/40 hover:text-white/80 transition-colors flex flex-col leading-tight hover:underline hover:underline-offset-2"
+            >
+              <span>09.5469° N</span>
+              <span>76.0057° E</span>
+            </a>
           </div>
         </div>
       </div>

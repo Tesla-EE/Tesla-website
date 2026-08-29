@@ -146,11 +146,11 @@ export default function EventCard({
         <div className="pt-3.5 border-t border-white/[0.08] flex items-center justify-between gap-2 font-tacticsans text-[10px] sm:text-[11px]">
           {/* Action CTA Button */}
           {isCompleted ? (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.03] text-slate-500 font-tech font-bold uppercase tracking-wider text-[11px] border border-white/[0.06] cursor-not-allowed">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-[3px] bg-white/[0.03] text-slate-500 font-tech font-bold uppercase tracking-wider text-[11px] border border-white/[0.06] cursor-not-allowed">
               <span>CONCLUDED ✓</span>
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.07] text-white group-hover:bg-white group-hover:text-black font-tech font-bold uppercase tracking-wider text-[11px] border border-white/15 transition-all duration-300 group-hover:border-white group-hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+            <span className="inline-flex items-center gap-1.5 px-5 py-2 rounded-[3px] bg-white/10 text-white group-hover:bg-white group-hover:text-black font-tech font-bold uppercase tracking-[0.2em] text-[11px] border border-white/30 transition-all duration-400 group-hover:border-white group-hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] group-hover:scale-105">
               <span>{actionText}</span>
             </span>
           )}
