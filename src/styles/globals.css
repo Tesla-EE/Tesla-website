@@ -92,6 +92,8 @@ body {
   padding: 0;
   overflow-x: clip;
   line-height: 1.6;
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 ::selection {

@@ -45,7 +45,7 @@ const navGroups = [
 
 export default function Footer() {
   return (
-    <footer id="footer" className="relative w-full bg-[#050506] bg-grain text-white overflow-hidden select-none flex flex-col items-center justify-center min-h-[450px]">
+    <footer id="footer" className="relative w-full bg-[#050506] bg-grain text-white overflow-hidden flex flex-col items-center justify-center min-h-[450px]">
       
       {/* =========================================================
           TOP 3D NOTCHED HORIZONTAL DIVIDER LINE (Like Impact Section)
@@ -64,7 +64,7 @@ export default function Footer() {
       {/* Massive Background Watermark (Behind Contents) */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
         <h1 
-          className="text-[22vw] sm:text-[18vw] font-black uppercase text-white/[0.02] leading-none whitespace-nowrap select-none drop-shadow-md"
+          className="text-[22vw] sm:text-[18vw] font-black uppercase text-white/[0.02] leading-none whitespace-nowrap drop-shadow-md"
           style={{ fontFamily: "'Anton', 'Archivo Black', sans-serif" }}
         >
           TESLA '26

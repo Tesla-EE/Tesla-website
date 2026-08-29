@@ -6,7 +6,7 @@ export default function Events() {
   return (
     <section
       id="events"
-      className="relative w-full bg-[#08080a] text-white py-24 sm:py-32 lg:py-36 overflow-hidden select-none"
+      className="relative w-full bg-[#08080a] text-white py-24 sm:py-32 lg:py-36 overflow-hidden"
       style={{
         backgroundColor: '#08080a',
       }}

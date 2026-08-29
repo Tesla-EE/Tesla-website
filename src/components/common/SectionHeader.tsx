@@ -13,7 +13,7 @@ export default function SectionHeader({ title, tag, watermark, className = '' }:
          style={{ borderBottom: '1px solid var(--border-subtle)' }}>
       {/* Ghost watermark behind */}
       {watermark && (
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 select-none pointer-events-none z-0"
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 pointer-events-none z-0"
              style={{ opacity: 0.03 }}>
           <span className="font-tech text-8xl sm:text-9xl font-bold text-stroke-ghost tracking-widest uppercase">
             {watermark}

@@ -46,7 +46,7 @@ export default function EventCard({
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
       viewport={{ once: true }}
       onClick={handleClick}
-      className={`group relative flex flex-col justify-between h-full bg-[#08080b]/90 backdrop-blur-sm rounded-2xl overflow-hidden select-none transition-all duration-300 ease-out ${
+      className={`group relative flex flex-col justify-between h-full bg-[#08080b]/90 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 ease-out ${
         isCompleted
           ? 'border border-white/[0.06] opacity-80 cursor-default'
           : 'border border-white/[0.15] cursor-pointer hover:border-white/60 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,1),0_0_30px_rgba(255,255,255,0.15)]'

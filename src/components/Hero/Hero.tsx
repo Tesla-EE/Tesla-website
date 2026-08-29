@@ -1,4 +1,4 @@
-﻿import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -144,7 +144,7 @@ export default function Hero() {
       {/* Sticky inner — stays pinned while scrolling through the hero sequence */}
       <section
         id="hero"
-        className="sticky top-0 h-screen w-full bg-[#050506] overflow-hidden flex flex-col justify-between pt-28 sm:pt-32 pb-8 px-6 sm:px-12 lg:px-16 select-none"
+        className="sticky top-0 h-screen w-full bg-[#050506] overflow-hidden flex flex-col justify-between pt-28 sm:pt-32 pb-8 px-6 sm:px-12 lg:px-16"
       >
         {/* ── Background Sequence Layer ─────────────────────────────────── */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -234,7 +234,7 @@ export default function Hero() {
           </div>
 
           {/* Scroll-to-Explore Vertical Text */}
-          <div className="ml-auto flex items-center gap-3 rotate-90 origin-bottom-right translate-x-2 sm:translate-x-0 font-mono-tech text-[10px] sm:text-[11px] tracking-[0.35em] text-slate-400 hover:text-white transition-colors select-none">
+          <div className="ml-auto flex items-center gap-3 rotate-90 origin-bottom-right translate-x-2 sm:translate-x-0 font-mono-tech text-[10px] sm:text-[11px] tracking-[0.35em] text-slate-400 hover:text-white transition-colors">
             <span className="uppercase">SCROLL TO EXPLORE</span>
           </div>
         </div>

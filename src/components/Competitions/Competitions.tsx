@@ -42,7 +42,7 @@ export default function Competitions() {
   };
 
   return (
-    <div className="relative w-full select-none">
+    <div className="relative w-full">
       {/* =========================================================
           SECTION HEADER WITH SLIDER CONTROLS
           ========================================================= */}
@@ -51,7 +51,7 @@ export default function Competitions() {
           {/* Ghost Watermark Text */}
           <div
             aria-hidden="true"
-            className="absolute -top-3 sm:-top-5 -left-2 sm:-left-3 pointer-events-none select-none opacity-[0.045] z-0"
+            className="absolute -top-3 sm:-top-5 -left-2 sm:-left-3 pointer-events-none opacity-[0.045] z-0"
             style={{
               fontFamily: "'Anton', 'Archivo Black', sans-serif",
               letterSpacing: '0.05em',

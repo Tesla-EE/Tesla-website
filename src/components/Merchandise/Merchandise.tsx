@@ -20,7 +20,7 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
     <section
       id="merchandise"
       ref={sectionRef}
-      className="relative w-full overflow-hidden select-none"
+      className="relative w-full overflow-hidden"
       style={{
         backgroundColor: '#050507',
         // tshirtbg.png as full-cover background
