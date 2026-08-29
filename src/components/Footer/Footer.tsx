@@ -92,15 +92,15 @@ export default function Footer() {
             />
             <span className="font-display text-2xl sm:text-3xl font-bold tracking-[0.1em] text-white uppercase drop-shadow-sm">TESLA '26</span>
           </a>
-          <p className="font-mono-tech text-sm sm:text-[14px] leading-relaxed text-slate-400 tracking-wide uppercase z-10">
+          <p className="font-tacticsans text-sm sm:text-[14px] leading-relaxed text-slate-400 tracking-wide uppercase z-10">
             The ultimate convergence of technology, innovation, and brutalist engineering. Designed and Curated by Rohan Kishore
           </p>
           <div className="mt-8 flex flex-col gap-3 z-10 w-full">
-            <a href="https://tesla.cet.ac.in" target="_blank" rel="noreferrer" className="group flex w-full items-center justify-between font-tech text-[11px] tracking-widest text-slate-300 hover:text-white transition-all duration-300 border border-white/10 hover:border-white/40 px-4 py-2.5 rounded bg-[#0c0c10] hover:bg-white/[0.05]">
+            <a href="https://tesla.cet.ac.in" target="_blank" rel="noreferrer" className="group flex w-full items-center justify-between font-tacticsans text-[11px] tracking-widest text-slate-300 hover:text-white transition-all duration-300 border border-white/10 hover:border-white/40 px-4 py-2.5 rounded bg-[#0c0c10] hover:bg-white/[0.05]">
               TESLA.CET.AC.IN
               <ArrowUpRight className="w-3 h-3 text-slate-500 group-hover:text-white transition-colors" />
             </a>
-            <a href="tel:+919745473767" className="group flex w-full items-center justify-between font-tech text-[11px] tracking-widest text-slate-300 hover:text-white transition-all duration-300 border border-white/10 hover:border-white/40 px-4 py-2.5 rounded bg-[#0c0c10] hover:bg-white/[0.05]">
+            <a href="tel:+919745473767" className="group flex w-full items-center justify-between font-tacticsans text-[11px] tracking-widest text-slate-300 hover:text-white transition-all duration-300 border border-white/10 hover:border-white/40 px-4 py-2.5 rounded bg-[#0c0c10] hover:bg-white/[0.05]">
               CONVENER: ALWIN <span className="text-white/20">|</span> +91 97454 73767
               <ArrowUpRight className="w-3 h-3 text-slate-500 group-hover:text-white transition-colors" />
             </a>
@@ -124,7 +124,7 @@ export default function Footer() {
                       href={link.href}
                       target={link.external ? '_blank' : undefined}
                       rel={link.external ? 'noreferrer' : undefined}
-                      className="group flex items-center gap-3 font-mono-tech text-xs sm:text-sm uppercase tracking-[0.15em] text-slate-400 hover:text-white transition-all px-2 py-1 -ml-2 rounded"
+                      className="group flex items-center gap-3 font-tacticsans text-xs sm:text-sm uppercase tracking-[0.15em] text-slate-400 hover:text-white transition-all px-2 py-1 -ml-2 rounded"
                     >
                       <span className="w-0 h-[1px] bg-white group-hover:w-3 transition-all duration-300" />
                       {link.icon && <span className="text-slate-500 group-hover:text-white transition-colors [&>svg]:w-4 [&>svg]:h-4">{link.icon}</span>}
@@ -144,7 +144,7 @@ export default function Footer() {
         {/* Hairline Divider */}
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         
-        <div className="max-w-[75rem] mx-auto px-6 sm:px-12 py-5 flex flex-col md:flex-row items-center justify-between gap-4 font-mono-tech text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-slate-500 bg-[#050506]">
+        <div className="max-w-[75rem] mx-auto px-6 sm:px-12 py-5 flex flex-col md:flex-row items-center justify-between gap-4 font-tacticsans text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-slate-500 bg-[#050506]">
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left">
             <div className="flex items-center gap-3">
               <span className="text-white/30">[</span>
@@ -160,8 +160,6 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-4">
             <span className="hidden sm:inline-flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-white/70 rounded-full animate-pulse" />
-              <span className="text-white/60">SYS. STATUS: ONLINE</span>
             </span>
             <span className="text-white/20">|</span>
             <span className="text-white/40">09.5469° N · 76.0057° E</span>

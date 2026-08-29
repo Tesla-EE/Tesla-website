@@ -97,8 +97,8 @@
   /* Fonts */
   --font-display:     'Bebas Neue', 'Impact', sans-serif;
   --font-tacticsans:  'TacticSans', 'Chakra Petch', sans-serif;
-  --font-tech:        'TacticSans', 'Chakra Petch', 'Space Grotesk', sans-serif;
-  --font-mono:        'TacticSans', 'JetBrains Mono', 'Fira Code', monospace;
+  --font-tech:        'Chakra Petch', 'Space Grotesk', sans-serif;
+  --font-mono:        'JetBrains Mono', 'Fira Code', monospace;
   --font-handwriting: 'Permanent Marker', cursive;
   --font-body:        'Inter', system-ui, sans-serif;
 }

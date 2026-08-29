@@ -142,7 +142,7 @@ export default function Impact() {
                 </div>
 
                 {/* Uppercase Monospace Subtitle */}
-                <div className="font-mono-tech text-[10px] sm:text-xs lg:text-sm tracking-[0.22em] text-slate-300 mt-2.5 sm:mt-3 uppercase font-medium text-center whitespace-pre-line leading-tight">
+                <div className="font-tacticsans text-[10px] sm:text-xs lg:text-sm tracking-[0.22em] text-slate-300 mt-2.5 sm:mt-3 uppercase font-medium text-center whitespace-pre-line leading-tight">
                   {stat.label}
                 </div>
 
