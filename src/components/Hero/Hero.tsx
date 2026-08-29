@@ -51,8 +51,8 @@ export default function Hero({ onOpenRegister }: HeroProps) {
         return;
       }
       const scrolled = Math.max(0, Math.min(totalScroll, -rect.top));
-      // 3× speed multiplier — video completes at ~33% of scroll distance
-      targetRatioRef.current = Math.min(1, (scrolled / totalScroll) * 3);
+      // 2× multiplier — video plays fully within the 50vh scroll window
+      targetRatioRef.current = Math.min(1, (scrolled / totalScroll) * 2);
     };
 
     let currentRatio = 0;
@@ -93,7 +93,7 @@ export default function Hero({ onOpenRegister }: HeroProps) {
 
   return (
     // 150vh outer wrapper — gives scroll room; 2× multiplier completes video at ~50% scroll
-    <div ref={heroRef} className="relative h-[110vh]">
+    <div ref={heroRef} className="relative h-screen">
       {/* Sticky inner — stays pinned while scrolling through the hero video sequence */}
       <section
         id="hero"
