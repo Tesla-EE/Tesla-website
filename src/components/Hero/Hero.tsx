@@ -60,11 +60,12 @@ export default function Hero({ onProgress }: HeroProps) {
     const images: HTMLImageElement[] = [];
     const airpods = { frame: 0 };
 
-    // We need to track the loading of all frames + the video
+    let isCancelled = false;
     let loadedCount = 0;
     const totalToLoad = frameCount + 1; // +1 for the video
 
     const updateProgress = () => {
+      if (isCancelled) return;
       loadedCount++;
       if (onProgress) {
         onProgress((loadedCount / totalToLoad) * 100);
@@ -87,13 +88,17 @@ export default function Hero({ onProgress }: HeroProps) {
     for (let i = 0; i < frameCount; i++) {
       const img = new Image();
       img.onload = () => {
+        if (isCancelled) return;
         if (i === 0) {
           // Draw the first frame once it loads
           context.drawImage(img, 0, 0, canvas.width, canvas.height);
         }
         updateProgress();
       };
-      img.onerror = updateProgress; // Prevent stalling
+      img.onerror = () => {
+        if (isCancelled) return;
+        updateProgress();
+      };
       img.src = currentFrame(i);
       images.push(img);
     }
@@ -107,7 +112,7 @@ export default function Hero({ onProgress }: HeroProps) {
           scrollTrigger: {
             trigger: heroRef.current,
             start: 'top top',
-            end: '+=800', // fade out over the first 800px of scroll
+            end: isMobile ? '+=400' : '+=800', // fade out over the first part of scroll
             scrub: true,
           }
         });
@@ -122,7 +127,7 @@ export default function Hero({ onProgress }: HeroProps) {
           trigger: heroRef.current,
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 1.5, // buttery smooth GSAP interpolation
+          scrub: isMobile ? 1 : 1.5, // slightly faster scrub response on mobile
         },
         onUpdate: () => {
           // Render current frame to canvas if it has finished loading
@@ -137,13 +142,14 @@ export default function Hero({ onProgress }: HeroProps) {
     }, heroRef);
 
     return () => {
+      isCancelled = true;
       ctx.revert();
     };
   }, [isMobile]);
 
   return (
-    // On mobile, allow a short scroll range so the second video fades in while moving. On desktop, 700vh for the scrub room.
-    <div ref={heroRef} className={`relative ${isMobile ? 'h-[400vh]' : 'h-[700vh]'}`}>
+    // On mobile, reduce scroll range significantly so the sequence finishes faster.
+    <div ref={heroRef} className={`relative ${isMobile ? 'h-[200vh]' : 'h-[700vh]'}`}>
       {/* Sticky inner — stays pinned while scrolling through the hero sequence */}
       <section
         id="hero"
