@@ -15,8 +15,10 @@ export default function Impact() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="w-full relative"
+      className="w-full relative bg-tech-grid bg-[#050506] bg-grain overflow-hidden"
     >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05),transparent_58%)]" />
+
       {/* =========================================================
           TOP 3D NOTCHED HORIZONTAL DIVIDER LINE
           ========================================================= */}
@@ -39,52 +41,25 @@ export default function Impact() {
       {/* =========================================================
           MAIN HUD GRID: IMPACT BOX + 4 STAT CARDS
           ========================================================= */}
-      <div className="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div className="relative z-10 max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 py-2 sm:py-3">
         <div className="grid grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-5 items-stretch">
 
-          {/* -------------------------------------------------------
-              LEFT: MAIN IMPACT BOX (Occupies ~4/12 cols on desktop)
-              ------------------------------------------------------- */}
+          {/* Main Impact Card */}
           <div className="col-span-2 lg:col-span-4 relative group">
-            {/* Outer HUD Corner Ticks */}
             <div className="absolute -top-2 left-0 font-mono-tech text-[10px] text-white/30">+</div>
             <div className="absolute -top-2 right-0 font-mono-tech text-[10px] text-white/30">+</div>
             <div className="absolute -bottom-2 left-0 font-mono-tech text-[10px] text-white/30">+</div>
             <div className="absolute -bottom-2 right-0 font-mono-tech text-[10px] text-white/30">+</div>
 
-            {/* Chamfered Box Container */}
-            <div className="relative w-full h-36 sm:h-44 lg:h-52 bg-[#08080a] border border-white/20 rounded-lg flex items-center justify-center p-6 transition-all duration-300 group-hover:border-white/40 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.04)]">
+            <div className="relative w-full h-40 sm:h-48 lg:h-60 bg-[#09090b] border border-white/12 rounded-[12px] flex items-center justify-center p-6 transition-all duration-300 group-hover:border-white/30 group-hover:bg-[#0d0d12] group-hover:shadow-[0_0_30px_rgba(255,255,255,0.04)] overflow-hidden">
+              <div className="absolute inset-[10px] border border-white/[0.06] rounded-[8px]" />
+              <div className="absolute top-3 left-3 h-px w-8 bg-white/25 rotate-45" />
+              <div className="absolute top-3 right-3 h-px w-8 bg-white/25 -rotate-45" />
+              <div className="absolute bottom-3 left-3 h-px w-8 bg-white/25 rotate-45" />
+              <div className="absolute bottom-3 right-3 h-px w-8 bg-white/25 -rotate-45" />
 
-              {/* Inner Double Hairline Border with Chamfer Cuts */}
-              <div className="absolute inset-2 border border-white/[0.08] rounded pointer-events-none" />
-
-              {/* Top-Left Diagonal Slashing Ticks (///) */}
-              <div className="absolute top-3 left-3 flex items-center gap-1 opacity-50">
-                <div className="w-[1px] h-3 bg-white -rotate-45" />
-                <div className="w-[1px] h-3 bg-white -rotate-45" />
-                <div className="w-[1px] h-3 bg-white -rotate-45" />
-              </div>
-
-              {/* Top-Right Chamfer Cut Line */}
-              <div className="absolute top-2.5 right-2.5 w-4 h-[1px] bg-white/40 rotate-45" />
-
-              {/* Bottom-Left Tech Bracket Corner */}
-              <div className="absolute bottom-2.5 left-2.5 text-[9px] font-mono-tech text-white/40">
-                └─
-              </div>
-
-              {/* Bottom-Right Calibration Dot Pattern (· · · · ·) */}
-              <div className="absolute bottom-3 right-4 flex items-center gap-1.5 opacity-40">
-                <div className="w-1 h-1 rounded-full bg-white" />
-                <div className="w-1 h-1 rounded-full bg-white" />
-                <div className="w-1 h-1 rounded-full bg-white" />
-                <div className="w-1 h-1 rounded-full bg-white" />
-                <div className="w-1 h-1 rounded-full bg-white" />
-              </div>
-
-              {/* Centered I M P A C T Title */}
               <span
-                className="font-thomeo text-3xl sm:text-5xl lg:text-6xl tracking-[0.38em] text-white/95 uppercase drop-shadow-[0_2px_20px_rgba(255,255,255,0.15)] group-hover:text-white transition-colors"
+                className="relative font-thomeo text-3xl sm:text-5xl lg:text-6xl tracking-[0.28em] text-white/95 uppercase drop-shadow-[0_2px_20px_rgba(255,255,255,0.12)] group-hover:text-white transition-colors"
                 style={{ fontFamily: "'Thomeo', sans-serif" }}
               >
                 IMPACT
@@ -92,9 +67,7 @@ export default function Impact() {
             </div>
           </div>
 
-          {/* -------------------------------------------------------
-              RIGHT: 4 OCTAGONAL STAT CARDS (2 cols each on desktop)
-              ------------------------------------------------------- */}
+          {/* Stat Cards */}
           {stats.map((stat, idx) => (
             <motion.div
               key={idx}
@@ -104,48 +77,36 @@ export default function Impact() {
               viewport={{ once: true }}
               className="col-span-1 lg:col-span-2 relative group"
             >
-              {/* Outer Calibration Crosshair Marks (+) */}
               <div className="absolute -top-2 left-1/2 -translate-x-1/2 font-mono-tech text-[10px] text-white/30">+</div>
               <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 font-mono-tech text-[10px] text-white/30">+</div>
 
-              {/* Stat Box Enclosure */}
-              <div className="relative w-full h-36 sm:h-44 lg:h-52 bg-[#08080a] border border-white/20 rounded-lg flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:border-white/40 group-hover:bg-[#0c0c10] group-hover:shadow-[0_0_25px_rgba(255,255,255,0.03)]">
+              <div className="relative w-full h-40 sm:h-48 lg:h-60 bg-[#09090b] border border-white/12 rounded-[12px] flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:border-white/30 group-hover:bg-[#0d0d12] group-hover:shadow-[0_0_25px_rgba(255,255,255,0.03)] overflow-hidden">
+                <div className="absolute inset-[10px] border border-white/[0.06] rounded-[8px]" />
 
-                {/* Inner Chamfer Border */}
-                <div className="absolute inset-1.5 border border-white/[0.08] rounded pointer-events-none" />
-
-                {/* Top Corner Angled Slits */}
-                <div className="absolute top-2.5 right-2.5 w-3 h-[1px] bg-white/40 rotate-45" />
-                <div className="absolute top-2.5 left-2.5 w-3 h-[1px] bg-white/40 -rotate-45" />
-
-                {/* Bottom Corner Angled Slits */}
-                <div className="absolute bottom-2.5 left-2.5 w-3 h-[1px] bg-white/40 rotate-45" />
-                <div className="absolute bottom-2.5 right-2.5 w-3 h-[1px] bg-white/40 -rotate-45" />
-
-                {/* Top Edge Tick Scale Line */}
-                <div className="absolute top-1.5 inset-x-6 flex items-center justify-between opacity-30">
-                  <div className="w-2 h-[1px] bg-white" />
-                  <div className="w-1 h-1 rounded-full bg-white" />
-                  <div className="w-2 h-[1px] bg-white" />
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between opacity-40">
+                  <div className="w-6 h-px bg-white/40" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-white/60" />
+                  <div className="w-6 h-px bg-white/40" />
                 </div>
 
-                {/* Bottom Edge Tick Scale Line */}
-                <div className="absolute bottom-1.5 inset-x-6 flex items-center justify-between opacity-30">
-                  <div className="w-2 h-[1px] bg-white" />
-                  <div className="w-1 h-1 rounded-full bg-white" />
-                  <div className="w-2 h-[1px] bg-white" />
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between opacity-40">
+                  <div className="w-6 h-px bg-white/40" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-white/60" />
+                  <div className="w-6 h-px bg-white/40" />
                 </div>
 
-                {/* Large Condensed Stat Value */}
-                <div className="font-display text-4xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-none drop-shadow-md group-hover:text-white transition-colors">
-                  {stat.value}
-                </div>
+                <div className="absolute top-3 right-3 h-5 w-px bg-white/30 rotate-45" />
+                <div className="absolute bottom-3 left-3 h-5 w-px bg-white/30 rotate-45" />
 
-                {/* Uppercase Monospace Subtitle */}
-                <div className="font-tacticsans text-[10px] sm:text-xs lg:text-sm tracking-[0.22em] text-slate-300 mt-2.5 sm:mt-3 uppercase font-medium text-center whitespace-pre-line leading-tight">
-                  {stat.label}
-                </div>
+                <div className="relative z-10 text-center">
+                  <div className="font-display text-4xl sm:text-5xl lg:text-[3.4rem] font-normal text-white tracking-tight leading-none drop-shadow-md transition-colors">
+                    {stat.value}
+                  </div>
 
+                  <div className="font-tacticsans text-[10px] sm:text-xs lg:text-sm tracking-[0.2em] text-slate-300 mt-2.5 sm:mt-3 uppercase font-medium text-center whitespace-pre-line leading-tight">
+                    {stat.label}
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}

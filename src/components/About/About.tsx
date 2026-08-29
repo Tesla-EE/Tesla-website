@@ -31,13 +31,13 @@ export default function About() {
 
           {/* Main Question Heading */}
           <div className="relative mb-8 sm:mb-12">
-            <h2 className="font-tech text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[5.5rem] font-black text-white tracking-tight leading-[1.05] uppercase drop-shadow-md">
+            <h2 className="font-tech text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[4.3rem] font-black text-white tracking-tight leading-[0.96] uppercase drop-shadow-md max-w-[12ch]">
               WHAT IS ACTUALLY <br />
               <span className="relative inline-block mt-2">
                 TESLA?
                 {/* Organic Triple-Stroke Brush Underline */}
                 <svg
-                  className="absolute -bottom-4 sm:-bottom-6 left-0 w-full h-5 sm:h-7 text-white/90"
+                  className="absolute -bottom-4 sm:-bottom-5 left-0 w-full h-4 sm:h-6 text-white/90"
                   viewBox="0 0 240 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ export default function About() {
           </div>
 
           {/* Narrative Content */}
-          <div className="font-tech text-base sm:text-xl md:text-2xl lg:text-3xl text-slate-300 font-normal leading-relaxed tracking-wide space-y-4 max-w-5xl pt-4 sm:pt-6">
+          <div className="font-tech text-sm sm:text-lg md:text-xl lg:text-[1.45rem] text-slate-300 font-normal leading-relaxed tracking-wide space-y-4 max-w-4xl pt-4 sm:pt-6">
             <p>
               <strong className="text-white font-medium">TESLA isn't just an event;</strong> it's a surge of innovation and energy! Inspired by Nikola Tesla's genius, it brings together the brightest minds to showcase groundbreaking ideas, tackle high-voltage challenges, and spark the future. With cutting-edge projects, power-packed workshops, expert panels, and electrifying hackathons, TESLA is where innovation meets opportunity. Be part of the revolution—<span className="text-white font-semibold">charge ahead with TESLA!</span>
             </p>
