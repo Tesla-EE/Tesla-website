@@ -2,11 +2,7 @@ import React from 'react';
 import { highlightsData, HighlightItem } from '../../data/highlights';
 import { motion } from 'framer-motion';
 
-interface HighlightsProps {
-  onSelectCard: (item: HighlightItem) => void;
-}
-
-export default function Highlights({ onSelectCard }: HighlightsProps) {
+export default function Highlights() {
   return (
     <section
       id="highlights"
@@ -49,12 +45,12 @@ export default function Highlights({ onSelectCard }: HighlightsProps) {
       />
 
       {/* =========================================================
-          COOL BLUE-WHITE AMBIENT GLOW (Left Edge)
+          COOL GREY-WHITE AMBIENT GLOW (Left Edge)
           ========================================================= */}
       <div
         className="pointer-events-none absolute -left-32 top-1/4 w-[450px] h-[550px] rounded-full z-[2] opacity-35 blur-[90px]"
         style={{
-          background: 'radial-gradient(circle, rgba(74, 144, 226, 0.18) 0%, rgba(74, 144, 226, 0.04) 50%, transparent 80%)',
+          background: 'radial-gradient(circle, rgba(160, 160, 160, 0.18) 0%, rgba(160, 160, 160, 0.04) 50%, transparent 80%)',
         }}
       />
 
@@ -106,14 +102,14 @@ export default function Highlights({ onSelectCard }: HighlightsProps) {
       {/* =========================================================
           CORNER ACCENT MARKS
           ========================================================= */}
-      {/* Top-Left Corner: Bracket + Circular Target Icon with Blue Accent */}
+      {/* Top-Left Corner: Bracket + Circular Target Icon with Grey Accent */}
       <div className="absolute top-6 left-6 z-10 flex items-center gap-2 pointer-events-none">
         <div className="w-3.5 h-3.5 border-t border-l border-white/30" />
         <div className="flex items-center gap-1.5 opacity-60">
-          <div className="w-3 h-3 rounded-full border border-[#4a90e2]/80 flex items-center justify-center">
-            <div className="w-1 h-1 rounded-full bg-[#4a90e2]" />
+          <div className="w-3 h-3 rounded-full border border-[#a0a0a0]/80 flex items-center justify-center">
+            <div className="w-1 h-1 rounded-full bg-[#a0a0a0]" />
           </div>
-          <span className="font-mono text-[9px] tracking-[0.2em] text-[#4a90e2]/90">REC·01</span>
+          <span className="font-mono text-[9px] tracking-[0.2em] text-[#a0a0a0]/90">REC·01</span>
         </div>
       </div>
 
@@ -150,7 +146,7 @@ export default function Highlights({ onSelectCard }: HighlightsProps) {
             }}
           >
             <span className="text-5xl sm:text-7xl md:text-8xl lg:text-[100px] font-black uppercase text-white leading-none whitespace-nowrap">
-              HIGHLIGHTS
+              TESLA THROUGH THE YEARS
             </span>
           </div>
 
@@ -161,7 +157,7 @@ export default function Highlights({ onSelectCard }: HighlightsProps) {
               fontFamily: "'Anton', 'Archivo Black', sans-serif",
             }}
           >
-            HIGHLIGHTS
+            TESLA THROUGH THE YEARS
           </h2>
         </div>
 
@@ -176,7 +172,6 @@ export default function Highlights({ onSelectCard }: HighlightsProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
-              onClick={() => onSelectCard(item)}
               className="group cursor-pointer flex flex-col items-center select-none"
             >
               {/* VIDEO CARD THUMBNAIL CONTAINER */}

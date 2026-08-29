@@ -2,11 +2,7 @@ import React from 'react';
 import Workshops from '../Workshops/Workshops';
 import Competitions from '../Competitions/Competitions';
 
-interface EventsProps {
-  onSelectCard: (item: any) => void;
-}
-
-export default function Events({ onSelectCard }: EventsProps) {
+export default function Events() {
   return (
     <section
       id="events"
@@ -47,21 +43,7 @@ export default function Events({ onSelectCard }: EventsProps) {
         }}
       />
 
-      {/* =========================================================
-          ATMOSPHERIC LIGHTING & SUBTLE AMBIENT GLOWS
-          ========================================================= */}
-      <div
-        className="pointer-events-none absolute top-1/4 -left-40 w-[500px] h-[500px] rounded-full z-[2] opacity-25 blur-[120px]"
-        style={{
-          background: 'radial-gradient(circle, rgba(74, 144, 226, 0.15) 0%, transparent 70%)',
-        }}
-      />
-      <div
-        className="pointer-events-none absolute bottom-1/4 -right-40 w-[500px] h-[500px] rounded-full z-[2] opacity-20 blur-[120px]"
-        style={{
-          background: 'radial-gradient(circle, rgba(140, 160, 200, 0.12) 0%, transparent 70%)',
-        }}
-      />
+
 
       {/* =========================================================
           SUBTLE ELECTRICAL / LIGHTNING DISCHARGE LINES
@@ -124,7 +106,7 @@ export default function Events({ onSelectCard }: EventsProps) {
         {/*<Workshops onSelectCard={onSelectCard} />*/}
 
         {/* SECTION 2: COMPETITIONS */}
-        <Competitions onSelectCard={onSelectCard} />
+        <Competitions />
       </div>
     </section>
   );
