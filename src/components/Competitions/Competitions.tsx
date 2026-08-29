@@ -140,7 +140,7 @@ export default function Competitions() {
                 isCompleted={comp.isCompleted}
                 image={comp.image}
                 secondaryMeta={comp.teamSize}
-                actionText="REGISTER TEAM →"
+                actionText={comp.teamSize.toLowerCase().includes('individual') || comp.teamSize.toLowerCase().includes('solo') ? 'REGISTER NOW →' : 'REGISTER TEAM →'}
                 variant="poster"
                 index={index}
                 onClick={comp.registrationLink ? () => window.open(comp.registrationLink, '_blank', 'noopener,noreferrer') : undefined}

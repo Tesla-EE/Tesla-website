@@ -15,6 +15,20 @@ export interface CompetitionItem {
 
 export const competitionsData: CompetitionItem[] = [
   {
+    id: 'comp-6',
+    title: 'CHESS TOURNAMENT',
+    subtitle: 'STRATEGIC BOARD COMBAT',
+    desc: 'Test your tactical brilliance and outsmart your opponents on the 64 squares.',
+    prize: 'EXCITING PRIZES',
+    badge: 'NEW',
+    isCompleted: false,
+    iconName: 'Trophy',
+    teamSize: 'Individual',
+    venue: 'To be announced',
+    image: '/images/competition/Chess.jpeg',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScIcXdAhginTrS_Zo8jnwJYsowx7hyUnmOVHxGosAepTSTXTQ/viewform?usp=publish-editor'
+  },
+  {
     id: 'comp-1',
     title: 'TREASURE HUNT',
     subtitle: 'CAMPUS EXPLORATION CHALLENGE',
@@ -23,7 +37,7 @@ export const competitionsData: CompetitionItem[] = [
     badge: 'NEW',
     isCompleted: false,
     iconName: 'Trophy',
-    teamSize: '3 - 4 Members',
+    teamSize: '4 Members',
     venue: 'Campus Wide',
     image: '/images/competition/Treasure hunt.jpeg',
     registrationLink: 'https://forms.gle/hbohcSF5346Xp7xo6'
@@ -48,13 +62,12 @@ export const competitionsData: CompetitionItem[] = [
     subtitle: 'BATTLEGROUNDS MOBILE INDIA',
     desc: 'High-stakes battle royale tournament. Squad up, strategize, and claim the chicken dinner.',
     prize: '₹30,000 CASH',
-    badge: 'NEW',
-    isCompleted: false,
+    badge: 'COMPLETED',
+    isCompleted: true,
     iconName: 'ShieldAlert',
     teamSize: '4 Members Squad',
     venue: 'Main Esports Arena',
-    image: '/images/competition/Battlegrounds Mobile India Tournament.jpeg',
-    registrationLink: 'https://forms.gle/xeCfDnDrwfb8YJar9'
+    image: '/images/competition/Battlegrounds Mobile India Tournament.jpeg'
   },
   {
     id: 'comp-4',
