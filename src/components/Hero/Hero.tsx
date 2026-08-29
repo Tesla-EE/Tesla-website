@@ -228,10 +228,6 @@ export default function Hero() {
             ========================================================= */}
         <div className="relative z-20 w-full max-w-7xl mx-auto flex items-end justify-between pt-2">
           {/* Technical Calibration Footnote */}
-          <div className="hidden sm:flex items-center gap-2 font-mono-tech text-[10px] text-slate-400 tracking-widest">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-            SYS // HIGH VOLTAGE DISCHARGE ACTIVE
-          </div>
 
           {/* Scroll-to-Explore Vertical Text */}
           <div className="ml-auto flex items-center gap-3 rotate-90 origin-bottom-right translate-x-2 sm:translate-x-0 font-mono-tech text-[10px] sm:text-[11px] tracking-[0.35em] text-slate-400 hover:text-white transition-colors">
