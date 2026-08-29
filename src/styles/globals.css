@@ -38,6 +38,21 @@
   text-transform: uppercase;
 }
 
+/* ---- Thomeo — Custom Display Font ---- */
+@font-face {
+  font-family: 'Thomeo';
+  src:
+    url('/fonts/Thomeo.ttf') format('truetype'),
+    url('/fonts/Thomeo%20.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-thomeo {
+  font-family: 'Thomeo', sans-serif;
+}
+
 /* ---- Design Tokens ---- */
 :root {
   color-scheme: dark;

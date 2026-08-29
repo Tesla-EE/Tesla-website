@@ -83,7 +83,10 @@ export default function Impact() {
               </div>
 
               {/* Centered I M P A C T Title */}
-              <span className="font-tech text-3xl sm:text-5xl lg:text-6xl font-black tracking-[0.38em] text-white/95 uppercase drop-shadow-[0_2px_20px_rgba(255,255,255,0.15)] group-hover:text-white transition-colors">
+              <span
+                className="font-thomeo text-3xl sm:text-5xl lg:text-6xl tracking-[0.38em] text-white/95 uppercase drop-shadow-[0_2px_20px_rgba(255,255,255,0.15)] group-hover:text-white transition-colors"
+                style={{ fontFamily: "'Thomeo', sans-serif" }}
+              >
                 IMPACT
               </span>
             </div>
