@@ -194,11 +194,12 @@ export default function Hero({ onProgress }: HeroProps) {
               </span>
             </div>
 
-            {/* Date Badge: ┌ 25 , 26 SEP pushed to bottom via mt-auto and translate-y */}
+            {/* Date badge: minimal technical label */}
             <div className="mt-auto inline-flex items-center translate-y-3">
-              <div className="flex items-center gap-3 font-tacticsans text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.2em] text-white">
-                <span className="text-slate-300 font-light text-2xl sm:text-3xl lg:text-4xl -mr-1">┌</span>
-                <span>25 , 26 SEP</span>
+              <div className="border border-white/10 bg-white/[0.015] px-4 py-2 sm:px-5 sm:py-2.5 backdrop-blur-[1px] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.02)]">
+                <span className="font-tacticsans text-lg sm:text-xl lg:text-2xl font-bold tracking-[0.22em] text-white uppercase">
+                  25, 26 SEP
+                </span>
               </div>
             </div>
           </motion.div>
