@@ -47,7 +47,7 @@ export default function Footer() {
     <footer id="footer" className="relative w-full bg-[#050506] bg-grain text-white overflow-hidden flex flex-col items-center justify-center min-h-[450px]">
       
       {/* =========================================================
-          TOP 3D NOTCHED HORIZONTAL DIVIDER LINE (Like Impact Section)
+          TOP 3D NOTCHED HORIZONTAL DIVIDER LINE 
           ========================================================= */}
       <div className="absolute top-0 left-0 right-0 flex items-center justify-center z-20">
         <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-white/30" />
