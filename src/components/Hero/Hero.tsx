@@ -176,6 +176,23 @@ export default function Hero({ onProgress }: HeroProps) {
           />
         </div>
 
+        {/* Mobile title state after the sequence finishes */}
+        {isMobile && (
+          <div className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center">
+            <div className="flex flex-col items-center text-center -translate-y-2">
+              <span
+                className="font-display text-[2.4rem] leading-none tracking-[0.14em] text-white/95 uppercase"
+                style={{ fontFamily: "'Bebas Neue', 'Impact', sans-serif" }}
+              >
+                TESLA '26
+              </span>
+              <span className="mt-3 font-tacticsans text-[9px] sm:text-[10px] tracking-[0.24em] text-slate-300 uppercase">
+                BY DEPARTMENT OF ELECTRICAL ENGINEERING
+              </span>
+            </div>
+          </div>
+        )}
+
         {/* =========================================================
             MAIN HERO CONTENT (Framing the 3D title and coil)
             ========================================================= */}
