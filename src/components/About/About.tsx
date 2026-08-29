@@ -25,7 +25,7 @@ export default function About() {
           }}
         >
           {/* Section Tag */}
-          <div className="flex items-center gap-2 mb-6 sm:mb-8 font-mono-tech text-xs sm:text-sm tracking-[0.25em] text-slate-400">
+          <div className="flex items-center gap-2 mb-6 sm:mb-8 font-tacticsans text-xs sm:text-sm tracking-[0.25em] text-slate-400">
             <span className="text-slate-500">—</span> ABOUT
           </div>
 

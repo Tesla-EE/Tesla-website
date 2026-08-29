@@ -208,14 +208,14 @@ export default function Hero() {
             {/* Subtitle Presenter Tagline */}
             <div className="flex items-center gap-2.5">
               <span className="w-2 h-2 rounded-full bg-slate-300 animate-pulse shadow-[0_0_8px_rgba(203,213,225,0.8)]" />
-              <span className="font-mono-tech text-[11px] sm:text-xs tracking-[0.25em] text-slate-300 uppercase font-medium">
+              <span className="font-tacticsans text-[11px] sm:text-xs tracking-[0.25em] text-slate-300 uppercase font-medium">
                 DEPARTMENT OF ELECTRICAL ENGINEERING PRESENTS
               </span>
             </div>
 
             {/* Date Badge: ┌ 21 , 22 SEP pushed to bottom via mt-auto and translate-y */}
             <div className="mt-auto inline-flex items-center translate-y-3">
-              <div className="flex items-center gap-3 font-mono-tech text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.2em] text-white">
+              <div className="flex items-center gap-3 font-tacticsans text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.2em] text-white">
                 <span className="text-slate-300 font-light text-2xl sm:text-3xl lg:text-4xl -mr-1">┌</span>
                 <span>21 , 22 SEP</span>
               </div>
@@ -230,7 +230,7 @@ export default function Hero() {
           {/* Technical Calibration Footnote */}
 
           {/* Scroll-to-Explore Vertical Text */}
-          <div className="ml-auto flex items-center gap-3 rotate-90 origin-bottom-right translate-x-2 sm:translate-x-0 font-mono-tech text-[10px] sm:text-[11px] tracking-[0.35em] text-slate-400 hover:text-white transition-colors">
+          <div className="ml-auto flex items-center gap-3 rotate-90 origin-bottom-right translate-x-2 sm:translate-x-0 font-tacticsans text-[10px] sm:text-[11px] tracking-[0.35em] text-slate-400 hover:text-white transition-colors">
             <span className="uppercase">SCROLL TO EXPLORE</span>
           </div>
         </div>

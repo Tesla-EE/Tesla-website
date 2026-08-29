@@ -29,7 +29,7 @@ export default function Workshops({ onSelectCard }: WorkshopsProps) {
         </div>
 
         {/* Section Subtag */}
-        <div className="flex items-center gap-2 mb-2 font-mono-tech text-[10px] sm:text-xs tracking-[0.25em] text-slate-400 uppercase">
+        <div className="flex items-center gap-2 mb-2 font-tacticsans text-[10px] sm:text-xs tracking-[0.25em] text-slate-400 uppercase">
           <span className="text-slate-600">01 //</span> HANDS-ON TECHNICAL SESSIONS
         </div>
 
