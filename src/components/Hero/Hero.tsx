@@ -194,10 +194,11 @@ export default function Hero({ onProgress }: HeroProps) {
               </span>
             </div>
 
-            {/* Date badge: minimal technical label */}
+            {/* Date badge: minimal technical label with subtle monochrome highlight */}
             <div className="mt-auto inline-flex items-center translate-y-3">
-              <div className="border border-white/10 bg-white/[0.015] px-4 py-2 sm:px-5 sm:py-2.5 backdrop-blur-[1px] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.02)]">
-                <span className="font-tacticsans text-lg sm:text-xl lg:text-2xl font-bold tracking-[0.22em] text-white uppercase">
+              <div className="relative border border-white/10 bg-white/[0.015] px-4 py-2 sm:px-5 sm:py-2.5 backdrop-blur-[1px] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.02)] before:absolute before:inset-[1px] before:border before:border-white/5 before:content-['']">
+                <div className="absolute inset-0 bg-gradient-to-r from-white/[0.02] via-white/[0.04] to-transparent" />
+                <span className="relative font-tacticsans text-lg sm:text-xl lg:text-2xl font-bold tracking-[0.22em] text-white uppercase">
                   25, 26 SEP
                 </span>
               </div>
