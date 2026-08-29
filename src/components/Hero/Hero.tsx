@@ -11,7 +11,6 @@ export default function Hero() {
   const stillVideoRef = useRef<HTMLVideoElement>(null);
 
   const [isMobile, setIsMobile] = useState(false);
-  const [mobileScroll, setMobileScroll] = useState(0);
 
   // Check for mobile viewport
   useEffect(() => {
@@ -24,35 +23,6 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    if (!isMobile) {
-      setMobileScroll(0);
-      return;
-    }
-
-    const updateMobileScroll = () => {
-      const hero = heroRef.current;
-      if (!hero) return;
-
-      const rect = hero.getBoundingClientRect();
-      const totalScrollable = Math.max(hero.offsetHeight - window.innerHeight, 1);
-      const progress = Math.min(Math.max((-rect.top) / totalScrollable, 0), 1);
-      setMobileScroll(progress);
-    };
-
-    updateMobileScroll();
-    window.addEventListener('scroll', updateMobileScroll, { passive: true });
-    window.addEventListener('resize', updateMobileScroll);
-
-    return () => {
-      window.removeEventListener('scroll', updateMobileScroll);
-      window.removeEventListener('resize', updateMobileScroll);
-    };
-  }, [isMobile]);
-
-  useEffect(() => {
-    // If we are on mobile, abort all the heavy canvas/video and GSAP loading
-    if (isMobile) return;
-
     const canvas = canvasRef.current;
     const stillVideo = stillVideoRef.current;
     const context = canvas?.getContext('2d');
@@ -73,13 +43,15 @@ export default function Hero() {
     if (!canvas || !context) return;
 
     // Canvas setup for crisp rendering
-    canvas.width = 1280;
-    canvas.height = 731; // Matches the aspect ratio of the extracted frames
+    canvas.width = isMobile ? 720 : 1280;
+    canvas.height = isMobile ? 1280 : 731; // Matches the aspect ratio of the extracted frames
 
     // Sequence configuration
-    const frameCount = 118; // Total extracted frames
+    const frameCount = isMobile ? 109 : 118; // Total extracted frames
     const currentFrame = (index: number) => 
-      `/hero-frames/frame_${(index + 1).toString().padStart(4, '0')}.webp`;
+      isMobile
+        ? `/hero-mob-frames/frame_${(index + 1).toString().padStart(4, '0')}.webp`
+        : `/hero-frames/frame_${(index + 1).toString().padStart(4, '0')}.webp`;
 
     const images: HTMLImageElement[] = [];
     const airpods = { frame: 0 };
@@ -140,7 +112,7 @@ export default function Hero() {
 
   return (
     // On mobile, allow a short scroll range so the second video fades in while moving. On desktop, 700vh for the scrub room.
-    <div ref={heroRef} className={`relative ${isMobile ? 'h-[180vh]' : 'h-[700vh]'}`}>
+    <div ref={heroRef} className={`relative ${isMobile ? 'h-[400vh]' : 'h-[700vh]'}`}>
       {/* Sticky inner — stays pinned while scrolling through the hero sequence */}
       <section
         id="hero"
@@ -148,51 +120,23 @@ export default function Hero() {
       >
         {/* ── Background Sequence Layer ─────────────────────────────────── */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          {isMobile ? (
-            <>
-              <video
-                src="/videos/bg1mob.mp4"
-                muted
-                autoPlay
-                loop
-                playsInline
-                preload="auto"
-                className="absolute inset-x-0 top-[72px] bottom-0 w-full h-[calc(100%-72px)] object-cover transition-opacity duration-500 ease-out"
-                style={{ opacity: 1 - mobileScroll * 1.35 }}
-              />
-              <video
-                src="/videos/bg2mob.mp4"
-                muted
-                autoPlay
-                loop
-                playsInline
-                preload="auto"
-                className="absolute inset-x-0 top-[72px] bottom-0 w-full h-[calc(100%-72px)] object-cover transition-opacity duration-500 ease-out"
-                style={{ opacity: Math.min(mobileScroll * 1.45, 1) }}
-              />
-            </>
-          ) : (
-            /* DYNAMIC DESKTOP SEQUENCE */
-            <>
-              {/* Main scrub canvas sequence — synchronized with scroll position */}
-              <canvas
-                ref={canvasRef}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+          {/* Main scrub canvas sequence — synchronized with scroll position */}
+          <canvas
+            ref={canvasRef}
+            className={`absolute inset-x-0 ${isMobile ? 'top-[72px] bottom-0 w-full h-[calc(100%-72px)]' : 'inset-0 w-full h-full'} object-cover`}
+          />
 
-              {/* Initial ambient video — looping at top, fades out smoothly on scroll */}
-              <video
-                ref={stillVideoRef}
-                src="/videos/Bg1_A.mp4"
-                muted
-                autoPlay
-                loop
-                playsInline
-                preload="auto"
-                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-100"
-              />
-            </>
-          )}
+          {/* Initial ambient video — looping at top, fades out smoothly on scroll */}
+          <video
+            ref={stillVideoRef}
+            src={isMobile ? "/videos/bg1mob.mp4" : "/videos/Bg1_A.mp4"}
+            muted
+            autoPlay
+            loop
+            playsInline
+            preload="auto"
+            className={`absolute inset-x-0 ${isMobile ? 'top-[72px] bottom-0 w-full h-[calc(100%-72px)]' : 'inset-0 w-full h-full'} object-cover transition-opacity duration-100`}
+          />
         </div>
 
         {/* =========================================================

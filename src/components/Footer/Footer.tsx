@@ -107,36 +107,58 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Right Side - Navigation Links */}
-        <nav aria-label="Footer navigation" className="flex flex-wrap sm:flex-nowrap gap-12 sm:gap-24 relative z-10 py-6">
-          {navGroups.map((group) => (
-            <div key={group.label} className="min-w-[140px]">
-              <div className="flex items-center gap-3 mb-6 border-b border-white/[0.08] pb-3">
-                <div className="w-1.5 h-1.5 bg-white/40" />
-                <h2 className="font-tech text-sm sm:text-base font-bold tracking-[0.2em] text-white/80">
-                  {group.label}
-                </h2>
+        {/* Right Side - Navigation & Sponsorship */}
+        <div className="flex flex-col gap-10 relative z-10 py-6">
+          <nav aria-label="Footer navigation" className="flex flex-wrap sm:flex-nowrap gap-12 sm:gap-24">
+            {navGroups.map((group) => (
+              <div key={group.label} className="min-w-[140px]">
+                <div className="flex items-center gap-3 mb-6 border-b border-white/[0.08] pb-3">
+                  <div className="w-1.5 h-1.5 bg-white/40" />
+                  <h2 className="font-tech text-sm sm:text-base font-bold tracking-[0.2em] text-white/80">
+                    {group.label}
+                  </h2>
+                </div>
+                <ul className="space-y-4">
+                  {group.links.map((link) => (
+                    <li key={link.text}>
+                      <a
+                        href={link.href}
+                        target={link.external ? '_blank' : undefined}
+                        rel={link.external ? 'noreferrer' : undefined}
+                        className="group flex items-center gap-3 font-mono-tech text-xs sm:text-sm uppercase tracking-[0.15em] text-slate-400 hover:text-white transition-all px-2 py-1 -ml-2 rounded"
+                      >
+                        <span className="w-0 h-[1px] bg-white group-hover:w-3 transition-all duration-300" />
+                        {link.icon && <span className="text-slate-500 group-hover:text-white transition-colors [&>svg]:w-4 [&>svg]:h-4">{link.icon}</span>}
+                        {link.text}
+                        {link.external && <ArrowUpRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 text-white transition-all duration-300" />}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-4">
-                {group.links.map((link) => (
-                  <li key={link.text}>
-                    <a
-                      href={link.href}
-                      target={link.external ? '_blank' : undefined}
-                      rel={link.external ? 'noreferrer' : undefined}
-                      className="group flex items-center gap-3 font-tacticsans text-xs sm:text-sm uppercase tracking-[0.15em] text-slate-400 hover:text-white transition-all px-2 py-1 -ml-2 rounded"
-                    >
-                      <span className="w-0 h-[1px] bg-white group-hover:w-3 transition-all duration-300" />
-                      {link.icon && <span className="text-slate-500 group-hover:text-white transition-colors [&>svg]:w-4 [&>svg]:h-4">{link.icon}</span>}
-                      {link.text}
-                      {link.external && <ArrowUpRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 text-white transition-all duration-300" />}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+            ))}
+          </nav>
+
+          {/* Sponsorship Section */}
+          <div className="min-w-[140px] pt-2">
+            <div className="flex items-center gap-3 mb-6 border-b border-white/[0.08] pb-3">
+              <div className="w-1.5 h-1.5 bg-white/40" />
+              <h2 className="font-tech text-sm sm:text-base font-bold tracking-[0.2em] text-white/80">
+                SPONSOR US
+              </h2>
             </div>
-          ))}
-        </nav>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href="tel:+919061860203" className="group flex flex-1 items-center justify-between font-tech text-[11px] tracking-widest text-slate-300 hover:text-white transition-all duration-300 border border-white/10 hover:border-white/40 px-4 py-2.5 rounded bg-[#0c0c10] hover:bg-white/[0.05]">
+                NITHIN <span className="text-white/20">|</span> +91 90618 60203
+                <ArrowUpRight className="w-3 h-3 text-slate-500 group-hover:text-white transition-colors" />
+              </a>
+              <a href="tel:+918075630822" className="group flex flex-1 items-center justify-between font-tech text-[11px] tracking-widest text-slate-300 hover:text-white transition-all duration-300 border border-white/10 hover:border-white/40 px-4 py-2.5 rounded bg-[#0c0c10] hover:bg-white/[0.05]">
+                ZAHIR <span className="text-white/20">|</span> +91 8075 630 822
+                <ArrowUpRight className="w-3 h-3 text-slate-500 group-hover:text-white transition-colors" />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Bottom Footer Bar (HUD Style) */}
