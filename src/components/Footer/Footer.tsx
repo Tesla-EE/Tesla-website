@@ -185,13 +185,9 @@ export default function Footer() {
                 <a href="https://www.instagram.com/jeswin_jomi/?hl=en" target="_blank" rel="noreferrer" className="text-white font-semibold tracking-[0.18em] hover:text-slate-300 hover:underline hover:underline-offset-2 transition-all">
                   JESWIN
                 </a>
-                <span className="text-white font-semibold tracking-[0.18em]">, </span>
+                <span className="text-white font-semibold tracking-[0.18em]"> & </span>
                 <a href="https://www.instagram.com/abhi_sheiik_/?hl=en" target="_blank" rel="noreferrer" className="text-white font-semibold tracking-[0.18em] hover:text-slate-300 hover:underline hover:underline-offset-2 transition-all">
                   ABHISHEK
-                </a>
-
-                <a href="https://www.instagram.com/_rohan.kishore/?hl=en" target="_blank" rel="noreferrer" className="text-white font-semibold tracking-[0.18em] hover:text-slate-300 hover:underline hover:underline-offset-2 transition-all">
-                  ROHAN
                 </a>
               </span>
             </div>
