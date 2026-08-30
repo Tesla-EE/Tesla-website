@@ -5,7 +5,7 @@ export default function Impact() {
   const stats = [
     { value: '5000+', label: 'FOOTFALL' },
     { value: '40+', label: 'EVENTS' },
-    { value: '150K', label: 'PRIZE\nMONEY' },
+    { value: '100K', label: 'PRIZE\nMONEY' },
     { value: '60+', label: 'COLLEGES' },
   ];
 
