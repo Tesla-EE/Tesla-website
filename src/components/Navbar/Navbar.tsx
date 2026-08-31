@@ -29,7 +29,7 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
   }, []);
 
   const navItems = [
-    { num: '01', name: 'HOME', href: '#hero' },
+    { num: '01', name: 'HOME', href: '#' },
     { num: '02', name: 'ABOUT', href: '#about' },
     { num: '03', name: 'THROUGH THE YEARS', href: '#highlights' },
     { num: String(competitionsData.length).padStart(2, '0'), name: 'COMPETITIONS', href: '#events' },
@@ -46,7 +46,7 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
       <div className="w-full px-6 sm:px-12 lg:px-16 flex items-center justify-between">
 
         {/* Top-Left Branding */}
-        <a href="#hero" className="inline-block group">
+        <a href="#" className="inline-block group">
           <img
             src="/images/Logo.png"
             alt="TESLA '26"
