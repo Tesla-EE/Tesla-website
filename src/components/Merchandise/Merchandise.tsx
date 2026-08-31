@@ -128,16 +128,21 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
                 <path d="M5 5 C20 5, 50 20, 55 38" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 <path d="M55 38 L48 30 M55 38 L46 38" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
               </svg>
-              <span
-                className="text-white/90 leading-none"
-                style={{
-                  fontFamily: "'Permanent Marker', cursive",
-                  fontSize: 'clamp(0.85rem, 3.5vw, 1.8rem)',
-                  textShadow: '0 2px 12px rgba(0,0,0,0.7)',
-                }}
-              >
-                ₹329
-              </span>
+              <div className="flex flex-col items-center">
+                <span
+                  className="text-white/90 leading-none"
+                  style={{
+                    fontFamily: "'Permanent Marker', cursive",
+                    fontSize: 'clamp(0.85rem, 3.5vw, 1.8rem)',
+                    textShadow: '0 2px 12px rgba(0,0,0,0.7)',
+                  }}
+                >
+                  ₹329
+                </span>
+                <span className="text-white/70 font-tech uppercase mt-1" style={{ fontSize: 'clamp(0.5rem, 1.5vw, 0.9rem)', letterSpacing: '0.1em', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                  Regular
+                </span>
+              </div>
             </div>
 
             {/* Price annotation — RIGHT (349/-) */}
@@ -160,16 +165,21 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
                 <path d="M5 5 C20 5, 50 20, 55 38" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 <path d="M55 38 L48 30 M55 38 L46 38" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
               </svg>
-              <span
-                className="text-white/90 leading-none"
-                style={{
-                  fontFamily: "'Permanent Marker', cursive",
-                  fontSize: 'clamp(0.85rem, 3.5vw, 1.8rem)',
-                  textShadow: '0 2px 12px rgba(0,0,0,0.7)',
-                }}
-              >
-                ₹349
-              </span>
+              <div className="flex flex-col items-center">
+                <span
+                  className="text-white/90 leading-none"
+                  style={{
+                    fontFamily: "'Permanent Marker', cursive",
+                    fontSize: 'clamp(0.85rem, 3.5vw, 1.8rem)',
+                    textShadow: '0 2px 12px rgba(0,0,0,0.7)',
+                  }}
+                >
+                  ₹349
+                </span>
+                <span className="text-white/70 font-tech uppercase mt-1" style={{ fontSize: 'clamp(0.5rem, 1.5vw, 0.9rem)', letterSpacing: '0.1em', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                  Oversized
+                </span>
+              </div>
             </div>
           </motion.div>
         </motion.div>
