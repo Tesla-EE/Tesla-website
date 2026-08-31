@@ -45,7 +45,7 @@ export default function Home() {
           <About />
           <Highlights />
           <Events />
-          {/* <Merchandise /> */}
+          <Merchandise />
         </main>
 
         <Footer />
