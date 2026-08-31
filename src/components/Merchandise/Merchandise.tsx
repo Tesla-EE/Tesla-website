@@ -60,8 +60,10 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
           ========================================================= */}
       <div className="relative z-10 flex flex-col items-center w-full h-full">
 
-        {/* ---- HEADING ---- */}
-        <div className="pt-10 sm:pt-12 md:pt-14 text-center px-4">
+        {/* ---- HEADING + TOP-RIGHT TEXT ---- */}
+        <div className="pt-20 sm:pt-24 md:pt-32 text-center px-4 relative">
+          
+
           <h2
             className="font-brother-hoops text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
             style={{
@@ -70,7 +72,7 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
               transform: 'rotate(-2deg)',
             }}
           >
-            GRAB YOUR TEES!
+            TESLA 26
           </h2>
           {/* Triple underline brush strokes */}
           <div className="flex flex-col items-center mt-1 gap-[2px] mx-auto" style={{ transform: 'rotate(-1deg)' }}>
@@ -94,7 +96,7 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
             style={{ perspective: 1200 }}
           >
             <motion.img
-              src="/images/Tshirst26.jpeg"
+              src="/images/tshirtnew.png"
               alt="TESLA '26 Official T-Shirts — Front and Back"
               className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.9)] cursor-pointer"
               style={{ maxHeight: '75vh' }}
@@ -108,76 +110,48 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             />
 
-            {/* Price annotation — LEFT (399/-) */}
+            {/* Price annotation — LEFT (Regular 329/-) */}
             <div
-              className="absolute pointer-events-none flex flex-col items-center"
-              style={{ left: '4%', bottom: '15%' }}
+              className="absolute pointer-events-none flex flex-col items-end"
+              style={{ left: '2%', bottom: '25%' }}
             >
-              {/* Curved arrow SVG */}
-              <svg
-                className="text-white/70"
-                style={{
-                  width: 'clamp(24px, 4vw, 44px)',
-                  transform: 'scaleX(-1) rotate(-20deg)',
-                  marginBottom: 'clamp(2px, 0.5vw, 8px)',
-                  marginLeft: 'clamp(10px, 2vw, 20px)'
-                }}
-                viewBox="0 0 60 40"
-                fill="none"
-              >
-                <path d="M5 5 C20 5, 50 20, 55 38" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <path d="M55 38 L48 30 M55 38 L46 38" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-end">
+                <span className="text-white/70 font-tech uppercase" style={{ fontSize: 'clamp(0.5rem, 1.5vw, 0.9rem)', letterSpacing: '0.1em', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                  REGULAR
+                </span>
                 <span
                   className="text-white/90 leading-none"
                   style={{
                     fontFamily: "'Permanent Marker', cursive",
-                    fontSize: 'clamp(0.85rem, 3.5vw, 1.8rem)',
+                    fontSize: 'clamp(1.2rem, 4.5vw, 2.4rem)',
                     textShadow: '0 2px 12px rgba(0,0,0,0.7)',
+                    fontWeight: 'bold'
                   }}
                 >
-                  ₹329
-                </span>
-                <span className="text-white/70 font-tech uppercase mt-1" style={{ fontSize: 'clamp(0.5rem, 1.5vw, 0.9rem)', letterSpacing: '0.1em', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
-                  Regular
+                  329/-
                 </span>
               </div>
             </div>
 
-            {/* Price annotation — RIGHT (349/-) */}
+            {/* Price annotation — RIGHT (Oversized 349/-) */}
             <div
-              className="absolute pointer-events-none flex flex-col items-center"
-              style={{ right: '4%', bottom: '15%' }}
+              className="absolute pointer-events-none flex flex-col items-end"
+              style={{ right: '2%', bottom: '25%' }}
             >
-              {/* Curved arrow SVG */}
-              <svg
-                className="text-white/70"
-                style={{
-                  width: 'clamp(24px, 4vw, 44px)',
-                  transform: 'rotate(-20deg)',
-                  marginBottom: 'clamp(2px, 0.5vw, 8px)',
-                  marginRight: 'clamp(10px, 2vw, 20px)'
-                }}
-                viewBox="0 0 60 40"
-                fill="none"
-              >
-                <path d="M5 5 C20 5, 50 20, 55 38" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <path d="M55 38 L48 30 M55 38 L46 38" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-end">
+                <span className="text-white/70 font-tech uppercase" style={{ fontSize: 'clamp(0.5rem, 1.5vw, 0.9rem)', letterSpacing: '0.1em', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                  OVERSIZED
+                </span>
                 <span
                   className="text-white/90 leading-none"
                   style={{
                     fontFamily: "'Permanent Marker', cursive",
-                    fontSize: 'clamp(0.85rem, 3.5vw, 1.8rem)',
+                    fontSize: 'clamp(1.2rem, 4.5vw, 2.4rem)',
                     textShadow: '0 2px 12px rgba(0,0,0,0.7)',
+                    fontWeight: 'bold'
                   }}
                 >
-                  ₹349
-                </span>
-                <span className="text-white/70 font-tech uppercase mt-1" style={{ fontSize: 'clamp(0.5rem, 1.5vw, 0.9rem)', letterSpacing: '0.1em', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
-                  Oversized
+                  349/-
                 </span>
               </div>
             </div>
@@ -240,6 +214,8 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
             </motion.div>
           </div>
         </div>
+
+    
 
         {/* ---- PROMOTIONAL VIDEO (HUD THEMED) ---- */}
         <motion.div 
