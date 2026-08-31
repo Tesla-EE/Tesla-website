@@ -136,7 +136,7 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
                   textShadow: '0 2px 12px rgba(0,0,0,0.7)',
                 }}
               >
-                399/-
+                ₹329
               </span>
             </div>
 
@@ -168,7 +168,7 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
                   textShadow: '0 2px 12px rgba(0,0,0,0.7)',
                 }}
               >
-                349/-
+                ₹349
               </span>
             </div>
           </motion.div>
@@ -208,7 +208,7 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
               viewport={{ once: true }}
             >
               <motion.button
-                onClick={onOpenBuy}
+                onClick={() => window.open('https://forms.gle/yqqjBWcoy6YT6hF5A', '_blank')}
                 whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.15)' }}
                 whileTap={{ scale: 0.97 }}
                 className="font-tech text-white cursor-pointer rounded-full transition-colors"
