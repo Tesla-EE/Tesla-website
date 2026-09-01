@@ -43,9 +43,10 @@ export default function Home() {
         <main>
           <Hero onProgress={setHeroProgress} />
           <About />
-          <Highlights />
+          
           <Events />
           <Merchandise />
+          <Highlights />
         </main>
 
         <Footer />
