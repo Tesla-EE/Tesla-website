@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-// Target date set to September 25
 const TARGET_DATE = new Date('2026-09-25T09:00:00+05:30').getTime();
 
 export default function Countdown() {
