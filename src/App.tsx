@@ -4,6 +4,6 @@ import ComingSoon from './pages/ComingSoon';
 import './styles/globals.css';
 
 export default function App() {
-  // Temporarily showing Home instead of ComingSoon
+  // Showing full Home page on live site
   return <Home />;
 }
