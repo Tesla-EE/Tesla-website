@@ -34,13 +34,12 @@ export const competitionsData: CompetitionItem[] = [
     subtitle: 'CAMPUS EXPLORATION CHALLENGE',
     desc: 'Decipher cryptic clues, solve riddles, and race against time across the campus.',
     prize: '₹25,000 CASH',
-    badge: 'NEW',
-    isCompleted: false,
+    badge: 'COMPLETED',
+    isCompleted: true,
     iconName: 'Trophy',
     teamSize: '4 Members',
     venue: 'Campus Wide',
-    image: '/images/competition/Treasure hunt.jpeg',
-    registrationLink: 'https://forms.gle/hbohcSF5346Xp7xo6'
+    image: '/images/competition/Treasure hunt.jpeg'
   },
   {
     id: 'comp-2',
@@ -48,13 +47,12 @@ export const competitionsData: CompetitionItem[] = [
     subtitle: 'VISUAL STORYTELLING CONTEST',
     desc: 'Capture the essence of energy, technology, and festival spirit through your lens.',
     prize: '₹15,000 CASH',
-    badge: 'NEW',
-    isCompleted: false,
+    badge: 'COMPLETED',
+    isCompleted: true,
     iconName: 'Code',
     teamSize: 'Individual',
     venue: 'Online / Campus',
-    image: '/images/competition/Photography Competition.jpeg',
-    registrationLink: 'https://docs.google.com/forms/d/1Udkz28G_eGP73ChpzblS9dvYm4dg4d-3R9OL-USV1PM/viewform'
+    image: '/images/competition/Photography Competition.jpeg'
   },
   {
     id: 'comp-3',

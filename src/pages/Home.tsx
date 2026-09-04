@@ -8,6 +8,7 @@ import Merchandise from '../components/Merchandise/Merchandise';
 import Footer from '../components/Footer/Footer';
 import Navbar from '../components/Navbar/Navbar';
 import Loader from '../components/Loader/Loader';
+import Countdown from '../components/Countdown/Countdown';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -46,6 +47,7 @@ export default function Home() {
           
           <Events />
           <Merchandise />
+          <Countdown />
           <Highlights />
         </main>
 

@@ -1,8 +1,13 @@
 import React from 'react';
 import Workshops from '../Workshops/Workshops';
 import Competitions from '../Competitions/Competitions';
+import { WorkshopItem } from '../../data/workshops';
 
 export default function Events() {
+  const handleSelectWorkshop = (item: WorkshopItem) => {
+    console.log("Workshop selected:", item.title);
+  };
+
   return (
     <section
       id="events"
@@ -102,11 +107,11 @@ export default function Events() {
           MAIN EDITORIAL CONTAINER
           ========================================================= */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-28 sm:space-y-36 lg:space-y-44">
-        {/* SECTION 1: WORKSHOPS */}
-        {/*<Workshops onSelectCard={onSelectCard} />*/}
-
-        {/* SECTION 2: COMPETITIONS */}
+        {/* SECTION 1: COMPETITIONS */}
         <Competitions />
+
+        {/* SECTION 2: WORKSHOPS */}
+        <Workshops onSelectCard={handleSelectWorkshop} />
       </div>
     </section>
   );

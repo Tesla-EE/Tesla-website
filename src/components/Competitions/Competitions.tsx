@@ -64,7 +64,7 @@ export default function Competitions() {
 
           {/* Section Subtag */}
           <div className="flex items-center gap-2 mb-2 font-tacticsans text-[10px] sm:text-xs tracking-[0.25em] text-slate-400 uppercase">
-            <span className="text-slate-600">02 //</span> HIGH-VOLTAGE COMBAT & HACKATHONS
+            <span className="text-slate-600">01 //</span> HIGH-VOLTAGE COMBAT & HACKATHONS
           </div>
 
           {/* Main Heading */}

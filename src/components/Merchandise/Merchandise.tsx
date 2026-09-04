@@ -84,7 +84,7 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
         {/* ---- T-SHIRTS + PRICE ANNOTATIONS ---- */}
         <motion.div
           style={{ y: shirtsY }}
-          className="relative w-full max-w-5xl mx-auto flex items-center justify-center px-4 mt-6 sm:mt-8"
+          className="relative w-full max-w-5xl mx-auto flex items-center justify-center px-4 mt-6 sm:mt-8 order-3 md:order-2"
         >
           {/* The single combined T shirt PNG: both shirts in one image */}
           <motion.div 
@@ -159,7 +159,7 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
         </motion.div>
 
         {/* ── HAND IMAGE & CTA BUTTON ── */}
-        <div className="relative w-full flex flex-col items-center pb-12 sm:pb-24 mt-16 sm:mt-28 md:mt-32">
+        <div className="relative w-full flex flex-col items-center pb-12 sm:pb-24 mt-16 sm:mt-28 md:mt-32 order-4 md:order-3">
           
           <div className="relative w-full flex justify-center items-center">
             {/* The single large hands image spanning the full width of the window */}
@@ -192,7 +192,7 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
               viewport={{ once: true }}
             >
               <motion.button
-                onClick={() => window.open('https://forms.gle/yqqjBWcoy6YT6hF5A', '_blank')}
+                onClick={() => window.open('https://forms.gle/DbMvpYod2ro5hhXMA', '_blank')}
                 whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.15)' }}
                 whileTap={{ scale: 0.97 }}
                 className="font-tech text-white cursor-pointer rounded-full transition-colors"
@@ -219,7 +219,7 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
 
         {/* ---- PROMOTIONAL VIDEO (HUD THEMED) ---- */}
         <motion.div 
-          className="relative w-full max-w-5xl mx-auto mt-20 md:mt-32 mb-32 md:mb-40 px-4 z-20"
+          className="relative w-full max-w-5xl mx-auto mt-20 md:mt-32 mb-32 md:mb-40 px-4 z-20 order-2 md:order-4"
           initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
           whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}

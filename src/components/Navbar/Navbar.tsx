@@ -31,8 +31,10 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
   const navItems = [
     { num: '01', name: 'HOME', href: '#' },
     { num: '02', name: 'ABOUT', href: '#about' },
-    { num: '03', name: 'THROUGH THE YEARS', href: '#highlights' },
-    { num: String(competitionsData.length).padStart(2, '0'), name: 'COMPETITIONS', href: '#events' },
+    { num: '03', name: 'COMPETITIONS', href: '#events' },
+    { num: '04', name: 'WORKSHOPS', href: '#workshops' },
+    { num: '05', name: 'MERCHANDISE', href: '#merchandise' },
+    { num: '06', name: 'THROUGH THE YEARS', href: '#highlights' },
   ];
 
   return (

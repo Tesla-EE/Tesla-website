@@ -7,45 +7,22 @@ export interface WorkshopItem {
   iconName: 'Cpu' | 'Zap' | 'Radio';
   date: string;
   instructor: string;
-  seatsLeft: number;
+  seatsLeft?: number;
   image: string;
+  registrationLink?: string;
 }
 
 export const workshopsData: WorkshopItem[] = [
   {
-    id: 'ws-1',
-    title: 'AI & ROBOTICS AUTOMATION',
-    subtitle: 'HANDS-ON HARDWARE WORKSHOP',
-    desc: 'Master ROS2, embedded microcontroller programming, and autonomous robot navigation.',
-    badge: 'NEW',
-    iconName: 'Cpu',
-    date: 'DAY 1 — 09:30 AM',
-    instructor: 'Dr. V. Sharma (IIT M)',
-    seatsLeft: 15,
-    image: '/images/events/workshop_robotics.jpg'
-  },
-  {
-    id: 'ws-2',
-    title: 'EV POWER ELECTRONICS',
-    subtitle: 'HIGH-VOLTAGE BATTERY TECH',
-    desc: 'Deep dive into electric powertrain design, BMS algorithms, and regenerative braking circuits.',
+    id: 'ws-dance',
+    title: 'DANCE WORKSHOP',
+    subtitle: 'FEEL THE RHYTHM',
+    desc: 'Join us for an electrifying dance workshop. Learn new moves, groove to the beat, and experience the ultimate energy.',
     badge: 'NEW',
     iconName: 'Zap',
-    date: 'DAY 1 — 02:00 PM',
-    instructor: 'Er. A. Kulkarni (Tesla Motors)',
-    seatsLeft: 8,
-    image: '/images/events/workshop_ev.jpg'
-  },
-  {
-    id: 'ws-3',
-    title: '6G & SATELLITE COMM',
-    subtitle: 'RF SIGNAL PROCESSING',
-    desc: 'Build SDR receivers, analyze microwave signals, and simulate satellite link budgets.',
-    badge: 'NEW',
-    iconName: 'Radio',
-    date: 'DAY 2 — 10:00 AM',
-    instructor: 'Prof. R. Menon (ISRO)',
-    seatsLeft: 22,
-    image: '/images/events/workshop_satellite.jpg'
+    date: 'TBA',
+    instructor: 'TBA',
+    image: '/images/Workshop/Dance_wsp.webp',
+    registrationLink: 'https://forms.gle/GJkSybUHGkscjTFy5'
   }
 ];
