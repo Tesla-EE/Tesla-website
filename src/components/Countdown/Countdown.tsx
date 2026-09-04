@@ -113,7 +113,7 @@ export default function Countdown() {
 
         {/* Countdown Timer Blocks */}
         <motion.div 
-          className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 mt-6"
+          className="grid grid-cols-2 md:grid-cols-4 justify-items-center gap-4 sm:gap-8 md:gap-12 mt-6 w-full max-w-sm md:max-w-none mx-auto"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
