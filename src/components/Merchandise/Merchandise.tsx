@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface MerchandiseProps {
@@ -7,6 +7,14 @@ interface MerchandiseProps {
 
 export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
   const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Force video to play immediately on mount, regardless of scroll position
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(e => console.log("Video auto-play blocked by browser:", e));
+    }
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -221,9 +229,8 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
         <motion.div 
           className="relative w-full max-w-5xl mx-auto mt-20 md:mt-32 mb-32 md:mb-40 px-4 z-20 order-2 md:order-4"
           initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
-          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.2 }}
           style={{ perspective: 1500 }}
         >
           <motion.div 
@@ -250,11 +257,13 @@ export default function Merchandise({ onOpenBuy }: MerchandiseProps) {
               <div className="absolute inset-0 pointer-events-none z-10" style={{ backgroundImage: 'linear-gradient(transparent 50%, rgba(0, 0, 0, 0.25) 50%)', backgroundSize: '100% 4px' }} />
               
               <video 
+                ref={videoRef}
                 src="/videos/T%20Shirt.mp4" 
                 autoPlay 
                 loop 
                 muted 
                 playsInline 
+                preload="auto"
                 className="w-full h-auto object-cover opacity-85 grayscale-[0.2] contrast-125 mix-blend-lighten"
               />
             </div>
